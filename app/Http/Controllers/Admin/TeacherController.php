@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Models\Teacher;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class TeacherController extends Controller
+{
+    public function index()
+    {
+        $response['teachers'] = Teacher::OrderBy('id','Desc')->get();
+        return view('admin.teacher.list.index', $response)->with('success', '1');
+    }
+
+
+    public function create()
+    {
+        return view('admin.teacher.create.index');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $this->validate($request, [
+            'name' => 'required',
+            'nBi' =>  'required',
+            'email' =>  'required',
+            'contact' =>  'required',
+        ]);
+
+        Teacher::create($data);
+        return redirect()->back()->with('create', '1');
+    }
+
+    public function show($id)
+    {
+        $response['teacher'] = Teacher::find($id);
+        return view('admin.teacher.details.index', $response);
+    }
+
+    public function edit($id)
+    {
+        $response['teacher'] = Teacher::find($id);
+        return view('admin.teacher.edit.index', $response);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'nBi' =>  'required',
+            'email' =>  'required',
+            'contact' =>  'required',
+        ]);
+
+        Teacher::find($id)->update($data);
+        return redirect()->back()->with('edit', '1');
+    }
+
+    public function destroy($id)
+    {
+        Teacher::find($id)->delete();
+        return redirect()->back()->with('destroy', '1');
+    }
+}
