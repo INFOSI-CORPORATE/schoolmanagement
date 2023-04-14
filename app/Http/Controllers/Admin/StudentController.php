@@ -30,7 +30,6 @@ class StudentController extends Controller
             'nBi' =>  'required',
             'email' =>  'required',
             'dateBirth' =>  'required',
-            'schoolYear' => 'required',
         ]);
         Student::create($data);
         return redirect()->back()->with('create', '1');
@@ -63,7 +62,6 @@ class StudentController extends Controller
             'nBi' =>  'required',
             'email' =>  'required',
             'dateBirth' =>  'required',
-            'schoolYear' => 'required',
         ]);
         Student::find($id)->update($data);
         return redirect()->back()->with('edit', '1');

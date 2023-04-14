@@ -57,12 +57,6 @@
                                     <p class="text-dark">{{ $student->dateBirth }}</p>
                                 </div>
 
-                                <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                    <h5>
-                                        <b class="mb-1">Ano lectivo</b>
-                                    </h5>
-                                    <p class="text-dark">{{ $student->schoolYear }}</p>
-                                </div>
 
                             </div>
                             <div class="row align-items-center">

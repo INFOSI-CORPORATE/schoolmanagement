@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/** Extension  */
-
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\ClasseController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\SchoolyearController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,17 +13,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Auth::routes();
-
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/dashboard', function () {
+    return view('admin.home.index');
+})->middleware(['auth'])->name('dashboard');
 
+require __DIR__.'/auth.php';
 
-
-/** All Routes Admin  */
-
-require __DIR__ . '/Admin.php';
-
-
+require __DIR__.'/Admin.php';

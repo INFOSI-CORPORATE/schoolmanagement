@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
     use HasFactory;
+    public $table = "students";
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
 

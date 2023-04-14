@@ -21,7 +21,6 @@
                                 <th>Nº de Processo</th>
                                 <th>Nome</th>
                                 <th>Nº BI</th>
-                                <th>Ano lectivo</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -32,7 +31,6 @@
                                     <td>{{ $student->nProcess }}</td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->nBi }}</td>
-                                    <td>{{ $student->schoolYear }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

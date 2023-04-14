@@ -26,9 +26,6 @@
             >
     </div>
     <div class="col-md-6">
-        <label for="schoolYear">Ano letivo</label>
-        <input class="form-control" type="text" name="schoolYear" id="schoolYear" placeholder="Digita o Ano Letivo" required
-            value={{ isset($student->schoolYear) ? $student->schoolYear : '' }} >
     </div>
     <div class="col-md-6 py-3">
         <button type="submit" class="btn btn-sm btn-outline-primary shadow-sm text-end">{{ isset($student) ? 'Atualizar' : 'Cadastrar' }}</button>
