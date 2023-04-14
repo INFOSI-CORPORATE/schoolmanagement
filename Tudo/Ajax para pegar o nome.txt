@@ -1,0 +1,58 @@
+
+// Controller
+
+echo json_encode(Student::where($id,'id')->get())
+
+
+
+
+
+// view
+
+<script>
+    $(document).ready(function() {
+        $('#bi').on('change', function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.support.cors = true;
+            $.ajax({
+                // …
+                crossDomain: true,
+            });
+            let id = $(this).val();
+            $('#fullName').empty();
+            $('#fullName').append(`<option value="0" disabled selected>Processando...</option>`);
+            let _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                data: {
+                    _token: _token
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                crossDomain: true,
+                type: 'GET',
+
+
+                url: 'estudantes/' + id,
+                success: function(response) {
+                    var response = JSON.parse(response);
+                    $('#fullName').empty();
+                    $('#fullName').append(
+
+                    );
+                    response.forEach(element => {
+                        $('#fullName').append(
+                            `<option selected value="${element['id']}">${element['name']}</option>`
+                        );
+                    });
+
+                    ;
+                }
+            });
+        });
+    })
+</script>
