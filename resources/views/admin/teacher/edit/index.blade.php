@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            @include('error.form')
+            @include('extra._Error.index')
 
             <div class="card-body">
                 <form action="{{ route('admin.teacher.update', $teacher->id) }}" method="POST">
