@@ -25,7 +25,7 @@ class TeacherController extends Controller
         $data = $this->validate($request, [
             'name' => 'required',
             'nBi' =>  'required',
-            'email' =>  'required',
+            'email' =>  'required|email',
             'contact' =>  'required',
         ]);
 

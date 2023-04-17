@@ -5,17 +5,17 @@
             <div class="card-header py-3">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Atribuir ao Curso um Professor</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Associar Aluno</h1>
                 </div>
             </div>
 
             @include('error.form')
 
             <div class="card-body">
-                <form action="{{ route('admin.courseTeacher.store') }}" method="POST">
+                <form action="{{ route('admin.courseClasseGradeStudent.store') }}" method="POST">
                     @csrf
 
-                    @include('form._formCourseTeacher.index')
+                    @include('form._formCourseClasseGradeStudent.index')
 
                 </form>
             </div>

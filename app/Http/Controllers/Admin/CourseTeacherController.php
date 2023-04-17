@@ -19,8 +19,8 @@ class CourseTeacherController extends Controller
 
     public function create()
     {
-        $response['courses'] = Course::get();
-        $response['teachers'] = Teacher::get();
+        $response['courses'] = Course::OrderBy('id','Desc')->get();
+        $response['teachers'] = Teacher::OrderBy('id','Desc')->get();
         return view('admin.courseTeacher.create.index', $response);
     }
 
@@ -30,6 +30,10 @@ class CourseTeacherController extends Controller
         $data = $this->validate($request, [
             'fk_courses_id' => 'required',
             'fk_teachers_id' =>  'required',
+        ],
+        [
+            'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
+            'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
         ]);
 
         CourseTeacher::create($data);
@@ -46,8 +50,8 @@ class CourseTeacherController extends Controller
 
     public function edit($id)
     {
-        $response['courses'] = Teacher::get();
-        $response['teachers'] = Teacher::get();
+        $response['courses'] = Teacher::OrderBy('id','Desc')->get();
+        $response['teachers'] = Teacher::OrderBy('id','Desc')->get();
         $response['courseTeacher'] = CourseTeacher::find($id);
         return view('admin.courseTeacher.edit.index', $response);
     }
@@ -58,6 +62,10 @@ class CourseTeacherController extends Controller
         $data = $request->validate([
             'fk_courses_id' => 'required',
             'fk_teachers_id' =>  'required',
+        ],
+        [
+            'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
+            'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
         ]);
 
         CourseTeacher::find($id)->update($data);

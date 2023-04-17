@@ -20,8 +20,8 @@ class StudentSchoolyearController extends Controller
 
     public function create()
     {
-        $response['students'] = Student::get();
-        $response['schoolyears'] = Schoolyear::get();
+        $response['students'] = Student::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         return view('admin.studentSchoolyear.create.index', $response);
     }
 
@@ -31,6 +31,10 @@ class StudentSchoolyearController extends Controller
         $data = $this->validate($request, [
             'fk_students_id' => 'required',
             'fk_schoolyears_id' =>  'required',
+        ],
+        [
+            'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
+            'fk_schoolyears_id.required' => 'O campo Ano Letivo deve ser selecionado',
         ]);
 
         StudentSchoolyear::create($data);
@@ -47,8 +51,8 @@ class StudentSchoolyearController extends Controller
 
     public function edit($id)
     {
-        $response['students'] = Student::get();
-        $response['schoolyears'] = Schoolyear::get();
+        $response['students'] = Student::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $response['studentSchoolyear'] = StudentSchoolyear::find($id);
         return view('admin.studentSchoolyear.edit.index', $response);
     }
@@ -59,6 +63,10 @@ class StudentSchoolyearController extends Controller
         $data = $request->validate([
             'fk_students_id' => 'required',
             'fk_schoolyears_id' =>  'required',
+        ],
+        [
+            'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
+            'fk_schoolyears_id.required' => 'O campo Ano Letivo deve ser selecionado',
         ]);
 
         StudentSchoolyear::find($id)->update($data);

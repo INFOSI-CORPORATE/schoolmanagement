@@ -3,7 +3,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -15,7 +15,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/dash">
+        <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -48,7 +48,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseYear"
             aria-expanded="true" aria-controls="collapseYear">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Ano Lectivo</span>
         </a>
         <div id="collapseYear" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -144,6 +144,8 @@
         </div>
     </li>
 
+    <!-- Independent Views-->
+
     <div class="sidebar-heading">
         Gerenciamento
     </div>
@@ -152,7 +154,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMat"
             aria-expanded="true" aria-controls="collapseMat">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Matrículas</span>
         </a>
         <div id="collapseMat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -168,8 +170,8 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfDisc"
             aria-expanded="true" aria-controls="collapseProfDisc">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Docentes e Disciplinas</span>
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Profs e Disciplinas</span>
         </a>
         <div id="collapseProfDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -184,7 +186,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursProf"
             aria-expanded="true" aria-controls="collapseCursProf">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Curso e Professor</span>
         </a>
         <div id="collapseCursProf" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -195,6 +197,39 @@
             </div>
         </div>
     </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursDisc"
+            aria-expanded="true" aria-controls="collapseCursDisc">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Curso e Disciplina</span>
+        </a>
+        <div id="collapseCursDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Components:</h6>
+                <a class="collapse-item $active" href="{{ route('admin.courseSubject.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseSubject.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlunoAll"
+            aria-expanded="true" aria-controls="collapseAlunoAll">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Associar Aluno</span>
+        </a>
+        <div id="collapseAlunoAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Components:</h6>
+                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudent.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudent.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
 
 </ul>
 <!-- End of Sidebar -->
