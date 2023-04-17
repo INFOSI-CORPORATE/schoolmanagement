@@ -6,9 +6,7 @@
     </div>
     <div class="col-md-12">
         <label for="nBi">Detalhes</label>
-        <textarea class="form-control" name="details" id="details" cols="30" rows="5" placeholder="Detalhes da Disciplina">
-            {{ isset($subject->details) ? $subject->details : '' }}
-        </textarea>
+        <textarea class="form-control" name="details" id="details" cols="30" rows="5" placeholder="Detalhes da Disciplina">{{ isset($subject->details) ? $subject->details : '' }}</textarea>
     </div>
     <div class="col-md-6 py-3">
         <button type="submit"
