@@ -18,10 +18,12 @@ class CreateStudentsTable extends Migration
             $table->integer('nProcess');
             $table->string('nBi');
             $table->string('name');
+            $table->string('contact');
+            $table->string('contactAlter');
             $table->string('email')->unique();
             $table->date('dateBirth');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

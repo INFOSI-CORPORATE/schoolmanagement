@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 py-2">
         <label for="fk_students_id">Escolha o Aluno</label>
         <select class="form-control" name="fk_students_id" id="fk_students_id">
             <option {{ isset($studentSchoolyear) ? '' : 'selected' }}></option>
@@ -10,7 +10,7 @@
         </select>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 py-2">
         <label for="fk_schoolyears_id">Escolha o Ano Lectivo</label>
         <select class="form-control" name="fk_schoolyears_id" id="fk_schoolyears_id">
             <option {{ isset($studentSchoolyear) ? '' : 'selected' }}></option>

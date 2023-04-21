@@ -22,6 +22,7 @@
                                 <th>Nº do BI</th>
                                 <th>Email</th>
                                 <th>Contacto</th>
+                                <th>Especialidade</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                     <td>{{ $teacher->nBi }}</td>
                                     <td>{{ $teacher->email }}</td>
                                     <td>{{ $teacher->contact }}</td>
+                                    <td>{{ $teacher->specialty }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

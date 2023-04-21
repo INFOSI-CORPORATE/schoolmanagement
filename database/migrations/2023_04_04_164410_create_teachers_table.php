@@ -19,6 +19,9 @@ class CreateTeachersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('contact');
+            $table->string('contactAlter');
+            $table->string('literary');
+            $table->string('specialty');
             $table->timestamps();
             $table->softDeletes();
         });

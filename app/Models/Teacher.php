@@ -13,12 +13,15 @@ class Teacher extends Model
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
 
+    public function rules()
+    {
+        return $this->belongsToMany(Rule::class, 'teachers_rules');
+    }
+
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'teachers_subjects');
+        return $this->belongsToMany(Subject::class, 'contracts');
     }
-    public function courses()
-    {
-        return $this->belongsToMany(Course::class, 'courses_teacher');
-    }
+
+    
 }

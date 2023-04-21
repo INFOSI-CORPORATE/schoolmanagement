@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Exception;
 
 class StudentController extends Controller
 {
     public function index()
     {
-        $response['students'] = Student::OrderBy('id','Desc')->get();
+        $response['students'] = Student::OrderBy('id', 'Desc')->get();
         return view('admin.student.list.index', $response)->with('success', '1');
     }
 
@@ -26,14 +27,27 @@ class StudentController extends Controller
 
         $data = $this->validate($request, [
             'name' => 'required',
-            'nProcess' =>  'required',
-            'nBi' =>  'required',
-            'email' =>  'required',
-            'dateBirth' =>  'required',
+            'nProcess' => 'required|numeric',
+            'nBi' => 'required',
+            'contact' => 'required',
+            'contactAlter' => 'required',
+            'email' => 'required',
+            'dateBirth' => 'required',
         ]);
-        Student::create($data);
-        return redirect()->back()->with('create', '1');
 
+        $Exists = Student::where('name', $data['name'])->exists();
+
+        if ($Exists) {
+            return redirect()->back()->with('students_exist', '1');
+        }
+
+        try {
+            Student::create($data);
+        } catch (Exception $ex) {
+            return $ex;
+        }
+
+        return redirect()->back()->with('create', '1');
     }
 
 
@@ -58,10 +72,12 @@ class StudentController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
-            'nProcess' =>  'required',
-            'nBi' =>  'required',
-            'email' =>  'required',
-            'dateBirth' =>  'required',
+            'nProcess' => 'required|numeric',
+            'nBi' => 'required',
+            'contact' => 'required',
+            'contactAlter' => 'required',
+            'email' => 'required',
+            'dateBirth' => 'required',
         ]);
         Student::find($id)->update($data);
         return redirect()->back()->with('edit', '1');

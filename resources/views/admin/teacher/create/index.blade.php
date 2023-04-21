@@ -14,7 +14,6 @@
             <div class="card-body">
                 <form action="{{ route('admin.teacher.store') }}" method="POST">
                     @csrf
-
                     @include('form._formTeacher.index')
 
                 </form>

@@ -76,6 +76,22 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRule"
+            aria-expanded="true" aria-controls="collapseRule">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Cargos</span>
+        </a>
+        <div id="collapseRule" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Components:</h6>
+                <a class="collapse-item" href="{{ route('admin.rule.create') }}">Cadastrar</a>
+                <a class="collapse-item" href="{{ route('admin.rule.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetree"
@@ -152,48 +168,32 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMat"
-            aria-expanded="true" aria-controls="collapseMat">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Matrículas</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlunoAll"
+            aria-expanded="true" aria-controls="collapseAlunoAll">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Aluno maticulados</span>
         </a>
-        <div id="collapseMat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseAlunoAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.studentsSchoolyear.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.studentsSchoolyear.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudentSchoolyear.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudentSchoolyear.list') }}">Listar</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfDisc"
-            aria-expanded="true" aria-controls="collapseProfDisc">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Profs e Disciplinas</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfAll"
+            aria-expanded="true" aria-controls="collapseProfAll">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Professores Admitidos</span>
         </a>
-        <div id="collapseProfDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseProfAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.teacherSubject.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.teacherSubject.list') }}">Listar</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursProf"
-            aria-expanded="true" aria-controls="collapseCursProf">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Curso e Professor</span>
-        </a>
-        <div id="collapseCursProf" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.courseTeacher.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.courseTeacher.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.list') }}">Listar</a>
             </div>
         </div>
     </li>
@@ -214,22 +214,12 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlunoAll"
-            aria-expanded="true" aria-controls="collapseAlunoAll">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Associar Aluno</span>
-        </a>
-        <div id="collapseAlunoAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudent.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudent.list') }}">Listar</a>
-            </div>
-        </div>
-    </li>
+    
 
+    
+
+
+    
 
 </ul>
 <!-- End of Sidebar -->

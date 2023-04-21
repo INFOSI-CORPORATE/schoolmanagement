@@ -22,8 +22,8 @@ class CreateCoursesSubjectsTable extends Migration
             $table->unsignedBigInteger('fk_subjects_id');
             $table->foreign('fk_subjects_id')->references('id')->on('subjects')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -15,10 +15,20 @@ class Classe extends Model
 
     public function courses()
     {
-        return $this->belongsToMany(Courses::class, 'course_class_grade_student');
+        return $this->belongsToMany(Courses::class, 'course_class_grade_student_schoolyears');
     }
     public function grades()
     {
-        return $this->belongsToMany(Grade::class, 'course_class_grade_student');
+        return $this->belongsToMany(Grade::class, 'course_class_grade_student_schoolyears');
+    }
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'contracts');
+    }
+
+    public function rules()
+    {
+        return $this->belongsToMany(Rules::class, 'contracts');
     }
 }

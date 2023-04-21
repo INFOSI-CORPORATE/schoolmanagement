@@ -15,11 +15,11 @@ class Student extends Model
 
     public function schoolyears()
     {
-        return $this->belongsToMany(Schoolyear::class, 'students_schoolyears');
+        return $this->belongsToMany(Schoolyear::class, 'course_class_grade_student_schoolyears');
     }
 
-    public function students()
+    public function grade()
     {
-        return $this->belongsToMany(Student::class, 'course_class_grade_student');
+        return $this->belongsToMany(Grade::class, 'course_class_grade_student_schoolyears');
     }
 }

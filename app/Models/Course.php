@@ -15,7 +15,7 @@ class Course extends Model
 
     public function classes()
     {
-        return $this->belongsToMany(Classe::class, 'course_class_grade_student');
+        return $this->belongsToMany(Classe::class, 'course_class_grade_student_schoolyears');
     }
     
 

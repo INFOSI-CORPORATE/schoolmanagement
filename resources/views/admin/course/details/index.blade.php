@@ -31,6 +31,13 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
+                                        <b class="mb-1">Duração</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $course->duration }}</p>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
                                         <b class="mb-1">Detalhes</b>
                                     </h5>
                                     <p class="text-dark">{{ $course->details }}</p>

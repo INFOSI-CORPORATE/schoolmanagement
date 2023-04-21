@@ -84,6 +84,16 @@ Route::get('/admin/schoolyear/destroy/{id}',['as'=>'admin.schoolyear.destroy','u
 Route::get('/admin/schoolyear/edit/{id}',['as'=>'admin.schoolyear.edit','uses'=>'Admin\SchoolyearController@edit']);
 /** End Schoolyear   */
 
+/** rule   */
+Route::get('/admin/rule/list',['as'=>'admin.rule.list','uses'=>'Admin\RuleController@index']);
+Route::post('/admin/rule',['as'=>'admin.rule.store','uses'=>'Admin\RuleController@store']);
+Route::get('/admin/rule/create',['as'=>'admin.rule.create','uses'=>'Admin\RuleController@create']);
+Route::get('/admin/rule/show/{id}',['as'=>'admin.rule.show','uses'=>'Admin\RuleController@show']);
+Route::post('/admin/rule/update/{id}',['as'=>'admin.rule.update','uses'=>'Admin\RuleController@update']);
+Route::get('/admin/rule/destroy/{id}',['as'=>'admin.rule.destroy','uses'=>'Admin\RuleController@destroy']);
+Route::get('/admin/rule/edit/{id}',['as'=>'admin.rule.edit','uses'=>'Admin\RuleController@edit']);
+/** End rule   */
+
 
 /** ============================================================================== */
 /** |                                                                            | */
@@ -93,42 +103,19 @@ Route::get('/admin/schoolyear/edit/{id}',['as'=>'admin.schoolyear.edit','uses'=>
 /** |                                                                            | */
 /** ============================================================================== */
 
-/** StudentSchoolyear */
-
-Route::get('/admin/studentsSchoolyear/list',['as'=>'admin.studentsSchoolyear.list','uses'=>'Admin\StudentSchoolyearController@index']);
-Route::post('/admin/studentsSchoolyear',['as'=>'admin.studentsSchoolyear.store','uses'=>'Admin\StudentSchoolyearController@store']);
-Route::get('/admin/studentsSchoolyear/create',['as'=>'admin.studentsSchoolyear.create','uses'=>'Admin\StudentSchoolyearController@create']);
-Route::get('/admin/studentsSchoolyear/show/{id}',['as'=>'admin.studentsSchoolyear.show','uses'=>'Admin\StudentSchoolyearController@show']);
-Route::post('/admin/studentsSchoolyear/update/{id}',['as'=>'admin.studentsSchoolyear.update','uses'=>'Admin\StudentSchoolyearController@update']);
-Route::get('/admin/studentsSchoolyear/destroy/{id}',['as'=>'admin.studentsSchoolyear.destroy','uses'=>'Admin\StudentSchoolyearController@destroy']);
-Route::get('/admin/studentsSchoolyear/edit/{id}',['as'=>'admin.studentsSchoolyear.edit','uses'=>'Admin\StudentSchoolyearController@edit']);
-
-/** End StudentSchoolyear */
 
 
-/** TeacherSubject */
+/** TeacherSchoolyear */
 
-Route::get('/admin/teacherSubject/list',['as'=>'admin.teacherSubject.list','uses'=>'Admin\TeacherSubjectController@index']);
-Route::post('/admin/teacherSubject',['as'=>'admin.teacherSubject.store','uses'=>'Admin\TeacherSubjectController@store']);
-Route::get('/admin/teacherSubject/create',['as'=>'admin.teacherSubject.create','uses'=>'Admin\TeacherSubjectController@create']);
-Route::get('/admin/teacherSubject/show/{id}',['as'=>'admin.teacherSubject.show','uses'=>'Admin\TeacherSubjectController@show']);
-Route::post('/admin/teacherSubject/update/{id}',['as'=>'admin.teacherSubject.update','uses'=>'Admin\TeacherSubjectController@update']);
-Route::get('/admin/teacherSubject/destroy/{id}',['as'=>'admin.teacherSubject.destroy','uses'=>'Admin\TeacherSubjectController@destroy']);
-Route::get('/admin/teacherSubject/edit/{id}',['as'=>'admin.teacherSubject.edit','uses'=>'Admin\TeacherSubjectController@edit']);
+Route::get('/admin/teacherSchoolyear/list',['as'=>'admin.teacherSchoolyear.list','uses'=>'Admin\TeacherSchoolyearController@index']);
+Route::post('/admin/teacherSchoolyear',['as'=>'admin.teacherSchoolyear.store','uses'=>'Admin\TeacherSchoolyearController@store']);
+Route::get('/admin/teacherSchoolyear/create',['as'=>'admin.teacherSchoolyear.create','uses'=>'Admin\TeacherSchoolyearController@create']);
+Route::get('/admin/teacherSchoolyear/show/{id}',['as'=>'admin.teacherSchoolyear.show','uses'=>'Admin\TeacherSchoolyearController@show']);
+Route::post('/admin/teacherSchoolyear/update/{id}',['as'=>'admin.teacherSchoolyear.update','uses'=>'Admin\TeacherSchoolyearController@update']);
+Route::get('/admin/teacherSchoolyear/destroy/{id}',['as'=>'admin.teacherSchoolyear.destroy','uses'=>'Admin\TeacherSchoolyearController@destroy']);
+Route::get('/admin/teacherSchoolyear/edit/{id}',['as'=>'admin.teacherSchoolyear.edit','uses'=>'Admin\TeacherSchoolyearController@edit']);
 
-/** End TeacherSubject */
-
-/** CourseTeacher */
-
-Route::get('/admin/courseTeacher/list',['as'=>'admin.courseTeacher.list','uses'=>'Admin\CourseTeacherController@index']);
-Route::post('/admin/courseTeacher',['as'=>'admin.courseTeacher.store','uses'=>'Admin\CourseTeacherController@store']);
-Route::get('/admin/courseTeacher/create',['as'=>'admin.courseTeacher.create','uses'=>'Admin\CourseTeacherController@create']);
-Route::get('/admin/courseTeacher/show/{id}',['as'=>'admin.courseTeacher.show','uses'=>'Admin\CourseTeacherController@show']);
-Route::post('/admin/courseTeacher/update/{id}',['as'=>'admin.courseTeacher.update','uses'=>'Admin\CourseTeacherController@update']);
-Route::get('/admin/courseTeacher/destroy/{id}',['as'=>'admin.courseTeacher.destroy','uses'=>'Admin\CourseTeacherController@destroy']);
-Route::get('/admin/courseTeacher/edit/{id}',['as'=>'admin.courseTeacher.edit','uses'=>'Admin\CourseTeacherController@edit']);
-
-/** End CourseTeacher */
+/** End TeacherSchoolyear */
 
 /** CourseSubject */
 
@@ -142,17 +129,29 @@ Route::get('/admin/courseSubject/edit/{id}',['as'=>'admin.courseSubject.edit','u
 
 /** End CourseSubject */
 
-/** CourseClasseGradeStudent */
+/** courseClasseGradeStudentSchoolyear */
 
-Route::get('/admin/courseClasseGradeStudent/list',['as'=>'admin.courseClasseGradeStudent.list','uses'=>'Admin\CourseClasseGradeStudentController@index']);
-Route::post('/admin/courseClasseGradeStudent',['as'=>'admin.courseClasseGradeStudent.store','uses'=>'Admin\CourseClasseGradeStudentController@store']);
-Route::get('/admin/courseClasseGradeStudent/create',['as'=>'admin.courseClasseGradeStudent.create','uses'=>'Admin\CourseClasseGradeStudentController@create']);
-Route::get('/admin/courseClasseGradeStudent/show/{id}',['as'=>'admin.courseClasseGradeStudent.show','uses'=>'Admin\CourseClasseGradeStudentController@show']);
-Route::post('/admin/courseClasseGradeStudent/update/{id}',['as'=>'admin.courseClasseGradeStudent.update','uses'=>'Admin\CourseClasseGradeStudentController@update']);
-Route::get('/admin/courseClasseGradeStudent/destroy/{id}',['as'=>'admin.courseClasseGradeStudent.destroy','uses'=>'Admin\CourseClasseGradeStudentController@destroy']);
-Route::get('/admin/courseClasseGradeStudent/edit/{id}',['as'=>'admin.courseClasseGradeStudent.edit','uses'=>'Admin\CourseClasseGradeStudentController@edit']);
+Route::get('/admin/courseClasseGradeStudentSchoolyear/list',['as'=>'admin.courseClasseGradeStudentSchoolyear.list','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@index']);
+Route::post('/admin/courseClasseGradeStudentSchoolyear',['as'=>'admin.courseClasseGradeStudentSchoolyear.store','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@store']);
+Route::get('/admin/courseClasseGradeStudentSchoolyear/create',['as'=>'admin.courseClasseGradeStudentSchoolyear.create','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@create']);
+Route::get('/admin/courseClasseGradeStudentSchoolyear/show/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.show','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@show']);
+Route::post('/admin/courseClasseGradeStudentSchoolyear/update/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.update','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@update']);
+Route::get('/admin/courseClasseGradeStudentSchoolyear/destroy/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.destroy','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@destroy']);
+Route::get('/admin/courseClasseGradeStudentSchoolyear/edit/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.edit','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@edit']);
 
-/** End CourseClasseGradeStudent */
+/** End courseClasseGradeStudentSchoolyear */
+
+/** teacherSubjectClasseRuleSchoolyear */
+
+Route::get('/admin/teacherSubjectClasseRuleSchoolyear/list',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.list','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@index']);
+Route::post('/admin/teacherSubjectClasseRuleSchoolyear',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.store','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@store']);
+Route::get('/admin/teacherSubjectClasseRuleSchoolyear/create',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.create','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@create']);
+Route::get('/admin/teacherSubjectClasseRuleSchoolyear/show/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.show','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@show']);
+Route::post('/admin/teacherSubjectClasseRuleSchoolyear/update/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.update','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@update']);
+Route::get('/admin/teacherSubjectClasseRuleSchoolyear/destroy/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.destroy','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@destroy']);
+Route::get('/admin/teacherSubjectClasseRuleSchoolyear/edit/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.edit','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@edit']);
+
+/** End teacherSubjectClasseRuleSchoolyear */
 
 
 });

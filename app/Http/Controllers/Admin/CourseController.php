@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Exception;
 
 class CourseController extends Controller
 {
@@ -25,9 +26,21 @@ class CourseController extends Controller
         $data = $this->validate($request, [
             'name' => 'required',
             'details' => 'required',
+            'duration' => 'required',
         ]);
 
-        Course::create($data);
+        $Exists = Course::where('name', $data['name'])->exists();
+
+        if ($Exists) {
+            return redirect()->back()->with('courses_exist', '1');
+        }
+
+        try {
+            Course::create($data);
+        } catch (Exception $ex) {
+            return $ex;
+        }
+
         return redirect()->back()->with('create', '1');
     }
 
@@ -48,6 +61,7 @@ class CourseController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'details' => 'required',
+            'duration' => 'required',
         ]);
 
         Course::find($id)->update($data);

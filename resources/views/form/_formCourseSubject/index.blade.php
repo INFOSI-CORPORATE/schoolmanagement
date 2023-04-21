@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 py-2">
         <label for="fk_courses_id">Escolha o Curso</label>
         <select class="form-control" name="fk_courses_id" id="fk_courses_id">
             <option {{ isset($courseSubject) ? '' : 'selected' }}></option>
@@ -10,7 +10,7 @@
         </select>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 py-2">
         <label for="fk_subjects_id">Escolha a Disciplina</label>
         <select class="form-control" name="fk_subjects_id" id="fk_subjects_id">
             <option {{ isset($courseSubject) ? '' : 'selected' }}></option>

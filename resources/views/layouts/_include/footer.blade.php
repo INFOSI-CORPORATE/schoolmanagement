@@ -121,20 +121,20 @@
             })
         </script>
 
-    @elseif(session('romm_occupied'))
+    @elseif(session('students_exist'))
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Esta sala estará ocupada neste horário!',
+                title: 'Este Aluno já existe!',
                 showConfirmButton: true
             })
         </script>
 
-    @elseif(session('room_Satatus'))
+    @elseif(session('courses_exist'))
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Existe uma sala com este nome!',
+                title: 'Existe um curso com este nome!',
                 showConfirmButton: true
             })
         </script>

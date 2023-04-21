@@ -12,6 +12,8 @@
 
     <title>SGE Admin - Dashboard</title>
 
+    <link rel="shortcut icon" type="image/x-icon" href="/dashboard/assets/img/favicon.ico">
+
     <!-- Custom fonts for this template-->
     <link href="/dashboard/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link

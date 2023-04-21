@@ -25,8 +25,11 @@ class TeacherController extends Controller
         $data = $this->validate($request, [
             'name' => 'required',
             'nBi' =>  'required',
-            'email' =>  'required|email',
+            'email' =>  'email',
             'contact' =>  'required',
+            'contactAlter' =>  'required',
+            'literary' =>  'required',
+            'specialty' =>  'required',
         ]);
 
         Teacher::create($data);
@@ -50,8 +53,11 @@ class TeacherController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'nBi' =>  'required',
-            'email' =>  'required',
+            'email' =>  'email',
             'contact' =>  'required',
+            'contactAlter' =>  'required',
+            'literary' =>  'required',
+            'specialty' =>  'required',
         ]);
 
         Teacher::find($id)->update($data);
