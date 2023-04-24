@@ -39,6 +39,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
             'fk_classes_id' => 'required',
             'fk_rules_id' =>  'required',
             'fk_schoolyears_id' =>  'required',
+            'season' => 'required',
         ],
         [
             'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
@@ -46,6 +47,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
             'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
             'fk_rules_id.required' => 'O campo Cargo deve ser selecionado',
             'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
+            'season.required' => 'O campo Turno deve ser selecionado',
         ]);
 
         TeacherSubjectClasseRuleSchoolyear::create($data);
@@ -80,6 +82,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
             'fk_classes_id' => 'required',
             'fk_rules_id' =>  'required',
             'fk_schoolyears_id' =>  'required',
+            'season' => 'required',
         ],
         [
             'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
@@ -87,6 +90,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
             'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
             'fk_rules_id.required' => 'O campo Cargo deve ser selecionado',
             'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
+            'season.required' => 'O campo Turno deve ser selecionado',
         ]);
 
         TeacherSubjectClasseRuleSchoolyear::find($id)->update($data);

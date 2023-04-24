@@ -49,7 +49,15 @@
             @endforeach
         </select>
     </div>
-    <div class="col-md-6 py-2"></div>
+    <div class="col-md-6 py-2">
+        <label for="season">Escolha o turno</label>
+        <select class="form-control" name="season" id="season">
+            <option></option>
+            <option value="1" {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 1 ? 'selected' : '' }}>Manhã</option>
+            <option value="2" {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 2 ? 'selected' : '' }}>tarde</option>
+            <option value="3" {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 3 ? 'selected' : '' }}>Noite</option>
+        </select>
+    </div>
 
     <div class="col-md-6 py-3">
         <button type="submit" class="btn btn-sm btn-outline-primary shadow-sm text-end">{{ isset($courseClasseGradeStudentSchoolyear) ? 'Atualizar' : 'Cadastrar' }}</button>

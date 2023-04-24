@@ -15,6 +15,7 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
+            $table->string('season');
             
             $table->unsignedBigInteger('fk_teachers_id');
             $table->foreign('fk_teachers_id')->references('id')->on('teachers')->onDelete('CASCADE')->onUpclasse('CASCADE');

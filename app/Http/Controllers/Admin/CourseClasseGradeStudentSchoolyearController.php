@@ -39,6 +39,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
             'fk_grades_id' => 'required',
             'fk_students_id' =>  'required',
             'fk_schoolyears_id' =>  'required',
+            'season' => 'required',
         ],
         [
             'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
@@ -46,6 +47,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
             'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
             'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
             'fk_schoolyears_id.required' => 'O campo Ano Lectivo deve ser selecionado',
+            'season.required' => 'O campo Turno deve ser selecionado',
         ]);
 
         CourseClasseGradeStudentSchoolyear::create($data);
@@ -80,6 +82,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
             'fk_grades_id' => 'required',
             'fk_students_id' =>  'required',
             'fk_schoolyears_id' =>  'required',
+            'season' => 'required',
         ],
         [
             'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
@@ -87,6 +90,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
             'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
             'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
             'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
+            'season.required' => 'O campo Turno deve ser selecionado',
         ]);
 
         CourseClasseGradeStudentSchoolyear::find($id)->update($data);

@@ -22,7 +22,7 @@
                                 <th>Nº de Processo</th>
                                 <th>Classe</th>
                                 <th>Ano lectivo</th>
-                                <th>Contacto</th>
+                                <th>Turno</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                     <td>{{ $courseClasseGradeStudentSchoolyear->students->nProcess }}</td>
                                     <td>{{ $courseClasseGradeStudentSchoolyear->grades->name }}</td>
                                     <td>{{ $courseClasseGradeStudentSchoolyear->schoolyears->name }}</td>
-                                    <td>{{ $courseClasseGradeStudentSchoolyear->students->contact }}</td>
+                                    <td>{{ $courseClasseGradeStudentSchoolyear->season }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

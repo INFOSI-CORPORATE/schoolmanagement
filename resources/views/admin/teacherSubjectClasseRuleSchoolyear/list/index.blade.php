@@ -23,6 +23,7 @@
                                 <th>Turma</th>
                                 <th>Disciplina</th>
                                 <th>Ano Lectivo</th>
+                                <th>Turno</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -35,6 +36,7 @@
                                     <td>{{ $teacherSubjectClasseRuleSchoolyear->classes->name }}</td>
                                     <td>{{ $teacherSubjectClasseRuleSchoolyear->subjects->name }}</td>
                                     <td>{{ $teacherSubjectClasseRuleSchoolyear->schoolyears->name }}</td>
+                                    <td>{{ $teacherSubjectClasseRuleSchoolyear->season }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

@@ -50,6 +50,13 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
+                                        <b class="mb-1">Turno</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $teacherSubjectClasseRuleSchoolyear->season }}</p>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
                                         <b class="mb-1">Ano Lectivo</b>
                                     </h5>
                                     <p class="text-dark">{{ $teacherSubjectClasseRuleSchoolyear->schoolyears->name }}</p>
