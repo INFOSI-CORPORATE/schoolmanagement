@@ -103,4 +103,14 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
         CourseClasseGradeStudentSchoolyear::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
+
+    
+    /** methods get */
+
+
+    public function getStudent($nProcess)
+    {
+        $students = Student::where('nProcess', $nProcess)->first();
+        return response()->json($students);
+    }
 }

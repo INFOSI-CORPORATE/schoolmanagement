@@ -103,4 +103,6 @@ class StudentController extends Controller
         return redirect()->back()->with('destroy', '1');
 
     }
+
+
 }

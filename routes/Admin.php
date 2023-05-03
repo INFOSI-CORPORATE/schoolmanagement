@@ -139,6 +139,10 @@ Route::post('/admin/courseClasseGradeStudentSchoolyear/update/{id}',['as'=>'admi
 Route::get('/admin/courseClasseGradeStudentSchoolyear/destroy/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.destroy','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@destroy']);
 Route::get('/admin/courseClasseGradeStudentSchoolyear/edit/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.edit','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@edit']);
 
+/** Get Method */
+
+Route::get('/get/student/{nProcess}',['as'=>'get.student','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@getStudent']);
+
 /** End courseClasseGradeStudentSchoolyear */
 
 /** teacherSubjectClasseRuleSchoolyear */
@@ -176,6 +180,8 @@ Route::get('/admin/ativities/destroy/{id}',['as'=>'admin.ativities.destroy','use
 Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'Admin\AtivitieController@edit']);
 
 /** End Ativities */
+
+
 
 
 });

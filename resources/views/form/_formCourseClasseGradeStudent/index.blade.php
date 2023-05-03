@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 py-2">
         <label for="fk_students_id">Escolha Aluno</label>
-        <select class="form-control" name="fk_students_id" id="fk_students_id">
+        <select class="form-control" name="fk_students_id" id="fk_students_id" >
             <option {{ isset($courseClasseGradeStudent) ? '' : 'selected' }}></option>
             @foreach ($studentsSchoolyears as $studentSchoolyear)
                 <option value="{{ $studentSchoolyear->students->id }}" {{ (isset($courseClasseGradeStudent) && $courseClasseGradeStudent->students->id == $studentSchoolyear->students->id ) ? 'selected' : '' }}>{{ $studentSchoolyear->students->name }}</option>
