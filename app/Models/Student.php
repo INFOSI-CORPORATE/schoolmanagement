@@ -11,15 +11,16 @@ class Student extends Model
     use HasFactory;
     public $table = "students";
     protected $guarded = ['id'];
+    use softDeletes;
     protected $dates = ['deleted_at'];
 
     public function schoolyears()
     {
-        return $this->belongsToMany(Schoolyear::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Schoolyear::class, 'registrations');
     }
 
     public function grade()
     {
-        return $this->belongsToMany(Grade::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Grade::class, 'registrations');
     }
 }

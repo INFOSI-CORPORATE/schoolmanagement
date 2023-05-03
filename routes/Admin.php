@@ -153,5 +153,29 @@ Route::get('/admin/teacherSubjectClasseRuleSchoolyear/edit/{id}',['as'=>'admin.t
 
 /** End teacherSubjectClasseRuleSchoolyear */
 
+/** Exam */
+
+Route::get('/admin/exam/list',['as'=>'admin.exam.list','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@index']);
+Route::post('/admin/exam',['as'=>'admin.exam.store','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@store']);
+Route::get('/admin/exam/create',['as'=>'admin.exam.create','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@create']);
+Route::get('/admin/exam/show/{id}',['as'=>'admin.exam.show','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@show']);
+Route::post('/admin/exam/update/{id}',['as'=>'admin.exam.update','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@update']);
+Route::get('/admin/exam/destroy/{id}',['as'=>'admin.exam.destroy','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@destroy']);
+Route::get('/admin/exam/edit/{id}',['as'=>'admin.exam.edit','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@edit']);
+
+/** End Exam */
+
+/** Ativities */
+
+Route::get('/admin/ativities/list',['as'=>'admin.ativities.list','uses'=>'Admin\AtivitieController@index']);
+Route::post('/admin/ativities',['as'=>'admin.ativities.store','uses'=>'Admin\AtivitieController@store']);
+Route::get('/admin/ativities/create',['as'=>'admin.ativities.create','uses'=>'Admin\AtivitieController@create']);
+Route::get('/admin/ativities/show/{id}',['as'=>'admin.ativities.show','uses'=>'Admin\AtivitieController@show']);
+Route::post('/admin/ativities/update/{id}',['as'=>'admin.ativities.update','uses'=>'Admin\AtivitieController@update']);
+Route::get('/admin/ativities/destroy/{id}',['as'=>'admin.ativities.destroy','uses'=>'Admin\AtivitieController@destroy']);
+Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'Admin\AtivitieController@edit']);
+
+/** End Ativities */
+
 
 });

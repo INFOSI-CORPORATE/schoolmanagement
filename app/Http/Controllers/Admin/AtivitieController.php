@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Rule;
+use App\Http\Controllers\Controller;
+use App\Models\Ativitie;
 use Illuminate\Http\Request;
 
-class RuleController extends Controller
+class AtivitieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class RuleController extends Controller
      */
     public function index()
     {
-        //
+        $response['ativities'] = Ativitie::OrderBy('id', 'Desc')->get();
+        return view('admin.ativities.list.index', $response);
     }
 
     /**
@@ -35,16 +37,27 @@ class RuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+        ],[
+            'title.required'=>'O campo de Atividade é obrigatório.'
+        ]);
+
+        $ativitie = Ativitie::create([
+            'title'=> $request->title,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
+        return response()->json($ativitie);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rule  $rule
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Rule $rule)
+    public function show($id)
     {
         //
     }
@@ -52,10 +65,10 @@ class RuleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rule  $rule
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rule $rule)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +77,10 @@ class RuleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rule  $rule
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rule $rule)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +88,10 @@ class RuleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rule  $rule
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rule $rule)
+    public function destroy($id)
     {
         //
     }

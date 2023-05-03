@@ -11,14 +11,27 @@ class Grade extends Model
     use HasFactory;
     public $table = "grades";
     protected $guarded = ['id'];
+    use softDeletes;
     protected $dates = ['deleted_at'];
 
+    /** Relação das matrículas */
     public function classes()
     {
-        return $this->belongsToMany(Classe::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Classe::class, 'registrations');
     }
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Student::class, 'registrations');
+    }
+
+    /** Relação do Exame */
+
+    public function course()
+    {
+        return $this->belongsToMany(Course::class, 'exams');
+    }
+    public function subject()
+    {
+        return $this->belongsToMany(Subject::class, 'exams');
     }
 }

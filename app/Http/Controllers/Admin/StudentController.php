@@ -6,6 +6,7 @@ use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
@@ -18,7 +19,8 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('admin.student.create.index');
+        $response['total'] = Student::withTrashed()->count();
+        return view('admin.student.create.index', $response);
     }
 
 
@@ -27,13 +29,23 @@ class StudentController extends Controller
 
         $data = $this->validate($request, [
             'name' => 'required',
-            'nProcess' => 'required|numeric',
-            'nBi' => 'required',
+            'nProcess' => 'required',
+            'nBi' => 'required|unique:students,nBi,' . $request->id . ',id',
             'contact' => 'required',
             'contactAlter' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'dateBirth' => 'required',
-        ]);
+        ], [
+                'name.required' => 'O campo Nome deve ser preenchido',
+                'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
+                'nBi.required' => 'O campo BI deve ser preenchido',
+                'nBi.unique' => 'Este BI já está cadastrado',
+                'contact.required' => 'O campo Contacto deve ser preenchido',
+                'contactAlter.required' => 'O campo Contacto Alternativo deve ser preenchido',
+                'email.required' => 'O campo E-mail deve ser preenchido',
+                'email.email' => 'O E-mail é invalido',
+                'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
+            ]);
 
         $Exists = Student::where('name', $data['name'])->exists();
 
@@ -62,6 +74,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $response['student'] = Student::find($id);
+        $response['total'] = Student::withTrashed()->count();
         return view('admin.student.edit.index', $response);
     }
 
@@ -72,7 +85,7 @@ class StudentController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
-            'nProcess' => 'required|numeric',
+            'nProcess' => 'required',
             'nBi' => 'required',
             'contact' => 'required',
             'contactAlter' => 'required',

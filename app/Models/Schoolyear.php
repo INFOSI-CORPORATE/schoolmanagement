@@ -11,11 +11,12 @@ class Schoolyear extends Model
     use HasFactory;
     public $table = "schoolyears";
     protected $guarded = ['id'];
+    use softDeletes;
     protected $dates = ['deleted_at'];
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Student::class, 'registrations');
     }
 
     public function rules()

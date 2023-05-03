@@ -2,8 +2,8 @@
     <div class="col-md-6 py-2">
         <label for="nProcess">Nº de Processo</label>
         <input class="form-control" type="number" name="nProcess" id="nProcess"
-            placeholder="Digita o Nº de Processo do Estudante" required
-            value={{ isset($student->nProcess) ? $student->nProcess : '' }} required>
+            placeholder="Digita o Nº de Processo do Estudante"
+            value={{ isset($student->nProcess) ? $student->nProcess : ($total + 1) }} readonly>
     </div>
     <div class="col-md-6 py-2">
         <label for="title">Nome de Estudante</label>

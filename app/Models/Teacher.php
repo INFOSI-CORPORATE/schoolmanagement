@@ -11,6 +11,7 @@ class Teacher extends Model
     use HasFactory;
     public $table = "teachers";
     protected $guarded = ['id'];
+    use softDeletes;
     protected $dates = ['deleted_at'];
 
     public function rules()
@@ -21,6 +22,11 @@ class Teacher extends Model
     public function subjects()
     {
         return $this->belongsToMany(Subject::class, 'contracts');
+    }
+
+    public function classe()
+    {
+        return $this->belongsToMany(Classe::class, 'exams');
     }
 
     

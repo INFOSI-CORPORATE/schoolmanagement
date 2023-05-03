@@ -214,7 +214,37 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExam"
+            aria-expanded="true" aria-controls="collapseExam">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Exame</span>
+        </a>
+        <div id="collapseExam" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Components:</h6>
+                <a class="collapse-item $active" href="{{ route('admin.exam.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.exam.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
     
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAtiv"
+            aria-expanded="true" aria-controls="collapseAtiv">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Atividades</span>
+        </a>
+        <div id="collapseAtiv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Components:</h6>
+                <a class="collapse-item $active" href="{{ route('admin.ativities.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.ativities.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
 
     
 

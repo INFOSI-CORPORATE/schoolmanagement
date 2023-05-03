@@ -10,13 +10,28 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    use softDeletes;
     protected $dates = ['deleted_at'];
     public $table = "courses";
 
+    /** relação da Maticula */
     public function classes()
     {
-        return $this->belongsToMany(Classe::class, 'course_class_grade_student_schoolyears');
+        return $this->belongsToMany(Classe::class, 'registrations');
     }
+
+    /** relação do Exame */
+
+    public function classe()
+    {
+        return $this->belongsToMany(Classe::class, 'exams');
+    }
+    public function grade()
+    {
+        return $this->belongsToMany(Grade::class, 'exams');
+    }
+
+    
     
 
     

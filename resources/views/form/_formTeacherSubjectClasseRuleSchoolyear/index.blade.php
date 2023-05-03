@@ -53,9 +53,9 @@
         <label for="season">Escolha o turno</label>
         <select class="form-control" name="season" id="season">
             <option></option>
-            <option value="1" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 1 ? 'selected' : '' }}>Manhã</option>
-            <option value="2" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 2 ? 'selected' : '' }}>tarde</option>
-            <option value="3" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 3 ? 'selected' : '' }}>Noite</option>
+            <option value="Manhã" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 'Manhã' ? 'selected' : '' }}>Manhã</option>
+            <option value="tarde" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 'tarde' ? 'selected' : '' }}>tarde</option>
+            <option value="Noite" {{ isset($teacherSubjectClasseRuleSchoolyear) && $teacherSubjectClasseRuleSchoolyear->season == 'Noite' ? 'selected' : '' }}>Noite</option>
         </select>
     </div>
 

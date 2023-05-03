@@ -11,7 +11,7 @@ class GradeController extends Controller
     public function index()
     {
         $response['grades'] = Grade::OrderBy('id','Desc')->get();
-        return view('admin.grade.list.index', $response)->with('success', '1');
+        return view('admin.grade.list.index', $response);
     }
 
 
