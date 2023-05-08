@@ -16,8 +16,13 @@ class CreateAtivitiesTable extends Migration
         Schema::create('ativities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->string('details');
+            $table->string('location');
+            $table->string('duration');
+            $table->string('price');
+            $table->string('status'); // Cancelada, Em andamento
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
             $table->softDeletes();
         });

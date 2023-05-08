@@ -5,17 +5,17 @@
             <div class="card-header py-3">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Atualizar o Professor "{{ $teacherSchoolyear->teachers->name }}" do Ano letivo "{{ $teacherSchoolyear->schoolyears->name }}"</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Atualizar a Atividade {{ $ativitie->name }}</h1>
                 </div>
             </div>
 
             @include('extra._Error.index')
 
             <div class="card-body">
-
-                <form action="{{ route('admin.teacherSchoolyear.update', $teacherSchoolyear->id) }}" method="POST">
+                <form action="{{ route('admin.ativities.update', $ativitie->id) }}" method="POST">
                     @csrf
-                    @include('form._formteacherSchoolyear.index')
+
+                    @include('form._formAtivitie.index')
 
                 </form>
             </div>

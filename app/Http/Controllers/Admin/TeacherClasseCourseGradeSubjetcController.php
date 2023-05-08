@@ -121,6 +121,15 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
             ]
         );
 
+        // Obtenha a data de início do formulário
+        $start = $request->start;
+
+        // Defina a data de término como a data de início + 1 dia
+        $end = date('Y-m-d', strtotime($start . ' +1 day'));
+
+        // Adicione a data de término ao array de dados antes de criar o registro Exam
+        $data['end'] = $end;
+        
         Exam::find($id)->update($data);
         return redirect()->back()->with('edit', '1');
     }

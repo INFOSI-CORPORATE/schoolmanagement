@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="col-md-6">
-                <label for="nProcess">Escolha Nº de Processo</label>
+                <label for="nProcess">Escolha Nº de Processo (Não obrigatório)</label>
                 <input class="form-control" type="text" name="nProcess" id="nProcess" placeholder="Nº de Processo" value="{{ old('nProcess') }}">
             </div>
             <div class="col-md-6">
@@ -93,24 +93,41 @@
 </div>
 
 <script>
+    var students = []; // variável global para armazenar os dados do select
+
+    $(document).ready(function() {
+        // Salva os dados do select na variável global
+        $('#fk_students_id option').each(function() {
+            students.push({
+                value: $(this).val(),
+                text: $(this).text()
+            });
+        });
+    });
+
     $('#nProcess').on('input', function() {
         var nProcess = $(this).val();
 
-        $.ajax({
-            url: '/get/student/' + nProcess,
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                console.log(data);
-                $('#fk_students_id').empty();
-                if (data) {
-                    $('#fk_students_id').append($('<option>').text(data.name).attr('value', data
-                        .id));
-                } else {
-                    $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado').attr(
-                        'value', ''));
+        if (nProcess === '') { // Se o input estiver vazio, usa os dados armazenados na variável global
+            $('#fk_students_id').empty();
+            $.each(students, function(key, value) {
+                $('#fk_students_id').append($('<option>').text(value.text).attr('value', value.value));
+            });
+        } else {
+            $.ajax({
+                url: '/get/student/' + nProcess,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $('#fk_students_id').empty();
+                    if (data) {
+                        $('#fk_students_id').append($('<option>').text(data.name).attr('value', data.id));
+                    } else {
+                        $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado').attr('value', ''));
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 </script>

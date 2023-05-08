@@ -13,7 +13,7 @@ Route::post('/admin/student',['as'=>'admin.student.store','uses'=>'Admin\Student
 Route::get('/admin/student/create',['as'=>'admin.student.create','uses'=>'Admin\StudentController@create']);
 Route::get('/admin/student/show/{id}',['as'=>'admin.student.show','uses'=>'Admin\StudentController@show']);
 Route::post('/admin/student/update/{id}',['as'=>'admin.student.update','uses'=>'Admin\StudentController@update']);
-Route::get('/admin/student/destroy/{id}',['as'=>'admin.student.destroy','uses'=>'Admin\StudentController@destroy']);
+Route::delete('/admin/student/destroy/{id}',['as'=>'admin.student.destroy','uses'=>'Admin\StudentController@destroy']);
 Route::get('/admin/student/edit/{id}',['as'=>'admin.student.edit','uses'=>'Admin\StudentController@edit']);
 /** End Student   */
 
@@ -25,7 +25,7 @@ Route::post('/admin/teacher',['as'=>'admin.teacher.store','uses'=>'Admin\Teacher
 Route::get('/admin/teacher/create',['as'=>'admin.teacher.create','uses'=>'Admin\TeacherController@create']);
 Route::get('/admin/teacher/show/{id}',['as'=>'admin.teacher.show','uses'=>'Admin\TeacherController@show']);
 Route::post('/admin/teacher/update/{id}',['as'=>'admin.teacher.update','uses'=>'Admin\TeacherController@update']);
-Route::get('/admin/teacher/destroy/{id}',['as'=>'admin.teacher.destroy','uses'=>'Admin\TeacherController@destroy']);
+Route::delete('/admin/teacher/destroy/{id}',['as'=>'admin.teacher.destroy','uses'=>'Admin\TeacherController@destroy']);
 Route::get('/admin/teacher/edit/{id}',['as'=>'admin.teacher.edit','uses'=>'Admin\TeacherController@edit']);
 
 /** End Teacher   */
@@ -37,7 +37,7 @@ Route::post('/admin/classe',['as'=>'admin.classe.store','uses'=>'Admin\ClasseCon
 Route::get('/admin/classe/create',['as'=>'admin.classe.create','uses'=>'Admin\ClasseController@create']);
 Route::get('/admin/classe/show/{id}',['as'=>'admin.classe.show','uses'=>'Admin\ClasseController@show']);
 Route::post('/admin/classe/update/{id}',['as'=>'admin.classe.update','uses'=>'Admin\ClasseController@update']);
-Route::get('/admin/classe/destroy/{id}',['as'=>'admin.classe.destroy','uses'=>'Admin\ClasseController@destroy']);
+Route::delete('/admin/classe/destroy/{id}',['as'=>'admin.classe.destroy','uses'=>'Admin\ClasseController@destroy']);
 Route::get('/admin/classe/edit/{id}',['as'=>'admin.classe.edit','uses'=>'Admin\ClasseController@edit']);
 
 /** End Classe  */
@@ -48,7 +48,7 @@ Route::post('/admin/course',['as'=>'admin.course.store','uses'=>'Admin\CourseCon
 Route::get('/admin/course/create',['as'=>'admin.course.create','uses'=>'Admin\CourseController@create']);
 Route::get('/admin/course/show/{id}',['as'=>'admin.course.show','uses'=>'Admin\CourseController@show']);
 Route::post('/admin/course/update/{id}',['as'=>'admin.course.update','uses'=>'Admin\CourseController@update']);
-Route::get('/admin/course/destroy/{id}',['as'=>'admin.course.destroy','uses'=>'Admin\CourseController@destroy']);
+Route::delete('/admin/course/destroy/{id}',['as'=>'admin.course.destroy','uses'=>'Admin\CourseController@destroy']);
 Route::get('/admin/course/edit/{id}',['as'=>'admin.course.edit','uses'=>'Admin\CourseController@edit']);
 
 /** End Course   */
@@ -60,7 +60,7 @@ Route::post('/admin/subject',['as'=>'admin.subject.store','uses'=>'Admin\Subject
 Route::get('/admin/subject/create',['as'=>'admin.subject.create','uses'=>'Admin\SubjectController@create']);
 Route::get('/admin/subject/show/{id}',['as'=>'admin.subject.show','uses'=>'Admin\SubjectController@show']);
 Route::post('/admin/subject/update/{id}',['as'=>'admin.subject.update','uses'=>'Admin\SubjectController@update']);
-Route::get('/admin/subject/destroy/{id}',['as'=>'admin.subject.destroy','uses'=>'Admin\SubjectController@destroy']);
+Route::delete('/admin/subject/destroy/{id}',['as'=>'admin.subject.destroy','uses'=>'Admin\SubjectController@destroy']);
 Route::get('/admin/subject/edit/{id}',['as'=>'admin.subject.edit','uses'=>'Admin\SubjectController@edit']);
 /** End Subject   */
 
@@ -70,7 +70,7 @@ Route::post('/admin/grade',['as'=>'admin.grade.store','uses'=>'Admin\GradeContro
 Route::get('/admin/grade/create',['as'=>'admin.grade.create','uses'=>'Admin\GradeController@create']);
 Route::get('/admin/grade/show/{id}',['as'=>'admin.grade.show','uses'=>'Admin\GradeController@show']);
 Route::post('/admin/grade/update/{id}',['as'=>'admin.grade.update','uses'=>'Admin\GradeController@update']);
-Route::get('/admin/grade/destroy/{id}',['as'=>'admin.grade.destroy','uses'=>'Admin\GradeController@destroy']);
+Route::delete('/admin/grade/destroy/{id}',['as'=>'admin.grade.destroy','uses'=>'Admin\GradeController@destroy']);
 Route::get('/admin/grade/edit/{id}',['as'=>'admin.grade.edit','uses'=>'Admin\GradeController@edit']);
 /** End Grade   */
 
@@ -80,7 +80,7 @@ Route::post('/admin/schoolyear',['as'=>'admin.schoolyear.store','uses'=>'Admin\S
 Route::get('/admin/schoolyear/create',['as'=>'admin.schoolyear.create','uses'=>'Admin\SchoolyearController@create']);
 Route::get('/admin/schoolyear/show/{id}',['as'=>'admin.schoolyear.show','uses'=>'Admin\SchoolyearController@show']);
 Route::post('/admin/schoolyear/update/{id}',['as'=>'admin.schoolyear.update','uses'=>'Admin\SchoolyearController@update']);
-Route::get('/admin/schoolyear/destroy/{id}',['as'=>'admin.schoolyear.destroy','uses'=>'Admin\SchoolyearController@destroy']);
+Route::delete('/admin/schoolyear/destroy/{id}',['as'=>'admin.schoolyear.destroy','uses'=>'Admin\SchoolyearController@destroy']);
 Route::get('/admin/schoolyear/edit/{id}',['as'=>'admin.schoolyear.edit','uses'=>'Admin\SchoolyearController@edit']);
 /** End Schoolyear   */
 
@@ -90,7 +90,7 @@ Route::post('/admin/rule',['as'=>'admin.rule.store','uses'=>'Admin\RuleControlle
 Route::get('/admin/rule/create',['as'=>'admin.rule.create','uses'=>'Admin\RuleController@create']);
 Route::get('/admin/rule/show/{id}',['as'=>'admin.rule.show','uses'=>'Admin\RuleController@show']);
 Route::post('/admin/rule/update/{id}',['as'=>'admin.rule.update','uses'=>'Admin\RuleController@update']);
-Route::get('/admin/rule/destroy/{id}',['as'=>'admin.rule.destroy','uses'=>'Admin\RuleController@destroy']);
+Route::delete('/admin/rule/destroy/{id}',['as'=>'admin.rule.destroy','uses'=>'Admin\RuleController@destroy']);
 Route::get('/admin/rule/edit/{id}',['as'=>'admin.rule.edit','uses'=>'Admin\RuleController@edit']);
 /** End rule   */
 
@@ -112,7 +112,7 @@ Route::post('/admin/teacherSchoolyear',['as'=>'admin.teacherSchoolyear.store','u
 Route::get('/admin/teacherSchoolyear/create',['as'=>'admin.teacherSchoolyear.create','uses'=>'Admin\TeacherSchoolyearController@create']);
 Route::get('/admin/teacherSchoolyear/show/{id}',['as'=>'admin.teacherSchoolyear.show','uses'=>'Admin\TeacherSchoolyearController@show']);
 Route::post('/admin/teacherSchoolyear/update/{id}',['as'=>'admin.teacherSchoolyear.update','uses'=>'Admin\TeacherSchoolyearController@update']);
-Route::get('/admin/teacherSchoolyear/destroy/{id}',['as'=>'admin.teacherSchoolyear.destroy','uses'=>'Admin\TeacherSchoolyearController@destroy']);
+Route::delete('/admin/teacherSchoolyear/destroy/{id}',['as'=>'admin.teacherSchoolyear.destroy','uses'=>'Admin\TeacherSchoolyearController@destroy']);
 Route::get('/admin/teacherSchoolyear/edit/{id}',['as'=>'admin.teacherSchoolyear.edit','uses'=>'Admin\TeacherSchoolyearController@edit']);
 
 /** End TeacherSchoolyear */
@@ -124,7 +124,7 @@ Route::post('/admin/courseSubject',['as'=>'admin.courseSubject.store','uses'=>'A
 Route::get('/admin/courseSubject/create',['as'=>'admin.courseSubject.create','uses'=>'Admin\CourseSubjectController@create']);
 Route::get('/admin/courseSubject/show/{id}',['as'=>'admin.courseSubject.show','uses'=>'Admin\CourseSubjectController@show']);
 Route::post('/admin/courseSubject/update/{id}',['as'=>'admin.courseSubject.update','uses'=>'Admin\CourseSubjectController@update']);
-Route::get('/admin/courseSubject/destroy/{id}',['as'=>'admin.courseSubject.destroy','uses'=>'Admin\CourseSubjectController@destroy']);
+Route::delete('/admin/courseSubject/destroy/{id}',['as'=>'admin.courseSubject.destroy','uses'=>'Admin\CourseSubjectController@destroy']);
 Route::get('/admin/courseSubject/edit/{id}',['as'=>'admin.courseSubject.edit','uses'=>'Admin\CourseSubjectController@edit']);
 
 /** End CourseSubject */
@@ -136,7 +136,7 @@ Route::post('/admin/courseClasseGradeStudentSchoolyear',['as'=>'admin.courseClas
 Route::get('/admin/courseClasseGradeStudentSchoolyear/create',['as'=>'admin.courseClasseGradeStudentSchoolyear.create','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@create']);
 Route::get('/admin/courseClasseGradeStudentSchoolyear/show/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.show','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@show']);
 Route::post('/admin/courseClasseGradeStudentSchoolyear/update/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.update','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@update']);
-Route::get('/admin/courseClasseGradeStudentSchoolyear/destroy/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.destroy','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@destroy']);
+Route::delete('/admin/courseClasseGradeStudentSchoolyear/destroy/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.destroy','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@destroy']);
 Route::get('/admin/courseClasseGradeStudentSchoolyear/edit/{id}',['as'=>'admin.courseClasseGradeStudentSchoolyear.edit','uses'=>'Admin\CourseClasseGradeStudentSchoolyearController@edit']);
 
 /** Get Method */
@@ -152,7 +152,7 @@ Route::post('/admin/teacherSubjectClasseRuleSchoolyear',['as'=>'admin.teacherSub
 Route::get('/admin/teacherSubjectClasseRuleSchoolyear/create',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.create','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@create']);
 Route::get('/admin/teacherSubjectClasseRuleSchoolyear/show/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.show','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@show']);
 Route::post('/admin/teacherSubjectClasseRuleSchoolyear/update/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.update','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@update']);
-Route::get('/admin/teacherSubjectClasseRuleSchoolyear/destroy/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.destroy','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@destroy']);
+Route::delete('/admin/teacherSubjectClasseRuleSchoolyear/destroy/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.destroy','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@destroy']);
 Route::get('/admin/teacherSubjectClasseRuleSchoolyear/edit/{id}',['as'=>'admin.teacherSubjectClasseRuleSchoolyear.edit','uses'=>'Admin\TeacherSubjectClasseRuleSchoolyearController@edit']);
 
 /** End teacherSubjectClasseRuleSchoolyear */
@@ -164,7 +164,7 @@ Route::post('/admin/exam',['as'=>'admin.exam.store','uses'=>'Admin\TeacherClasse
 Route::get('/admin/exam/create',['as'=>'admin.exam.create','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@create']);
 Route::get('/admin/exam/show/{id}',['as'=>'admin.exam.show','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@show']);
 Route::post('/admin/exam/update/{id}',['as'=>'admin.exam.update','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@update']);
-Route::get('/admin/exam/destroy/{id}',['as'=>'admin.exam.destroy','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@destroy']);
+Route::delete('/admin/exam/destroy/{id}',['as'=>'admin.exam.destroy','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@destroy']);
 Route::get('/admin/exam/edit/{id}',['as'=>'admin.exam.edit','uses'=>'Admin\TeacherClasseCourseGradeSubjetcController@edit']);
 
 /** End Exam */
@@ -176,12 +176,17 @@ Route::post('/admin/ativities',['as'=>'admin.ativities.store','uses'=>'Admin\Ati
 Route::get('/admin/ativities/create',['as'=>'admin.ativities.create','uses'=>'Admin\AtivitieController@create']);
 Route::get('/admin/ativities/show/{id}',['as'=>'admin.ativities.show','uses'=>'Admin\AtivitieController@show']);
 Route::post('/admin/ativities/update/{id}',['as'=>'admin.ativities.update','uses'=>'Admin\AtivitieController@update']);
-Route::get('/admin/ativities/destroy/{id}',['as'=>'admin.ativities.destroy','uses'=>'Admin\AtivitieController@destroy']);
+Route::delete('/admin/ativities/destroy/{id}',['as'=>'admin.ativities.destroy','uses'=>'Admin\AtivitieController@destroy']);
 Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'Admin\AtivitieController@edit']);
 
 /** End Ativities */
 
 
-
-
 });
+
+// Rota 404
+Route::any('{any}', function () {
+    return response()->view('admin.404.index', [], 404);
+})->where('any', '.*');
+
+

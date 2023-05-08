@@ -16,10 +16,10 @@ class Student extends Model
 
     public function schoolyears()
     {
-        return $this->belongsToMany(Schoolyear::class, 'registrations');
+        return $this->belongsToMany(Schoolyear::class, 'registrations', 'fk_students_id', 'fk_schoolyears_id')->withTimestamps();
     }
 
-    public function grade()
+    public function grades()
     {
         return $this->belongsToMany(Grade::class, 'registrations');
     }

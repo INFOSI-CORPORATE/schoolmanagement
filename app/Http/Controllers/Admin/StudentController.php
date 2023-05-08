@@ -99,7 +99,15 @@ class StudentController extends Controller
 
     public function destroy($id)
     {
-        Student::find($id)->delete();
+
+        $student = Student::find($id);
+        
+        // Verifica se o aluno está associado a outro registro
+        if ($student->schoolyears->count() > 0) {
+            return redirect()->back()->with('students_destroy_error', '1');
+        }
+
+        $student->delete();
         return redirect()->back()->with('destroy', '1');
 
     }

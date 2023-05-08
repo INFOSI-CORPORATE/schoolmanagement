@@ -7,7 +7,7 @@
             <h1 class="h3 mb-0 text-gray-800">Lista de Turmas</h1>
         </div>
 
-        <!-- DataTales Example -->
+        <!-- DataTales classeple -->
         <div class="card shadow">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">Turmas</h6>
@@ -39,8 +39,11 @@
                                                     href="{{ route('admin.classe.show', $classe->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.classe.edit', $classe->id) }}">Editar</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.classe.destroy', $classe->id) }}">Eliminar</a>
+                                                    <form action="{{ route('admin.classe.destroy', $classe->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item">Remover</button>
+                                                    </form>
 
                                             </div>
                                         </div>

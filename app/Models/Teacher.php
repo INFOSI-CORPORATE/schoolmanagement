@@ -26,7 +26,7 @@ class Teacher extends Model
 
     public function classe()
     {
-        return $this->belongsToMany(Classe::class, 'exams');
+        return $this->belongsToMany(Classe::class, 'exams', 'fk_teachers_id', 'fk_schoolyears_id')->withTimestamps();
     }
 
     

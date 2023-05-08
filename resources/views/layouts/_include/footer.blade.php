@@ -78,6 +78,29 @@
         })
     </script>
 @elseif(session('destroy'))
+/*
+    <script>
+        Swal.fire({
+            title: 'Você tem a certeza?',
+            text: "Você não poderá reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, remover!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    </script>
+*/
+
     <script>
         Swal.fire({
             icon: 'info',
@@ -118,6 +141,7 @@
         })
     </script>
 @elseif(session('students_exist'))
+
     <script>
         Swal.fire({
             icon: 'error',
@@ -150,11 +174,11 @@
             timer: 2500
         })
     </script>
-@elseif(session('candidates_status'))
+@elseif(session('students_destroy_error'))
     <script>
         Swal.fire({
             icon: 'error',
-            title: 'Não foi encontrado Pagamento deste Estudante com o status pago !',
+            title: 'Este aluno está matriculado e não pode ser excluído!',
             showConfirmButton: false,
             timer: 4500
         })

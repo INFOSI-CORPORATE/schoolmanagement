@@ -5,7 +5,7 @@
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($teachers as $teacher)
                 <option value="{{ $teacher->teachers->id }}"
-                    {{ isset($exam) && $exam->teachers->id == $teacher->teachers->id ? 'selected' : '' }}>{{ $teacher->teachers->name }}
+                    {{ isset($exam) && $exam->teachers->id == $teacher->teachers->id ? 'selected' : ((old('fk_teachers_id') == $teacher->id) ? 'selected' : '') }}>{{ $teacher->teachers->name }}
                 </option>
             @endforeach
 
@@ -18,7 +18,7 @@
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($classes as $classe)
                 <option value="{{ $classe->id }}"
-                    {{ isset($exam) && $exam->classes->id == $classe->id ? 'selected' : '' }}>{{ $classe->name }}
+                    {{ isset($exam) && $exam->classes->id == $classe->id ? 'selected' : ((old('fk_classes_id') == $classe->id) ? 'selected' : '') }}>{{ $classe->name }}
                 </option>
             @endforeach
         </select>
@@ -30,7 +30,7 @@
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($courses as $course)
                 <option value="{{ $course->id }}"
-                    {{ isset($exam) && $exam->courses->id == $course->id ? 'selected' : '' }}>{{ $course->name }}
+                    {{ isset($exam) && $exam->courses->id == $course->id ? 'selected' : ((old('fk_courses_id') == $course->id) ? 'selected' : '') }}>{{ $course->name }}
                 </option>
             @endforeach
         </select>
@@ -42,7 +42,7 @@
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($grades as $grade)
                 <option value="{{ $grade->id }}"
-                    {{ isset($exam) && $exam->grades->id == $grade->id ? 'selected' : '' }}>{{ $grade->name }}
+                    {{ isset($exam) && $exam->grades->id == $grade->id ? 'selected' : ((old('fk_grades_id') == $grade->id) ? 'selected' : '') }}>{{ $grade->name }}
                 </option>
             @endforeach
         </select>
@@ -54,7 +54,7 @@
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($subjects as $subject)
                 <option value="{{ $subject->id }}"
-                    {{ isset($exam) && $exam->subjects->id == $subject->id ? 'selected' : '' }}>
+                    {{ isset($exam) && $exam->subjects->id == $subject->id ? 'selected' : ((old('fk_subjects_id') == $subject->id) ? 'selected' : '') }}>
                     {{ $subject->name }}</option>
             @endforeach
         </select>
@@ -64,9 +64,9 @@
         <label for="season">Escolha o turno</label>
         <select class="form-control" name="season" id="season" required>
             <option></option>
-            <option value="Manhã" {{ isset($exam) && $exam->season == 'Manhã' ? 'selected' : '' }}>Manhã</option>
-            <option value="tarde" {{ isset($exam) && $exam->season == 'tarde' ? 'selected' : '' }}>tarde</option>
-            <option value="Noite" {{ isset($exam) && $exam->season == 'Noite' ? 'selected' : '' }}>Noite</option>
+            <option value="Manhã" {{ isset($exam) && $exam->season == 'Manhã' ? 'selected' : ((old('season') == 'Manhã') ? 'selected' : '') }}>Manhã</option>
+            <option value="tarde" {{ isset($exam) && $exam->season == 'tarde' ? 'selected' : ((old('season') == 'tarde') ? 'selected' : '') }}>tarde</option>
+            <option value="Noite" {{ isset($exam) && $exam->season == 'Noite' ? 'selected' : ((old('season') == 'Noite') ? 'selected' : '') }}>Noite</option>
         </select>
     </div>
 
@@ -80,7 +80,7 @@
     <div class="col-md-6 py-2">
         <label for="duration">Duração da Prova</label>
         <input class="form-control" type="text" name="duration" id="duration"
-            placeholder="Digita a duração do exame" required value={{ isset($exam->duration) ? $exam->duration : '' }}>
+            placeholder="Digita a duração do exame" required value={{ isset($exam->duration) ? $exam->duration : old('duration') }}>
     </div>
 
 

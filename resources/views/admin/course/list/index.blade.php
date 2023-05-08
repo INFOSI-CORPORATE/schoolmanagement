@@ -7,7 +7,7 @@
             <h1 class="h3 mb-0 text-gray-800">Lista de Cursos</h1>
         </div>
 
-        <!-- DataTales Example -->
+        <!-- DataTales courseple -->
         <div class="card shadow">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">Cursos</h6>
@@ -41,8 +41,12 @@
                                                     href="{{ route('admin.course.show', $course->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.course.edit', $course->id) }}">Editar</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.course.destroy', $course->id) }}">Eliminar</a>
+                                                <form action="{{ route('admin.course.destroy', $course->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">Remover</button>
+                                                </form>
+
 
                                             </div>
                                         </div>

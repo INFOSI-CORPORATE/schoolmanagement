@@ -47,8 +47,11 @@
                                                     href="{{ route('admin.teacher.show', $teacher->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.teacher.edit', $teacher->id) }}">Editar</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.teacher.destroy', $teacher->id) }}">Eliminar</a>
+                                                    <form action="{{ route('admin.teacher.destroy', $teacher->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item">Remover</button>
+                                                    </form>
 
                                             </div>
                                         </div>

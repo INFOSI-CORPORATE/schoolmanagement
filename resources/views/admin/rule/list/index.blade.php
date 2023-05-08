@@ -39,9 +39,11 @@
                                                     href="{{ route('admin.rule.show', $rule->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.rule.edit', $rule->id) }}">Editar</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.rule.destroy', $rule->id) }}">Eliminar</a>
-
+                                                <form action="{{ route('admin.rule.destroy', $rule->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">Remover</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
