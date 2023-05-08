@@ -182,11 +182,12 @@ Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'A
 /** End Ativities */
 
 
-});
-
-// Rota 404
+// Rota 404 do Admin
 Route::any('{any}', function () {
     return response()->view('admin.404.index', [], 404);
 })->where('any', '.*');
+
+});
+
 
 

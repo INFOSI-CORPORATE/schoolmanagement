@@ -5,13 +5,6 @@
             required value={{ isset($ativitie->title) ? $ativitie->title : old('title') }}>
     </div>
 
-<div class="col-md-6 py-2">
-        <label for="details">Descrição da Atividade</label>
-        <input class="form-control" type="text" name="details" id="details"
-            placeholder="Digita a descrição da Atividade" required
-            value={{ isset($ativitie->details) ? $ativitie->details : old('details') }}>
-    </div>
-
     <div class="col-md-6 py-2">
         <label for="location">Local da Atividade</label>
         <input class="form-control" type="text" name="location" id="location"
@@ -39,12 +32,18 @@
             placeholder="Digita o local da atividade" required
             value={{ isset($ativitie->status) ? $ativitie->status : old('status') }}>
     </div>
-    
+
 
     <div class="col-md-6 py-2">
         <label for="start">Data da atividade</label>
         <input type="date" class="form-control" name="start" id="start" required
             value={{ isset($ativitie->start) ? $ativitie->start : '' }}>
+    </div>
+
+
+    <div class="col-md-12 py-2">
+        <label for="details">Descrição da Atividade</label>
+        <textarea class="form-control" name="details" id="details" cols="30" rows="10" placeholder="Digita a descrição da Atividade">{{ isset($ativitie->details) ? $ativitie->details : old('details') }}</textarea>
     </div>
 
     <div class="col-md-6 py-2"></div>
