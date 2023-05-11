@@ -1,4 +1,11 @@
 <div class="row">
+
+    <div class="col-md-6 py-2">
+        <label for="name">Nome do Exame</label>
+        <input class="form-control" type="text" name="name" id="duration"
+            placeholder="Digita a duração do exame" required value={{ isset($exam->name) ? $exam->duration : old('name') }}>
+    </div>
+
     <div class="col-md-6 py-2">
         <label for="fk_teachers_id">Escolha Professor</label>
         <select class="form-control" name="fk_teachers_id" id="fk_teachers_id" required>
@@ -61,7 +68,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="season">Escolha o turno</label>
+        <label for="season">Escolha o período</label>
         <select class="form-control" name="season" id="season" required>
             <option></option>
             <option value="Manhã" {{ isset($exam) && $exam->season == 'Manhã' ? 'selected' : ((old('season') == 'Manhã') ? 'selected' : '') }}>Manhã</option>
@@ -83,6 +90,7 @@
             placeholder="Digita a duração do exame" required value={{ isset($exam->duration) ? $exam->duration : old('duration') }}>
     </div>
 
+    <div class="col-md-6 py-2"></div>
 
     <div class="col-md-6 py-3">
         <button type="submit"

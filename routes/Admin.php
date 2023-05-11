@@ -117,17 +117,17 @@ Route::get('/admin/teacherSchoolyear/edit/{id}',['as'=>'admin.teacherSchoolyear.
 
 /** End TeacherSchoolyear */
 
-/** CourseSubject */
+/** courseSubjectGrade */
 
-Route::get('/admin/courseSubject/list',['as'=>'admin.courseSubject.list','uses'=>'Admin\CourseSubjectController@index']);
-Route::post('/admin/courseSubject',['as'=>'admin.courseSubject.store','uses'=>'Admin\CourseSubjectController@store']);
-Route::get('/admin/courseSubject/create',['as'=>'admin.courseSubject.create','uses'=>'Admin\CourseSubjectController@create']);
-Route::get('/admin/courseSubject/show/{id}',['as'=>'admin.courseSubject.show','uses'=>'Admin\CourseSubjectController@show']);
-Route::post('/admin/courseSubject/update/{id}',['as'=>'admin.courseSubject.update','uses'=>'Admin\CourseSubjectController@update']);
-Route::delete('/admin/courseSubject/destroy/{id}',['as'=>'admin.courseSubject.destroy','uses'=>'Admin\CourseSubjectController@destroy']);
-Route::get('/admin/courseSubject/edit/{id}',['as'=>'admin.courseSubject.edit','uses'=>'Admin\CourseSubjectController@edit']);
+Route::get('/admin/courseSubjectGrade/list',['as'=>'admin.courseSubjectGrade.list','uses'=>'Admin\CourseSubjectGradeController@index']);
+Route::post('/admin/courseSubjectGrade',['as'=>'admin.courseSubjectGrade.store','uses'=>'Admin\CourseSubjectGradeController@store']);
+Route::get('/admin/courseSubjectGrade/create',['as'=>'admin.courseSubjectGrade.create','uses'=>'Admin\CourseSubjectGradeController@create']);
+Route::get('/admin/courseSubjectGrade/show/{id}',['as'=>'admin.courseSubjectGrade.show','uses'=>'Admin\CourseSubjectGradeController@show']);
+Route::post('/admin/courseSubjectGrade/update/{id}',['as'=>'admin.courseSubjectGrade.update','uses'=>'Admin\CourseSubjectGradeController@update']);
+Route::delete('/admin/courseSubjectGrade/destroy/{id}',['as'=>'admin.courseSubjectGrade.destroy','uses'=>'Admin\CourseSubjectGradeController@destroy']);
+Route::get('/admin/courseSubjectGrade/edit/{id}',['as'=>'admin.courseSubjectGrade.edit','uses'=>'Admin\CourseSubjectGradeController@edit']);
 
-/** End CourseSubject */
+/** End courseSubjectGrade */
 
 /** courseClasseGradeStudentSchoolyear */
 
@@ -180,6 +180,28 @@ Route::delete('/admin/ativities/destroy/{id}',['as'=>'admin.ativities.destroy','
 Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'Admin\AtivitieController@edit']);
 
 /** End Ativities */
+
+
+
+/** ============================================================================== */
+/** |                                                                            | */
+/** |                                                                            | */
+/** |                            Rotas de PDF                                    | */
+/** |                                                                            | */
+/** |                                                                            | */
+/** ============================================================================== */
+
+
+Route::get('/admin/pdf/registration',['as'=>'admin.pdf.registration','uses'=>'Admin\PDFController@registration']);
+
+
+/** ============================================================================== */
+/** |                                                                            | */
+/** |                                                                            | */
+/** |                            Rotas de Aleatoria                              | */
+/** |                                                                            | */
+/** |                                                                            | */
+/** ============================================================================== */
 
 
 // Rota 404 do Admin

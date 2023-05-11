@@ -171,7 +171,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlunoAll"
             aria-expanded="true" aria-controls="collapseAlunoAll">
             <i class="fas fa-fw fa-user"></i>
-            <span>Aluno maticulados</span>
+            <span>Aluno Maticulados</span>
         </a>
         <div id="collapseAlunoAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -203,13 +203,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursDisc"
             aria-expanded="true" aria-controls="collapseCursDisc">
             <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Curso e Disciplina</span>
+            <span>Cursos Associados</span>
         </a>
         <div id="collapseCursDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.courseSubject.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.courseSubject.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.list') }}">Listar</a>
             </div>
         </div>
     </li>

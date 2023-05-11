@@ -24,10 +24,15 @@ class Subject extends Model
         return $this->belongsToMany(Classe::class, 'contracts');
     }
 
-    /** Curso e Disciplina */
+    /** Curso e Disciplina e Classe */
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'courses_subjects');
+        return $this->belongsToMany(Course::class, 'courses_subjects_grades');
+    }
+
+    public function grades()
+    {
+        return $this->belongsToMany(Grade::class, 'courses_subjects_grades');
     }
 
     /** Relação do Exame */

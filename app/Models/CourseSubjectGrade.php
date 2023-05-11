@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CourseSubject extends Model
+class CourseSubjectGrade extends Model
 {
     use HasFactory;
-    public $table = "courses_subjects";
+    public $table = "courses_subjects_grades";
     protected $guarded = ['id'];
     use SoftDeletes;
     protected $dates = ['deleted_at'];
@@ -22,5 +22,10 @@ class CourseSubject extends Model
     public function subjects()
     {
         return $this->belongsTo(Subject::class, 'fk_subjects_id');
+    }
+
+    public function grades()
+    {
+        return $this->belongsTo(Grade::class, 'fk_grades_id');
     }
 }

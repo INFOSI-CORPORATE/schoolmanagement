@@ -17,7 +17,7 @@
                             <div class="row justify-content-between mb-4">
                                 <div class="col-12 col-md-6 col-lg-6 mt-5 ml-5">
                                     <h2 class="h3 page-title">
-                                        Nome do Curso: {{ $exam->courses->name }}
+                                        Nome do Exame: {{ $exam->name }}
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5 p-0">
@@ -35,6 +35,13 @@
 
 
                             <div class="row align-items-center">
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Curso</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $exam->courses->name }}</p>
+                                </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>

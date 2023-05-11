@@ -46,7 +46,6 @@
         <textarea class="form-control" name="details" id="details" cols="30" rows="10" placeholder="Digita a descrição da Atividade">{{ isset($ativitie->details) ? $ativitie->details : old('details') }}</textarea>
     </div>
 
-    <div class="col-md-6 py-2"></div>
 
     <div class="col-md-6 py-3">
         <button type="submit"

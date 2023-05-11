@@ -1,10 +1,10 @@
-@include('layouts._include.header')
+@include('layouts._include.dashboard.header')
 
-@include('layouts._include.aside')
+@include('layouts._include.dashboard.aside')
 
-@include('layouts._include.nav')
+@include('layouts._include.dashboard.nav')
 
 @yield('content')
 
-@include('layouts._include.footer')
+@include('layouts._include.dashboard.footer')
 

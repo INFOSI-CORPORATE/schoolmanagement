@@ -10,7 +10,13 @@
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Alunos Associados</h6>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h6 class="m-0 font-weight-bold text-primary">Alunos Associados</h6>
+                    <a href="{{ route('admin.pdf.registration') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <i class="fas fa-file-pdf fa-sm text-white-50"></i> Imprimir lista
+                    </a>
+                </div>
+
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -47,11 +53,13 @@
                                                     href="{{ route('admin.courseClasseGradeStudentSchoolyear.show', $courseClasseGradeStudentSchoolyear->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.courseClasseGradeStudentSchoolyear.edit', $courseClasseGradeStudentSchoolyear->id) }}">Editar</a>
-                                                    <form action="{{ route('admin.courseClasseGradeStudentSchoolyear.destroy', $courseClasseGradeStudentSchoolyear->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Remover</button>
-                                                    </form>
+                                                <form
+                                                    action="{{ route('admin.courseClasseGradeStudentSchoolyear.destroy', $courseClasseGradeStudentSchoolyear->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">Remover</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>

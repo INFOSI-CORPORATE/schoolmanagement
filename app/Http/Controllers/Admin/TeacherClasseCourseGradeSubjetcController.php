@@ -50,6 +50,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
                 'season' => 'required',
                 'duration' => 'required',
                 'start' => 'required|date|after_or_equal:today',
+                'name' => 'required',
             ],
             [
                 'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
@@ -61,6 +62,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
                 'duration.required' => 'O campo Duração deve ser preenchido',
                 'start.required' => 'O campo Data Inicio deve ser selecionado',
                 'start.after_or_equal' => 'Não pode adicionar uma data anterior',
+                'name.required' => 'O campo Nome deve ser preenchido',
             ]
         );
 
@@ -107,6 +109,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
                 'season' => 'required',
                 'duration' => 'required',
                 'start' => 'required|date|after_or_equal:today',
+                'name' => 'required',
             ],
             [
                 'fk_teachers_id.required' => 'O campo Professor deve ser selecionado',
@@ -118,6 +121,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
                 'duration.required' => 'O campo Duração deve ser preenchido',
                 'start.required' => 'O campo Data Inicio deve ser selecionado',
                 'start.after_or_equal' => 'Não pode adicionar uma data anterior',
+                'name.required' => 'O campo Nome deve ser preenchido',
             ]
         );
 

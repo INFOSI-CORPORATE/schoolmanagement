@@ -3,9 +3,19 @@
 @section('content')
     <script>
         $(document).ready(function() {
-            var exams = @json($exams);
+            var exams = {!! json_encode($exams) !!};
+
+            var events = exams.map(function(exam) {
+                return {
+                    id: exam.id,
+                    title: exam.name, // adicionando a propriedade title com o nome do exame
+                    start: exam.start_date,
+                    end: exam.end_date,
+                    allDay: true // se o exame durar o dia inteiro, defina como true
+                }
+            });
             var calendar = $('#calendar').fullCalendar({
-                editable: true,
+                editable: false,
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -19,6 +29,9 @@
                     $.get('/admin/exam/show/' + id, function(data) {
                         window.location = '/admin/exam/show/' + id;
                     });
+                },
+                eventRender: function(event, element) {
+                    element.find('.fc-title').text(event.name);
                 }
 
             });

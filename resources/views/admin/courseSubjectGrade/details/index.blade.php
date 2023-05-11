@@ -16,11 +16,11 @@
                             <div class="row justify-content-between mb-4">
                                 <div class="col-12 col-md-6 col-lg-6 mt-5 ml-5">
                                     <h2 class="h3 page-title">
-                                        Nome do Curso: {{ $courseSubject->courses->name }}
+                                        Nome do Curso: {{ $courseSubjectGrade->courses->name }}
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
-                                    <a href="{{ route('admin.courseSubject.edit', $courseSubject->id) }}"
+                                    <a href="{{ route('admin.courseSubjectGrade.edit', $courseSubjectGrade->id) }}"
                                         class="btn btn-sm btn-outline-primary shadow-sm text-end">Editar</a>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                     <h5>
                                         <b class="mb-1">Disciplina</b>
                                     </h5>
-                                    <p class="text-dark">{{ $courseSubject->subjects->name }}</p>
+                                    <p class="text-dark">{{ $courseSubjectGrade->subjects->name }}</p>
                                 </div>
 
 
@@ -41,9 +41,9 @@
                             <div class="row align-items-center">
                                 <div class="col-md-7 mb-2">
                                     <hr>
-                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ $courseSubject->created_at }}
+                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ $courseSubjectGrade->created_at }}
                                     </p>
-                                    <p class="mb-1 text-dark"><b>Última Actualização</b> {{ $courseSubject->updated_at }}
+                                    <p class="mb-1 text-dark"><b>Última Actualização</b> {{ $courseSubjectGrade->updated_at }}
                                     </p>
 
                                 </div>

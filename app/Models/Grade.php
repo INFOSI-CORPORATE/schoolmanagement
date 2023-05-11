@@ -34,4 +34,11 @@ class Grade extends Model
     {
         return $this->belongsToMany(Subject::class, 'exams');
     }
+
+    /** Curso e Disciplina e Classe */
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'courses_subjects_grades');
+    }
 }

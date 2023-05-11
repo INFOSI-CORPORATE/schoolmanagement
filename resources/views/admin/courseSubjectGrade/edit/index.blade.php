@@ -5,7 +5,7 @@
             <div class="card-header py-3">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Atualizar ao Curso "{{ $courseSubject->courses->name }}" a Disciplina "{{ $courseSubject->subjects->name }}"</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Atualizar ao Curso "{{ $courseSubjectGrade->courses->name }}" a Disciplina "{{ $courseSubjectGrade->subjects->name }}"</h1>
                 </div>
             </div>
 
@@ -13,9 +13,9 @@
 
             <div class="card-body">
 
-                <form action="{{ route('admin.courseSubject.update', $courseSubject->id) }}" method="POST">
+                <form action="{{ route('admin.courseSubjectGrade.update', $courseSubjectGrade->id) }}" method="POST">
                     @csrf
-                    @include('form._formCourseSubject.index')
+                    @include('form._formcourseSubjectGrade.index')
 
                 </form>
             </div>

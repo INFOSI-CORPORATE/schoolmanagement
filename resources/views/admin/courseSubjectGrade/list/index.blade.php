@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Lista de Curso com a Disciplina</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lista de Curso com a Disciplina e Classe</h1>
         </div>
 
         <!-- DataTales Example -->
@@ -18,17 +18,19 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nome</th>
+                                <th>Curso</th>
                                 <th>Disciplina</th>
+                                <th>Classe</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($coursesSubjects as $courseSubject)
+                            @foreach ($coursesSubjectsGrades as $courseSubjectGrade)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $courseSubject->courses->name }}</td>
-                                    <td>{{ $courseSubject->subjects->name }}</td>
+                                    <td>{{ $courseSubjectGrade->courses->name }}</td>
+                                    <td>{{ $courseSubjectGrade->subjects->name }}</td>
+                                    <td>{{ $courseSubjectGrade->grades->name }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"
@@ -38,10 +40,10 @@
                                             <div class="dropdown-menu animated--fade-in"
                                                 aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.courseSubject.show', $courseSubject->id) }}">Detalhes</a>
+                                                    href="{{ route('admin.courseSubjectGrade.show', $courseSubjectGrade->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.courseSubject.edit', $courseSubject->id) }}">Editar</a>
-                                                    <form action="{{ route('admin.courseSubject.destroy', $courseSubject->id) }}" method="POST">
+                                                    href="{{ route('admin.courseSubjectGrade.edit', $courseSubjectGrade->id) }}">Editar</a>
+                                                    <form action="{{ route('admin.courseSubjectGrade.destroy', $courseSubjectGrade->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item">Remover</button>
