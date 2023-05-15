@@ -8,8 +8,8 @@
       <div class="row justify-content-center align-self-center" data-aos="fade-up">
         <div class="col-lg-6 intro-info order-lg-first order-last" data-aos="zoom-in" data-aos-delay="100">
           <h2>Sistema de Gestão Escolar<br>para a sua <span>Instituição!</span></h2>
-          <div>
-            <a href="{{ route('admin.home') }}" class="btn-get-started scrollto">Iniciar</a>
+          <div class="bbtn">
+            <a href="{{ route('admin.home') }}" class="btn bbttn"></a>
           </div>
         </div>
 

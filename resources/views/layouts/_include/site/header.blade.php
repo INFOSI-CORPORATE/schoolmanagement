@@ -21,5 +21,29 @@
   
     <!-- Template Main CSS File -->
     <link href="/site/assets/css/style.css" rel="stylesheet">
+
+    <style>
+      .bbtn {
+        width: 350px;
+        height: 250px;
+        background: url("/site/img/start.jpg") center no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        transform: rotate(20deg) skew(-10deg, -5deg);
+        transition: translate 0.25s box-shadow 0.25s;
+      }
+
+      .bbtn:hover {
+        translate: 0 -30px;
+        box-shadow: 
+          5px 3px rgb(217 220 242 / 75%),
+          10px 6px rgb(44 217 255 / 50%), 
+          15px 9px rgb(126 255 178 / 25%);
+      }
+      .bbttn {
+        width: 350px;
+        height: 250px;
+      }
+    </style>
   
   </head>

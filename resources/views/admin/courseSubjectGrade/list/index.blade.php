@@ -19,8 +19,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Curso</th>
-                                <th>Disciplina</th>
                                 <th>Classe</th>
+                                <th>Disciplina</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -29,8 +29,8 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $courseSubjectGrade->courses->name }}</td>
-                                    <td>{{ $courseSubjectGrade->subjects->name }}</td>
                                     <td>{{ $courseSubjectGrade->grades->name }}</td>
+                                    <td>{{ $courseSubjectGrade->subjects->name }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

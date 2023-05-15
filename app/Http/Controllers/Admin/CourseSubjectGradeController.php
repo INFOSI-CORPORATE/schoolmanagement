@@ -54,7 +54,7 @@ class CourseSubjectGradeController extends Controller
 
     public function edit($id)
     {
-        $response['courses'] = Subject::OrderBy('id','Desc')->get();
+        $response['courses'] = Course::OrderBy('id','Desc')->get();
         $response['subjects'] = Subject::OrderBy('id','Desc')->get();
         $response['grades'] = Grade::OrderBy('id','Desc')->get();
         $response['courseSubjectGrade'] = CourseSubjectGrade::find($id);
