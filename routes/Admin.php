@@ -195,19 +195,7 @@ Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'A
 Route::get('/admin/pdf/registration',['as'=>'admin.pdf.registration','uses'=>'Admin\PDFController@registration']);
 
 
-/** ============================================================================== */
-/** |                                                                            | */
-/** |                                                                            | */
-/** |                            Rotas de Aleatoria                              | */
-/** |                                                                            | */
-/** |                                                                            | */
-/** ============================================================================== */
 
-
-// Rota 404 do Admin
-Route::any('{any}', function () {
-    return response()->view('admin.404.index', [], 404);
-})->where('any', '.*');
 
 });
 
