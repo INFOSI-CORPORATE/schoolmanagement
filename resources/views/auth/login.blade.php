@@ -63,7 +63,7 @@
 </x-guest-layout>
 
  --}}
-
+ 
 @include('layouts.merge.auth')
 
 <div class="container py-5 h-100">
@@ -81,6 +81,7 @@
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
             <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input type="email" name="email" id="form1Example13" class="form-control form-control-lg"
@@ -101,7 +102,7 @@
                         <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
                         <label class="form-check-label" for="form1Example3"> Remember me </label>
                     </div>
-                    <a href="{{ route('password.request') }}">Forgot password?</a>
+                    <a href="{{ route('password.request') }}">Forgot password?</a>|<a href="{{ route('register') }}">Don't have account?</a>
                 </div>
 
                 <!-- Submit button -->
