@@ -8,13 +8,13 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto active" href="/">Início</a></li>
 
                 @if (Route::has('login'))
                     @auth
-                        <li><a href="{{ url('/admin/home/') }}" class="nav-link scrollto">Dashboard</a></li>
+                        <li><a href="{{ url('/admin/home/') }}" class="nav-link scrollto">Painel</a></li>
                     @else
-                        <li><a href="{{ route('login') }}" class="nav-link scrollto">Log in</a></li>
+                        <li><a href="{{ route('login') }}" class="nav-link scrollto">Entrar</a></li>
 
                     @endauth
                 @endif

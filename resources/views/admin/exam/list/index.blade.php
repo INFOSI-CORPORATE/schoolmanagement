@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-
+@section('title', 'Exames')
 @section('content')
     <script>
         $(document).ready(function() {

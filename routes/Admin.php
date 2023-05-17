@@ -5,8 +5,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
 
-/** Extension  */
+/** System  */
 Route::get('/admin/home',['as'=>'admin.home','uses'=>'HomeController@index']);
+
+
+/** ============================================================================== */
+/** |                                                                            | */
+/** |                                                                            | */
+/** |                            Independent Tables                              | */
+/** |                                                                            | */
+/** |                                                                            | */
+/** ============================================================================== */
+
+/** User   */
+Route::get('/admin/user/list',['as'=>'admin.user.list','uses'=>'Admin\UserController@index']);
+Route::post('/admin/user',['as'=>'admin.user.store','uses'=>'Admin\UserController@store']);
+Route::get('/admin/user/create',['as'=>'admin.user.create','uses'=>'Admin\UserController@create']);
+Route::get('/admin/user/show/{id}',['as'=>'admin.user.show','uses'=>'Admin\UserController@show']);
+Route::post('/admin/user/update/{id}',['as'=>'admin.user.update','uses'=>'Admin\UserController@update']);
+Route::delete('/admin/user/destroy/{id}',['as'=>'admin.user.destroy','uses'=>'Admin\UserController@destroy']);
+Route::get('/admin/user/edit/{id}',['as'=>'admin.user.edit','uses'=>'Admin\UserController@edit']);
+/** End User   */
+
+
+
+
 /** Student   */
 Route::get('/admin/student/list',['as'=>'admin.student.list','uses'=>'Admin\StudentController@index']);
 Route::post('/admin/student',['as'=>'admin.student.store','uses'=>'Admin\StudentController@store']);
@@ -186,7 +209,7 @@ Route::get('/admin/ativities/edit/{id}',['as'=>'admin.ativities.edit','uses'=>'A
 /** ============================================================================== */
 /** |                                                                            | */
 /** |                                                                            | */
-/** |                            Rotas de PDF                                    | */
+/** |                            Rotas do Sistema                                | */
 /** |                                                                            | */
 /** |                                                                            | */
 /** ============================================================================== */

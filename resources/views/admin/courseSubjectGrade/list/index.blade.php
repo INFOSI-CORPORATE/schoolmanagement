@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-
+@section('title', 'Curso Associado')
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
@@ -10,7 +10,7 @@
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Cursos/Disciplina</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Cursos/Disciplina/Classe</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

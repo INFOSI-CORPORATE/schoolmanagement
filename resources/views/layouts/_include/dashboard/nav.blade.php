@@ -12,12 +12,12 @@
                 <i class="fa fa-bars"></i>
             </button>
 
-            
+
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
-                
+
 
                 <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -27,7 +27,7 @@
                     @guest
                         @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">Entrar</a>
                     </li>
                     @endif
                 @else
@@ -50,7 +50,7 @@
                                                      document.getElementById('logout-form').submit();">
 
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Logout') }}
+                                Sair
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -56,6 +56,17 @@
 <script src="/dashboard/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="/dashboard/assets/vendor/chart.js/Chart.min.js"></script>
 <script src="/dashboard/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+            }
+        });
+    });
+</script>
+
 <script src="/dashboard/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="/dashboard/assets/js/sweetalert2.all.min.js"></script>
 <!-- E, finalmente, os scripts personalizados -->
@@ -78,7 +89,7 @@
         })
     </script>
 @elseif(session('destroy'))
-/*
+    /*
     <script>
         Swal.fire({
             title: 'Você tem a certeza?',
@@ -99,7 +110,7 @@
             }
         })
     </script>
-*/
+    */
 
     <script>
         Swal.fire({
@@ -141,7 +152,6 @@
         })
     </script>
 @elseif(session('students_exist'))
-
     <script>
         Swal.fire({
             icon: 'error',

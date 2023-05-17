@@ -11,7 +11,7 @@ class SubjectController extends Controller
     public function index()
     {
         $response['subjects'] = Subject::OrderBy('id','Desc')->get();
-        return view('admin.subject.list.index', $response)->with('success', '1');
+        return view('admin.subject.list.index', $response);
     }
 
 

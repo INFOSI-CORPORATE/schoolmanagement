@@ -1,4 +1,5 @@
 @extends('layouts.merge.dashboard')
+@section('title', 'Cadastrar Exame')
 @section('content')
     <div class="container-fluid">
         <div class="card shadow mb-4">

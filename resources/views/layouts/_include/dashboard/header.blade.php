@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SGE Admin - Dashboard</title>
+    <title>@yield('title')</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="/dashboard/assets/img/favicon.ico">
 
@@ -23,6 +23,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/dashboard/assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/dashboard/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     {{-- sweetalert --}}
     <link rel="stylesheet" href="/css/sweetalert2.css">
@@ -34,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    
 
 
 </head>

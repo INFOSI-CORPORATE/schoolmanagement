@@ -1,4 +1,3 @@
-
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -23,6 +22,28 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+{{--  
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Sistema
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+            aria-expanded="true" aria-controls="collapseUser">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Usuários</span>
+        </a>
+        <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.user.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.user.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+--}}
+
     <!-- Heading -->
     <div class="sidebar-heading">
         Registro
@@ -37,7 +58,7 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item $active" href="{{ route('admin.student.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.student.list') }}">Listar</a>
             </div>
@@ -53,7 +74,7 @@
         </a>
         <div id="collapseYear" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item $active" href="{{ route('admin.schoolyear.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.schoolyear.list') }}">Listar</a>
             </div>
@@ -69,7 +90,7 @@
         </a>
         <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.teacher.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.teacher.list') }}">Listar</a>
             </div>
@@ -85,7 +106,7 @@
         </a>
         <div id="collapseRule" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.rule.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.rule.list') }}">Listar</a>
             </div>
@@ -99,10 +120,9 @@
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Turmas</span>
         </a>
-        <div id="collapsetree" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapsetree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.classe.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.classe.list') }}">Listar</a>
             </div>
@@ -116,10 +136,9 @@
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Cursos</span>
         </a>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseFour" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.course.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.course.list') }}">Listar</a>
             </div>
@@ -133,10 +152,9 @@
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Classe</span>
         </a>
-        <div id="collapseFive" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseFive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.grade.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.grade.list') }}">Listar</a>
             </div>
@@ -150,10 +168,9 @@
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Disciplina</span>
         </a>
-        <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item" href="{{ route('admin.subject.create') }}">Cadastrar</a>
                 <a class="collapse-item" href="{{ route('admin.subject.list') }}">Listar</a>
             </div>
@@ -175,9 +192,11 @@
         </a>
         <div id="collapseAlunoAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudentSchoolyear.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.courseClasseGradeStudentSchoolyear.list') }}">Listar</a>
+
+                <a class="collapse-item $active"
+                    href="{{ route('admin.courseClasseGradeStudentSchoolyear.create') }}">Cadastrar</a>
+                <a class="collapse-item $active"
+                    href="{{ route('admin.courseClasseGradeStudentSchoolyear.list') }}">Listar</a>
             </div>
         </div>
     </li>
@@ -191,9 +210,11 @@
         </a>
         <div id="collapseProfAll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
-                <a class="collapse-item $active" href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.list') }}">Listar</a>
+
+                <a class="collapse-item $active"
+                    href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.create') }}">Cadastrar</a>
+                <a class="collapse-item $active"
+                    href="{{ route('admin.teacherSubjectClasseRuleSchoolyear.list') }}">Listar</a>
             </div>
         </div>
     </li>
@@ -207,7 +228,7 @@
         </a>
         <div id="collapseCursDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.list') }}">Listar</a>
             </div>
@@ -223,13 +244,13 @@
         </a>
         <div id="collapseExam" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item $active" href="{{ route('admin.exam.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.exam.list') }}">Listar</a>
             </div>
         </div>
     </li>
-    
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAtiv"
@@ -239,7 +260,7 @@
         </a>
         <div id="collapseAtiv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Components:</h6>
+
                 <a class="collapse-item $active" href="{{ route('admin.ativities.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.ativities.list') }}">Listar</a>
             </div>

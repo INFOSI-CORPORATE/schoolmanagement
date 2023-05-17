@@ -1,4 +1,5 @@
 @extends('layouts.merge.dashboard')
+@section('title', 'SGE Admin - Painel')
 
 @section('content')
     <!-- Begin Page Content -->
@@ -17,9 +18,20 @@
                     </div>
 
                     <div class="card-body">
-                        <p>Estás na dashboard do Sistema de Gestão Escolar. Bem-vindo ao Sistena de Gestão Escolar</p>
-                        <div class="my-5"></div>
-                        <p class="mb-0">Seja bem-vindo</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p>Estás na dashboard do Sistema de Gestão Escolar. Bem-vindo ao Sistena de Gestão Escolar
+                                </p>
+                                <div class="my-5"></div>
+                                <p class="mb-0">Seja bem-vindo</p>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="/site/assets/img/intro-img.svg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

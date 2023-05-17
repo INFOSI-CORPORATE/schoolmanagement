@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SGE Admin - 404</title>
+    <title>404</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="/dashboard/assets/img/favicon.ico">
 

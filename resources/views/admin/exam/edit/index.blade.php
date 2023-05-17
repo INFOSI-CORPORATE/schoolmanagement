@@ -1,4 +1,5 @@
 @extends('layouts.merge.dashboard')
+@section('title', 'Editar Exames')
 @section('content')
 
 <div class="container-fluid">

@@ -1,18 +1,18 @@
 @extends('layouts.merge.dashboard')
-
+@section('title', 'Alunos Matriculados')
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Lista de Alunos Associados</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lista de Alunos Matriculados</h1>
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h6 class="m-0 font-weight-bold text-primary">Alunos Associados</h6>
-                    <a href="{{ route('admin.pdf.registration') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <h6 class="m-0 font-weight-bold text-primary">Alunos Matriculados</h6>
+                    <a href="{{ route('admin.pdf.registration') }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                         <i class="fas fa-file-pdf fa-sm text-white-50"></i> Imprimir lista
                     </a>
                 </div>

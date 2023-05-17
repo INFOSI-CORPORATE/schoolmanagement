@@ -1,16 +1,16 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Turmas')
+
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Lista de Turmas</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lista de Usuários</h1>
         </div>
 
-        <!-- DataTales classeple -->
+        <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Turmas</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Usuários</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,10 +23,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($classes as $classe)
+                            @foreach ($users as $user)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $classe->name }}</td>
+                                    <td>{{ $user->name }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"
@@ -36,10 +36,10 @@
                                             <div class="dropdown-menu animated--fade-in"
                                                 aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.classe.show', $classe->id) }}">Detalhes</a>
+                                                    href="{{ route('admin.user.show', $user->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.classe.edit', $classe->id) }}">Editar</a>
-                                                    <form action="{{ route('admin.classe.destroy', $classe->id) }}" method="POST">
+                                                    href="{{ route('admin.user.edit', $user->id) }}">Editar</a>
+                                                    <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item">Remover</button>
