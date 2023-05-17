@@ -32,7 +32,7 @@
     <div class="col-md-6 py-2"></div>
 
     <div class="col-md-6 py-3">
-        <button type="submit" class="btn btn-sm btn-outline-primary shadow-sm text-end">{{ isset($courseSubjectGrade) ? 'Atualizar' : 'Cadastrar' }}</button>
+        <button type="submit" class="btn btn-md btn-primary shadow-sm text-end">{{ isset($courseSubjectGrade) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
 </div>
 

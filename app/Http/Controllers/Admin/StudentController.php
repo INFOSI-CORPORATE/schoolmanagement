@@ -93,7 +93,7 @@ class StudentController extends Controller
             'dateBirth' => 'required',
         ]);
         Student::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.student.list')->with('edit', '1');
     }
 
 

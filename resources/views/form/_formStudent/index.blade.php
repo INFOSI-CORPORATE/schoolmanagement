@@ -3,30 +3,30 @@
         <label for="nProcess">Nº de Processo</label>
         <input class="form-control" type="number" name="nProcess" id="nProcess"
             placeholder="Digita o Nº de Processo do Estudante"
-            value={{ isset($student->nProcess) ? $student->nProcess : ($total + 1) }} readonly>
+            value="{{ isset($student->nProcess) ? $student->nProcess : ($total + 1) }}" readonly>
     </div>
     <div class="col-md-6 py-2">
         <label for="title">Nome de Estudante</label>
         <input class="form-control" type="text" name="name" id="name"
-            placeholder="Digita o Nome do Estudante" required value={{ isset($student->name) ? $student->name : old('name') }}>
+            placeholder="Digita o Nome do Estudante" required value="{{ isset($student->name) ? $student->name : old('name') }}">
     </div>
     <div class="col-md-6 py-2">
         <label for="nBi">Nº do BI</label>
         <input class="form-control" type="text" name="nBi" id="nBi"
             placeholder="Digita o nº do Bilhete de Identidade" required
-            value={{ isset($student->nBi) ? $student->nBi : old('nBi') }}>
+            value="{{ isset($student->nBi) ? $student->nBi : old('nBi') }}">
     </div>
 
     <div class="col-md-6 py-2">
         <label for="dateBirth">Data de Nascimento</label>
         <input class="form-control" type="date" name="dateBirth" id="dateBirth"
             placeholder="Digita a data de Nascimento" required
-            value={{ isset($student->dateBirth) ? $student->dateBirth : old('dateBirth') }}>
+            value="{{ isset($student->dateBirth) ? $student->dateBirth : old('dateBirth') }}">
     </div>
     <div class="col-md-6 py-2">
         <label for="email">Endereço de E-mail</label>
         <input class="form-control" type="email" name="email" id="email" placeholder="Digita o E-mail do Aluno"
-            required value={{ isset($student->email) ? $student->email : old('email') }}>
+            required value="{{ isset($student->email) ? $student->email : old('email') }}">
     </div>
     <div class="col-md-6 py-2">
         <div class="row">
@@ -34,19 +34,19 @@
                 <label for="contact">Contacto do Aluno</label>
                 <input class="form-control" type="text" name="contact" id="contact"
                     placeholder="Digita o Número do Aluno" required
-                    value={{ isset($student->contact) ? $student->contact : old('contact') }}>
+                    value="{{ isset($student->contact) ? $student->contact : old('contact') }}">
             </div>
             <div class="col-6">
                 <label for="contactAlter">Contacto Alternativo</label>
                 <input class="form-control" type="text" name="contactAlter" id="contactAlter"
                     placeholder="Digita o Número do Aluno" required
-                    value={{ isset($student->contactAlter) ? $student->contactAlter : old('contactAlter') }}>
+                    value="{{ isset($student->contactAlter) ? $student->contactAlter : old('contactAlter') }}">
             </div>
         </div>
     </div>
     <div class="col-md-6 py-3">
         <button type="submit"
-            class="btn btn-sm btn-outline-primary shadow-sm text-end">{{ isset($student) ? 'Atualizar' : 'Cadastrar' }}</button>
+            class="btn btn-md btn-primary shadow-sm text-end">{{ isset($student) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
 
 </div>

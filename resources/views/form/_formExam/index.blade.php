@@ -81,20 +81,20 @@
     <div class="col-md-6 py-2">
         <label for="start">Data de Exame</label>
         <input type="date" class="form-control" name="start" id="start" required
-            value={{ isset($exam->start) ? $exam->start : '' }}>
+            value="{{ isset($exam->start) ? $exam->start : '' }}">
     </div>
 
     <div class="col-md-6 py-2">
         <label for="duration">Duração da Prova</label>
         <input class="form-control" type="text" name="duration" id="duration"
-            placeholder="Digita a duração do exame" required value={{ isset($exam->duration) ? $exam->duration : old('duration') }}>
+            placeholder="Digita a duração do exame" required value="{{ isset($exam->duration) ? $exam->duration : old('duration') }}">
     </div>
 
     <div class="col-md-6 py-2"></div>
 
     <div class="col-md-6 py-3">
         <button type="submit"
-            class="btn btn-sm btn-outline-primary shadow-sm text-end">{{ isset($exam) ? 'Atualizar' : 'Cadastrar' }}</button>
+            class="btn btn-md btn-primary shadow-sm text-end">{{ isset($exam) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
 </div>
 

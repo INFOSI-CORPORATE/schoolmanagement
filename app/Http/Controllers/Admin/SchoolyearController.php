@@ -51,7 +51,7 @@ class SchoolyearController extends Controller
         ]);
 
         Schoolyear::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.schoolyear.list')->with('edit', '1');
     }
 
     public function destroy($id)

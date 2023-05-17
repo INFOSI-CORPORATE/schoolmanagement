@@ -65,7 +65,7 @@ class CourseController extends Controller
         ]);
 
         Course::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.course.list')->with('edit', '1');
     }
 
     public function destroy($id)

@@ -135,7 +135,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         $data['end'] = $end;
         
         Exam::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.exam.list')->with('edit', '1');
     }
 
     public function destroy($id)

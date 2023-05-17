@@ -101,7 +101,7 @@ class AtivitieController extends Controller
         $data['end'] = $end;
 
         Ativitie::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.ativities.list')->with('edit', '1');
     }
 
     public function destroy($id)

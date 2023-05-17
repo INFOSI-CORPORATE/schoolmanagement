@@ -76,7 +76,7 @@ class CourseSubjectGradeController extends Controller
         ]);
 
         CourseSubjectGrade::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.courseSubjectGrade.list')->with('edit', '1');
     }
 
 

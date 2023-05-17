@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'SGE Admin - Painel')
+@section('title', 'Painel')
 
 @section('content')
     <!-- Begin Page Content -->

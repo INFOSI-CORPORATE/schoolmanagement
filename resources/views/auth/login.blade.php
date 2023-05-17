@@ -65,7 +65,7 @@
  --}}
 
 @extends('layouts.merge.auth')
-
+@section('title','Entrar')
 @section('content')
     <div class="container py-5 h-100">
 

@@ -94,7 +94,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
         ]);
 
         TeacherSubjectClasseRuleSchoolyear::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.teacherSubjectClasseRuleSchoolyear.list')->with('edit', '1');
     }
 
 

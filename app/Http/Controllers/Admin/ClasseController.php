@@ -51,7 +51,7 @@ class ClasseController extends Controller
         ]);
 
         Classe::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.classe.list')->with('edit', '1');
     }
 
     public function destroy($id)

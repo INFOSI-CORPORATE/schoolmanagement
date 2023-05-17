@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
+    <title>SGE - @yield('title')</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="/dashboard/assets/img/favicon.ico">
 

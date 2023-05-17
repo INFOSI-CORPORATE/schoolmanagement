@@ -51,7 +51,7 @@ class GradeController extends Controller
         ]);
 
         Grade::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.grade.list')->with('edit', '1');
     }
 
     public function destroy($id)

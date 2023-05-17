@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-
+@section('title', 'Início')
 @section('content')
 
   <!-- ======= Hero Section ======= -->

@@ -94,7 +94,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
         ]);
 
         CourseClasseGradeStudentSchoolyear::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.courseClasseGradeStudentSchoolyear.list')->with('edit', '1');
     }
 
 

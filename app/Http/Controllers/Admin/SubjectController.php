@@ -51,7 +51,7 @@ class SubjectController extends Controller
         ]);
 
         Subject::find($id)->update($data);
-        return redirect()->back()->with('edit', '1');
+        return redirect()->route('admin.subject.list')->with('edit', '1');
     }
 
     public function destroy($id)
