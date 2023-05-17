@@ -69,7 +69,7 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         
         // Verifica se o aluno está associado a outro registro
-        if ($teacher->schoolyears->count() > 0) {
+        if ($teacher->subjects->count() > 0) {
             return redirect()->back()->with('teachers_destroy_error', '1');
         }
 

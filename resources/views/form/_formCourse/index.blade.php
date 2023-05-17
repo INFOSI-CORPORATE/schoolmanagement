@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 py-2">
         <label for="name">Nome do Curso</label>
-        <input class="form-control" type="text" name="name" id="name" placeholder="Digita o Nome do Curso"
+        <input class="form-control" type="text" name="name" id="name" placeholder="Digite o Nome do Curso"
             required value="{{ isset($course->name) ? $course->name : old('name') }}">
     </div>
     <div class="col-md-6 py-2">

@@ -39,18 +39,31 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">E-mail do Aluno</b>
+                                        <b class="mb-1">E-mail do Professor</b>
                                     </h5>
                                     <p class="text-dark">{{ $teacher->email }}</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">Contacto</b>
+                                        <b class="mb-1">Contacto | Contacto Alternativo</b>
                                     </h5>
-                                    <p class="text-dark">{{ $teacher->contact }}</p>
+                                    <p class="text-dark">{{ $teacher->contact }} &nbsp;&nbsp;|&nbsp;&nbsp; {{ $teacher->contactAlter }}</p>
                                 </div>
 
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Habilitação Literária do Professor</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $teacher->literary }}</p>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Especialidade do Professor</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $teacher->specialty }}</p>
+                                </div>
 
                             </div>
                             <div class="row align-items-center">

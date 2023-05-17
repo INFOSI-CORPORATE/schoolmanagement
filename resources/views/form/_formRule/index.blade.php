@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12 py-2">
         <label for="title">Nome do Cargo</label>
-        <input class="form-control" type="text" name="name" id="name" placeholder="Digita o Nome da Classe"
+        <input class="form-control" type="text" name="name" id="name" placeholder="Digite o Nome da Classe"
             required value="{{ isset($rule->name) ? $rule->name : old('name') }}">
     </div>
     <div class="col-md-12 py-2">
