@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-md-6 py-2">
-        <label for="name">Nome do Curso</label>
+        <label for="name">Nome</label>
         <input class="form-control" type="text" name="name" id="name" placeholder="Digite o Nome do Curso"
             required value="{{ isset($course->name) ? $course->name : old('name') }}">
     </div>
     <div class="col-md-6 py-2">
-        <label for="duration">Duração do Curso</label>
+        <label for="duration">Duração</label>
         <input class="form-control" type="text" name="duration" id="duration" placeholder="Quanto tempo dura o curso"
             required value="{{ isset($course->duration) ? $course->duration : old('duration') }}">
     </div>

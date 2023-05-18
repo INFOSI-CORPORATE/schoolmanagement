@@ -6,7 +6,7 @@
             value="{{ isset($student->nProcess) ? $student->nProcess : ($total + 1) }}" readonly>
     </div>
     <div class="col-md-6 py-2">
-        <label for="title">Nome de Estudante</label>
+        <label for="title">Nome Completo</label>
         <input class="form-control" type="text" name="name" id="name"
             placeholder="Digite o Nome do Estudante" required value="{{ isset($student->name) ? $student->name : old('name') }}">
     </div>

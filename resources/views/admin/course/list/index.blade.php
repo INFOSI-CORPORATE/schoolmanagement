@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Cursos')
+@section('title', 'Lista de Cursos')
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->

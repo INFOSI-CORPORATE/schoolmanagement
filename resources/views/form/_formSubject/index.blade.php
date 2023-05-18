@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12 py-2">
-        <label for="title">Nome da Disciplina</label>
+        <label for="title">Nome</label>
         <input class="form-control" type="text" name="name" id="name" placeholder="Digite o Nome da Disciplina"
             required value="{{ isset($subject->name) ? $subject->name : old('name') }}">
     </div>

@@ -16,17 +16,18 @@ class Teacher extends Model
 
     public function rules()
     {
-        return $this->belongsToMany(Rule::class, 'teachers_rules');
+        return $this->belongsToMany(Rule::class, 'teachers_rules','fk_teachers_id','id');
+        
     }
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'contracts','fk_subjects_id',);
+        return $this->belongsToMany(Subject::class, 'contracts','fk_teachers_id','id');
     }
 
     public function classe()
     {
-        return $this->belongsToMany(Classe::class, 'exams', 'fk_teachers_id', 'fk_schoolyears_id')->withTimestamps();
+        return $this->belongsToMany(Classe::class, 'exams', 'fk_teachers_id','id')->withTimestamps();
     }
 
     

@@ -193,7 +193,17 @@
             timer: 4500
         })
     </script>
+@elseif(session('teachers_destroy_error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Este Professor está Admitido e não pode ser excluído!',
+            showConfirmButton: false,
+            timer: 4500
+        })
+    </script>
 @endif
+
 
 <script>
     function mens() {

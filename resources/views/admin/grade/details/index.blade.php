@@ -6,7 +6,7 @@
             <div class="card-header py-3">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Detalhes da Classe</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Detalhes</h1>
                 </div>
             </div>
             <div class="card-body">

@@ -67,12 +67,10 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         $teacher = Teacher::find($id);
-        
-        // Verifica se o aluno está associado a outro registro
+        // Verifica se o Professor está associado a outro registro
         if ($teacher->subjects->count() > 0) {
             return redirect()->back()->with('teachers_destroy_error', '1');
         }
-
         $teacher->delete();
         return redirect()->back()->with('destroy', '1');
     }
