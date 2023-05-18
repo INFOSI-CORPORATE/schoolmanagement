@@ -12,7 +12,7 @@
     <div class="col-md-12 py-2">
         <label for="details">Detalhes</label>
         <textarea class="form-control" name="details" id="details" cols="30" rows="5"
-            placeholder="Detalhes">{{ isset($course->details) ? $course->details : old('details') }}</textarea>
+            placeholder="Digite os Detalhes">{{ isset($course->details) ? $course->details : old('details') }}</textarea>
     </div>
     <div class="col-md-6 py-3">
         <button type="submit"

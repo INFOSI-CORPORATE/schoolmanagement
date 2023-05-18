@@ -24,8 +24,11 @@ class RuleController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'details' =>  'required',
-        ]);
+            'details' => 'required|max:500',
+        ],[
+            'name' => 'O campo nome do cargo é obrigatório'
+        ]
+    );
 
         Rule::create($data);
         return redirect()->back()->with('create', '1');
@@ -47,7 +50,7 @@ class RuleController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'details' =>  'required',
+            'details' => 'required|max:500',
         ]);
 
         Rule::find($id)->update($data);

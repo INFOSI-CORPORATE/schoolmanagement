@@ -37,9 +37,8 @@
     <div class="col-md-6 py-2">
         <label for="start">Data</label>
         <input type="date" class="form-control" name="start" id="start" required
-            value="{{ isset($ativitie->start) ? $ativitie->start : '' }}">
+            value="{{ isset($ativitie->start) ? $ativitie->start : old('start') }}">
     </div>
-
 
     <div class="col-md-12 py-2">
         <label for="details">Descrição</label>

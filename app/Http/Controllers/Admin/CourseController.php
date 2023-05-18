@@ -25,8 +25,13 @@ class CourseController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'details' => 'required',
+            'details' => 'required|max:500',
             'duration' => 'required',
+        ],[
+            'name.required' => 'O campo nome do Curso é obrigatório.',
+            'details.required' => 'O campo Detalhes do Curso é obrigatório.',
+            'details.max' => 'O campo Detalhes não pode exceder do 500 caractéres',
+            'duration.required' => 'O campo Duração de Curso é obrigatório.'
         ]);
 
         $Exists = Course::where('name', $data['name'])->exists();
@@ -60,8 +65,12 @@ class CourseController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'details' => 'required',
+            'details' => 'required|max:500',
             'duration' => 'required',
+        ],[
+            'name.required' => 'O campo nome do Curso é obrigatório.',
+            'details.required' => 'O campo Detalhes do Curso é obrigatório.',
+            'details.max' => 'O campo Detalhes não pode exceder do 500 caractéres',
         ]);
 
         Course::find($id)->update($data);

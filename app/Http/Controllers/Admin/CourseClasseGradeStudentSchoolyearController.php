@@ -68,7 +68,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
         $response['classes'] = Classe::OrderBy('id','Desc')->get();
         $response['grades'] = Grade::OrderBy('id','Desc')->get();
         $response['students'] = Student::OrderBy('id','Desc')->get();
-        $response['schoolyears'] = Student::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $response['courseClasseGradeStudentSchoolyear'] = CourseClasseGradeStudentSchoolyear::find($id);
         return view('admin.courseClasseGradeStudentSchoolyear.edit.index', $response);
     }

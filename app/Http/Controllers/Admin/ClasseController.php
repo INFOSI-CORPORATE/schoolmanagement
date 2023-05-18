@@ -24,7 +24,11 @@ class ClasseController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'details' =>  'required',
+            'details' =>  'required|max:500',
+        ],[
+            'name.required' => 'O campo nome da Turma é obrigatório.',
+            'details.required' => 'O campo Detalhes da Turma é obrigatório.',
+            'details.max' => 'O campo não pode exceder do 500 caractéres',
         ]);
 
         Classe::create($data);
@@ -47,7 +51,11 @@ class ClasseController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'details' =>  'required',
+            'details' =>  'required|max:500',
+        ],[
+            'name.required' => 'O campo nome da Turma é obrigatório.',
+            'details.required' => 'O campo Detalhes da Turma é obrigatório.',
+            'details.max' => 'O campo não pode exceder do 500 caractéres',
         ]);
 
         Classe::find($id)->update($data);

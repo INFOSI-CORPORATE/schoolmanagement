@@ -16,7 +16,7 @@ class CreateRulesTable extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('details');
+            $table->string('details',500);
             $table->timestamps();
             $table->softDeletes();
         });

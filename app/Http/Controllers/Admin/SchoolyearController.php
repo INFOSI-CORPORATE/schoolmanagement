@@ -24,7 +24,7 @@ class SchoolyearController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'details' =>  'required',
+            'details' => 'required|max:500',
         ]);
 
         Schoolyear::create($data);
@@ -47,7 +47,7 @@ class SchoolyearController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'details' =>  'required',
+            'details' => 'required|max:500',
         ]);
 
         Schoolyear::find($id)->update($data);

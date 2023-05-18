@@ -26,7 +26,7 @@ class AtivitieController extends Controller
             $request,
             [
                 'title' => 'required|string',
-                'details' => 'required|string',
+                'details' => 'required|string|max:500',
                 'location' => 'required',
                 'duration' => 'required',
                 'price' => 'required',
@@ -42,6 +42,7 @@ class AtivitieController extends Controller
                 'status.required' => 'O campo estado de Atividade é obrigatório.',
                 'start.required' => 'O campo Data Inicio deve ser selecionado',
                 'start.after_or_equal' => 'Não pode adicionar uma data anterior',
+                'details.max' => 'O campo não pode exceder do 500 caractéres',
             ]
         );
 
@@ -75,7 +76,7 @@ class AtivitieController extends Controller
         $data = $request->validate(
             [
                 'title' => 'required|string',
-                'details' => 'required|string',
+                'details' => 'required|string|max:500',
                 'location' => 'required',
                 'duration' => 'required',
                 'price' => 'required',
@@ -88,6 +89,7 @@ class AtivitieController extends Controller
                 'duration.required' => 'O campo duração de Atividade é obrigatório.',
                 'price.required' => 'O campo preço de Atividade é obrigatório.',
                 'status.required' => 'O campo estado de Atividade é obrigatório.',
+                'details.max' => 'O campo não pode exceder do 500 caractéres',
             ]
         );
 

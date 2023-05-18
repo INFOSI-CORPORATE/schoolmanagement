@@ -24,7 +24,7 @@ class SubjectController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'details' =>  'required',
+            'details' => 'required|max:500',
         ]);
 
         Subject::create($data);
@@ -47,7 +47,7 @@ class SubjectController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'details' =>  'required',
+            'details' => 'required|max:500',
         ]);
 
         Subject::find($id)->update($data);
