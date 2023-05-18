@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
                                     <a href="{{ route('admin.subject.edit', $subject->id) }}"
-                                        class="btn btn-sm btn-outline-primary shadow-sm text-end">Editar</a>
+                                        class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
                                 </div>
                             </div>
 

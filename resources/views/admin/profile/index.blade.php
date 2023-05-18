@@ -20,9 +20,11 @@
                             <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-user mr-2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
+                                    stroke-linejoin="round" class="feather feather-activity-log">
+                                    <path d="M6 3l6 3 6-3"></path>
+                                    <path d="M6 9l6 3 6-3"></path>
+                                    <path d="M6 15l6 3 6-3"></path>
+                                    <path d="M6 21l6 3 6-3"></path>
                                 </svg>Informação de Perfil
                             </a>
                             <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
@@ -51,6 +53,13 @@
                                 </svg>Registro
                             </a>
 
+                            <a href="#log" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-activity">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>Log de Atividades
+                            </a>
 
                         </nav>
                     </div>
@@ -97,6 +106,16 @@
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                     </svg></a>
                             </li>
+                            <li class="nav-item">
+                                <a href="#log" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                </a>
+                            </li>
+
 
                         </ul>
                     </div>

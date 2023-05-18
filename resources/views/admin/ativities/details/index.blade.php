@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
                                     <div class="d-flex justify-content-end">
-                                        <a href="{{ route('admin.ativities.edit', $ativitie->id) }}" class="btn btn-sm btn-outline-primary shadow-sm text-end">Editar</a>
+                                        <a href="{{ route('admin.ativities.edit', $ativitie->id) }}" class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
                                         <form action="{{ route('admin.ativities.destroy', $ativitie->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
