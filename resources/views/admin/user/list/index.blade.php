@@ -19,6 +19,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
+                                <th>E-mail</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

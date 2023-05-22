@@ -15,7 +15,7 @@ class User extends Authenticatable
     protected $guarded = ['id'];
     use softDeletes;
     protected $dates = ['deleted_at'];
-    
+
     protected $fillable = [
         'name',
         'email',
@@ -27,8 +27,21 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles', 'fk_users_id', 'fk_roles_id');
+
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
 }
