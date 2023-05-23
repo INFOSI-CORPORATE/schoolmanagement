@@ -38,15 +38,15 @@ Route::middleware('auth')->group(function () {
     });
     
 //registrador
-    Route::middleware(['admin'])->group(function () {
+    Route::middleware(['registrador'])->group(function () {
         /** Student   */
-        Route::get('/admin/student/list', ['as' => 'admin.student.list', 'uses' => 'Admin\StudentController@index'])->withoutMiddleware('registrador');
-        Route::post('/admin/student', ['as' => 'admin.student.store', 'uses' => 'Admin\StudentController@store'])->withoutMiddleware('registrador');
-        Route::get('/admin/student/create', ['as' => 'admin.student.create', 'uses' => 'Admin\StudentController@create'])->withoutMiddleware('registrador');
-        Route::get('/admin/student/show/{id}', ['as' => 'admin.student.show', 'uses' => 'Admin\StudentController@show'])->withoutMiddleware('registrador');
-        Route::post('/admin/student/update/{id}', ['as' => 'admin.student.update', 'uses' => 'Admin\StudentController@update'])->withoutMiddleware('registrador');
+        Route::get('/admin/student/list', ['as' => 'admin.student.list', 'uses' => 'Admin\StudentController@index']);
+        Route::post('/admin/student', ['as' => 'admin.student.store', 'uses' => 'Admin\StudentController@store']);
+        Route::get('/admin/student/create', ['as' => 'admin.student.create', 'uses' => 'Admin\StudentController@create']);
+        Route::get('/admin/student/show/{id}', ['as' => 'admin.student.show', 'uses' => 'Admin\StudentController@show']);
+        Route::post('/admin/student/update/{id}', ['as' => 'admin.student.update', 'uses' => 'Admin\StudentController@update']);
         Route::delete('/admin/student/destroy/{id}', ['as' => 'admin.student.destroy', 'uses' => 'Admin\StudentController@destroy']);
-        Route::get('/admin/student/edit/{id}', ['as' => 'admin.student.edit', 'uses' => 'Admin\StudentController@edit'])->withoutMiddleware('registrador');
+        Route::get('/admin/student/edit/{id}', ['as' => 'admin.student.edit', 'uses' => 'Admin\StudentController@edit']);
         /** End Student   */
 
 
@@ -135,7 +135,7 @@ Route::middleware('auth')->group(function () {
         /** |                                                                            | */
         /** ============================================================================== */
         //gerenciador
-        Route::middleware(['admin'])->group(function () {
+        Route::middleware(['gerenciador'])->group(function () {
             /** TeacherSchoolyear */
 
         Route::get('/admin/teacherSchoolyear/list', ['as' => 'admin.teacherSchoolyear.list', 'uses' => 'Admin\TeacherSchoolyearController@index']);
