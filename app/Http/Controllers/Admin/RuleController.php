@@ -26,7 +26,8 @@ class RuleController extends Controller
             'name' => 'required',
             'details' => 'required|max:500',
         ],[
-            'name' => 'O campo nome do cargo é obrigatório'
+            'name.required' => 'O campo nome do cargo é obrigatório',
+            'details.max' => 'O campo detalhes não deve exceder os 500 caracteres',
         ]
     );
 
@@ -51,6 +52,9 @@ class RuleController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'details' => 'required|max:500',
+        ],[
+            'name.required' => 'O campo nome do cargo é obrigatório',
+            'details.max' => 'O campo detalhes não deve exceder os 500 caracteres',
         ]);
 
         Rule::find($id)->update($data);

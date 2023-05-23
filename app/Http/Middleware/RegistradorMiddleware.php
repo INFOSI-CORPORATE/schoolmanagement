@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminMiddleware
+class RegistradorMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->user()->roles->contains('name', 'admin')) {
+        if (!$request->user()->roles->contains('name', 'registrador')) {
             // Redirecionar ou retornar resposta de acesso negado
             abort(403);
         }
-        
         return $next($request);
     }
-    
 }

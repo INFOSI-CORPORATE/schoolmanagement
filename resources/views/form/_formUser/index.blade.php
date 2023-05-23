@@ -18,7 +18,8 @@
         <select class="form-control" name="roles" id="roles" required>
             <option {{ isset($user->roles) ? '' : 'selected' }}></option>
             @foreach ($roles as $role)
-                <option value="{{ $role->id }}" >{{ $role->name }}
+                <option value="{{ $role->id }}"
+                    {{ isset($user->roles) && $user->roles instanceof Illuminate\Support\Collection && $user->roles->contains('id', $role->id) ? 'selected' : ((old('roles') == $role->id) ? 'selected' : '') }}>{{ $role->name }}
                 </option>
             @endforeach
         </select>

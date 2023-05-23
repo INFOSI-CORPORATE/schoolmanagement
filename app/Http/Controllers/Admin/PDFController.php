@@ -3,32 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseClasseGradeStudentSchoolyear;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Symfony\Component\HttpFoundation\Response;
 
 class PDFController extends Controller
 {
-    public function registration()
+    public function registration(Request $request)
     {
-        //return PDF::loadView('admin.pdf.registration.index')->setPaper('a4', 'landscape');
-        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
-        // Se quiser que faça download: ->download('name.pdf')
-        /*->setPaper('a4', 'landscape')
-        ->stream('postos' . time() . '.pdf')*/
+        $schoolyear = $request->schoolyear;
 
-        $pdf = PDF::loadView('admin.pdf.registration.index')->setPaper('a4', 'landscape');
+        $registrations = 
 
-        // Define um nome de arquivo para o PDF com o timestamp atual
-        $filename = 'lista' . time() . '.pdf';
 
-        // Salva o arquivo PDF no diretório 'pdf' dentro do diretório 'public' da sua aplicação Laravel
-        $pdf->save(public_path('pdf/' . $filename));
 
-        // Retorna uma resposta HTTP que contém o PDF como conteúdo
-        return response($pdf->output())
-            ->header('Content-Type', 'application/pdf')
-            ->header('Content-Disposition', 'inline; filename="' . $filename . '"');
+        $response['studentSchoolYear'] = CourseClasseGradeStudentSchoolyear::join('schoolyears', 'registrations.fk_schoolyears_id', '=', 'schoolyears.id')
+        ->where('schoolyears.name', '2021-2022')
+        ->whereNull('registrations.deleted_at')
+        ->get();
+        $pdf = PDF::loadview('admin.pdf.registration.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf');
 
     }
 }
