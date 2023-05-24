@@ -89,7 +89,6 @@
         })
     </script>
 @elseif(session('destroy'))
-
     <script>
         Swal.fire({
             icon: 'info',
@@ -97,11 +96,19 @@
             showConfirmButton: true
         })
     </script>
-@elseif(session('candidates'))
+@elseif(session('error_password'))
     <script>
         Swal.fire({
-            icon: 'info',
-            title: 'Este estudante não consta na lista de estudantes por favor cadastre primeiro!',
+            icon: 'error',
+            title: 'A password atual está incorrecta!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('error_Repassword'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'As passwords não coecidem!',
             showConfirmButton: true
         })
     </script>

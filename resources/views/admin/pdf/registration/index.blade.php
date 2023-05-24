@@ -37,6 +37,7 @@
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>
         <div class="text-center">SISTEMA DE GESTÃO ESCOLAR</div>
+        <div class="text-center">LISTA DE ALUNOS MATRICULADOS</div>
     </header>
 
 

@@ -11,7 +11,10 @@ Route::middleware('auth')->group(function () {
 
     /** System  */
     Route::get('/admin/home', ['as' => 'admin.home', 'uses' => 'HomeController@index']);
-
+    Route::get('/admin/profile/{id}', ['as' => 'admin.profile', 'uses' => 'Auth\ProfileController@index']);
+    Route::post('/admin/profile/{id}', ['as' => 'admin.profile.dados', 'uses' => 'Auth\ProfileController@dados']);
+    Route::post('/admin/profile/password/{id}', ['as' => 'admin.profile.password', 'uses' => 'Auth\ProfileController@password']);
+    Route::delete('/admin/profile/{id}', ['as' => 'admin.profile.destroy', 'uses' => 'Admin\UserController@destroy']);
 
     /** ============================================================================== */
     /** |                                                                            | */
@@ -33,11 +36,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/user/update/{id}', ['as' => 'admin.user.update', 'uses' => 'Admin\UserController@update']);
         Route::delete('/admin/user/destroy/{id}', ['as' => 'admin.user.destroy', 'uses' => 'Admin\UserController@destroy']);
         Route::get('/admin/user/edit/{id}', ['as' => 'admin.user.edit', 'uses' => 'Admin\UserController@edit']);
+
         /** End User */
 
     });
-    
-//registrador
+
+    //registrador
     Route::middleware(['registrador'])->group(function () {
         /** Student   */
         Route::get('/admin/student/list', ['as' => 'admin.student.list', 'uses' => 'Admin\StudentController@index']);
@@ -125,17 +129,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/rule/edit/{id}', ['as' => 'admin.rule.edit', 'uses' => 'Admin\RuleController@edit']);
         /** End rule   */
     });
-        
 
 
-        /** ============================================================================== */
-        /** |                                                                            | */
-        /** |                            Independent Tables                              | */
-        /** |                                                                            | */
-        /** ============================================================================== */
-        //gerenciador
-        Route::middleware(['gerenciador'])->group(function () {
-            /** TeacherSchoolyear */
+
+    /** ============================================================================== */
+    /** |                                                                            | */
+    /** |                            Independent Tables                              | */
+    /** |                                                                            | */
+    /** ============================================================================== */
+    //gerenciador
+    Route::middleware(['gerenciador'])->group(function () {
+        /** TeacherSchoolyear */
 
         Route::get('/admin/teacherSchoolyear/list', ['as' => 'admin.teacherSchoolyear.list', 'uses' => 'Admin\TeacherSchoolyearController@index']);
         Route::post('/admin/teacherSchoolyear', ['as' => 'admin.teacherSchoolyear.store', 'uses' => 'Admin\TeacherSchoolyearController@store']);
@@ -212,7 +216,7 @@ Route::middleware('auth')->group(function () {
         /** End Ativities */
 
         Route::post('/admin/pdf/registration/', ['as' => 'admin.pdf.registration', 'uses' => 'Admin\PDFController@registration']);
-        });
+    });
 
 
 });

@@ -1,19 +1,18 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Painel')
+@section('title', 'Perfil')
 
 @section('content')
 
     <!-- Page Heading -->
 
-
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h6 class="m-0 font-weight-bold text-primary">Perfil de Usuário</h6>
         </div>
 
         <div class="row gutters-sm">
-            <div class="col-md-4 d-none d-md-block">
+            <div class="col-md-3 d-none d-md-block">
                 <div class="card">
                     <div class="card-body">
                         <nav class="nav flex-column nav-pills nav-gap-y-1">
@@ -52,7 +51,6 @@
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                 </svg>Registro
                             </a>
-
                             <a href="#log" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -65,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-header border-bottom mb-3 d-flex d-md-none">
                         <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
@@ -123,24 +121,25 @@
                         <div class="tab-pane active" id="profile">
                             <h6>INFORMAÇÃO DE PERFIL</h6>
                             <hr>
-                            <form>
+                            <form action="{{ route('admin.profile.dados', Auth::user()->id) }}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label for="name">Nome Completo</label>
-                                    <input type="text" class="form-control" id="name"
-                                        aria-describedby="fullNameHelp" placeholder="Seu Nome Completo" required
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        aria-describedby="name" placeholder="Seu Nome Completo" required
                                         value="{{ auth()->user()->name }}">
-                                    <small id="fullNameHelp" class="form-text text-muted">Seu nome pode aparecer por aqui
+                                    <small id="name" class="form-text text-muted">Seu nome pode aparecer por aqui
                                         onde você é mencionado. Você pode alterá-lo ou removê-lo a qualquer momento.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email de Endereço</label>
-                                    <input type="email" class="form-control" id="email"
+                                    <input type="email" class="form-control" id="email" name="email"
                                         aria-describedby="fullEmailHelp" placeholder="Enter your fullEmail" required
                                         value="{{ auth()->user()->email }}">
                                     <small id="fullEmailHelp" class="form-text text-muted">Seu email pode aparecer por
                                         aqui. Você pode alterá-lo.</small>
                                 </div>
-                                <button type="button" class="btn btn-primary">Atualizar Perfil</button>
+                                <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
                                 <button type="reset" class="btn btn-light">Redefinir alterações</button>
                             </form>
                         </div>
@@ -153,21 +152,27 @@
                                     <p class="text-muted font-size-sm">Depois de excluir sua conta, não há como voltar
                                         atrás.</p>
                                 </div>
-                                <button class="btn btn-danger" type="button">Deletar Conta</button>
+                                <a class="btn btn-danger delete-button"
+                                    data-based-id="{{ route('admin.profile.destroy', Auth::user()->id) }}">Remover
+                                    Conta</a>
                             </form>
                         </div>
                         <div class="tab-pane" id="security">
                             <h6>CONFIGURAÇÃO DE SEGURANÇA</h6>
                             <hr>
-                            <form>
+                            @include('extra._Error.index')
+                            <form action="{{ route('admin.profile.password', Auth::user()->id) }}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label class="d-block">Atualizar a Palavra-Passe</label>
-                                    <input type="text" class="form-control" placeholder="Palavra-Passe Antiga">
-                                    <input type="text" class="form-control mt-1" placeholder="Nova Palavra-Passe">
-                                    <input type="text" class="form-control mt-1"
-                                        placeholder="Confirmar Palavra-Passe">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="Palavra-Passe Antiga" required>
+                                    <input type="password" class="form-control mt-1" name="confirmPassword"
+                                        id="confirmPassword" placeholder="Nova Palavra-Passe" required>
+                                    <input type="password" class="form-control mt-1" name="ReConfirmPassword"
+                                        id="ReConfirmPassword" placeholder="Confirmar Palavra-Passe" required>
                                 </div>
-                                <button class="btn btn-primary" type="button">Atualizar Palavra-Passe</button>
+                                <button class="btn btn-primary" type="submit">Atualizar Palavra-Passe</button>
                             </form>
                         </div>
                         <div class="tab-pane" id="notification">
@@ -190,48 +195,42 @@
 
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
-    {{--  
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!-- Content Row -->
-        <div class="row">
-
-            <div class="col-lg-12 mb-4">
-
-                <!-- Approach -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Perfil do Usuário</h6>
-                    </div>
-
-                    <div class="card-body">
-                        <p>Nome: {{ auth()->user()->name }}</p>
-                        <p>Email: {{ auth()->user()->email }}</p>
-
-                        <div class="col-md-7 mb-2">
+                        <div class="tab-pane" id="log">
+                            <h6>LOG DE ATIVIDADE</h6>
                             <hr>
-                            <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ auth()->user()->created_at }}
-                            </p>
-                            <p class="mb-1 text-dark"><b>Última Actualização</b> {{ auth()->user()->updated_at }}
-                            </p>
+                            <div class="table-responsive">
+                                <table id="dataTable" class="table table-striped table-bordered mb-3">
+                                    <thead class="bg-primary thead-dark">
+                                        <tr class="text-center">
+                                            <th>ID</th>
+                                            <th class="text-left">CAMINHO</th>
+                                            <th>IP</th>
+                                            <th class="text-left">MENSAGEM</th>
+                                            <th class="text-center">DATA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
 
+                                        @foreach ($logs as $item)
+                                            <tr class="text-center text-dark">
+                                                <td>{{ $item->id }}</td>
+                                                <td class="text-left">{{ $item->PATH_INFO }} </td>
+                                                <td>{{ $item->REMOTE_ADDR }} </td>
+                                                <td class="text-left">{{ $item->message }} </td>
+                                                <td>{{ $item->created_at }} </td>
+
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
     </div>
-    <!-- /.container-fluid -->
-    --}}
+
 @endsection('content')

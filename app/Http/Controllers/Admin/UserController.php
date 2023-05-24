@@ -6,11 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
+
 
     public function index()
     {
@@ -61,30 +73,6 @@ class UserController extends Controller
         return view('admin.user.edit.index', $response);
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'roles' => 'required',
-        ]);
-
-        if ($request->password != $request->password_confirmation) {
-            return redirect()->back()->with('');
-        } else {
-            $user = User::find($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-
-            $user->roles()->attach($request->roles);
-
-            return redirect()->back()->with('edit', '1');
-        }
-    }
-
     public function destroy($id)
     {
         User::find($id)->delete();
@@ -95,4 +83,6 @@ class UserController extends Controller
             return redirect()->back()->with('destroy', '1');
         }
     }
+
+    
 }
