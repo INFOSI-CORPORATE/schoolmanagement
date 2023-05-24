@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
 
         // Criar os papéis desejados
         $adminRole = Role::factory()->create(['name' => 'admin']);
-        Role::factory()->create(['name' => 'gerenciador']);
         Role::factory()->create(['name' => 'registrador']);
+        Role::factory()->create(['name' => 'gerenciador']);
 
         // Associar os papéis ao usuário
         UserRole::factory()->create([

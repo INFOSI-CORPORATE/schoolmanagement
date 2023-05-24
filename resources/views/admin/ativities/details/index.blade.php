@@ -24,11 +24,9 @@
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
                                     <div class="d-flex justify-content-end">
                                         <a href="{{ route('admin.ativities.edit', $ativitie->id) }}" class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
-                                        <form action="{{ route('admin.ativities.destroy', $ativitie->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm text-end ms-2">Remover</button>
-                                        </form>
+                                        
+                                        <a class="btn btn-md btn-danger shadow-sm text-end delete-button"
+                                            data-based-id="{{ route('admin.ativities.destroy', $ativitie->id) }}">Remover</a>
                                     </div>
                                 </div>
                             </div>

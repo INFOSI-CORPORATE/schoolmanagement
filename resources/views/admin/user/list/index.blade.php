@@ -41,11 +41,8 @@
                                                     href="{{ route('admin.user.show', $user->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.user.edit', $user->id) }}">Editar</a>
-                                                    <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Remover</button>
-                                                    </form>
+                                                <a class="dropdown-item delete-button"
+                                                    data-based-id="{{ route('admin.user.destroy', $user->id) }}">Remover</a>
 
                                             </div>
                                         </div>

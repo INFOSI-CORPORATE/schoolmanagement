@@ -89,28 +89,6 @@
         })
     </script>
 @elseif(session('destroy'))
-    /*
-    <script>
-        Swal.fire({
-            title: 'Você tem a certeza?',
-            text: "Você não poderá reverter isso!",
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, remover!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
-        })
-    </script>
-    */
 
     <script>
         Swal.fire({
@@ -204,12 +182,52 @@
     </script>
 @endif
 
-
 <script>
-    function mens() {
-        confirm('Tem certeza de que deseja excluir este arquivo');
-    }
+    $('.delete-button').click(function(event) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        event.preventDefault();
+        var dadoId = $(this).data('based-id');
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: "Você não poderá desfazer esta ação!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, deletar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Faz a requisição AJAX para o controlador com o ID do aluno
+                $.ajax({
+                    url: dadoId,
+                    type: 'DELETE',
+                    success: function(response) {
+                        Swal.fire(
+                            'Deletado!',
+                            'O registro foi deletado.',
+                            'success'
+                        ).then(() => {
+                            // Recarrega a página após a exclusão
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire(
+                            'Erro!',
+                            'Ocorreu um erro ao deletar.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    });
 </script>
+
 
 
 <!-- SCRIPTS -->

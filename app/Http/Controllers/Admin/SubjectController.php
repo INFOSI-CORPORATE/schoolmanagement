@@ -57,6 +57,10 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         Subject::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'message' => 'A Disciplina foi excluída.']);
+        } else {
+            return redirect()->back()->with('destroy', '1');
+        }
     }
 }

@@ -61,6 +61,11 @@ class GradeController extends Controller
     public function destroy($id)
     {
         Grade::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'message' => 'A Classe foi excluída.']);
+        } else {
+            return redirect()->back()->with('destroy', '1');
+        }
     }
 }

@@ -82,6 +82,9 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
     public function show($id)
     {
         $response['exam'] = Exam::find($id);
+        if (!$response['exam']) {
+            return redirect()->route('admin.exam.list');
+        }
         return view('admin.exam.details.index', $response);
     }
 
@@ -141,6 +144,10 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
     public function destroy($id)
     {
         Exam::find($id)->delete();
-        return redirect('/admin/exam/list')->with('destroy', '1');
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'message' => 'O Exame foi excluído.']);
+        } else {
+            return redirect()->route('admin.exam.list')->with('destroy', '1');
+        }
     }
 }

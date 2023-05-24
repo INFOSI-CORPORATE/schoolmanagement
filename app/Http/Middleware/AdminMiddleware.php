@@ -10,12 +10,12 @@ class AdminMiddleware
     
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->user()->roles->contains('name', 'admin')) {
-            // Redirecionar ou retornar resposta de acesso negado
-            abort(403);
+        if ($request->user()->roles->contains('name', 'admin')) {
+            return $next($request);
         }
+        // Redirecionar ou retornar resposta de acesso negado
+        abort(403);
         
-        return $next($request);
     }
     
 }

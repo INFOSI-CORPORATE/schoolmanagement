@@ -57,6 +57,11 @@ class SchoolyearController extends Controller
     public function destroy($id)
     {
         Schoolyear::find($id)->delete();
-        return redirect()->back()->with('destroy', '1');
+        
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'message' => 'O Ano Lectivo foi excluído.']);
+        } else {
+            return redirect()->back()->with('destroy', '1');
+        }
     }
 }

@@ -62,6 +62,10 @@ class AtivitieController extends Controller
     public function show($id)
     {
         $response['ativitie'] = Ativitie::find($id);
+        if (!$response['ativitie']) {
+            return redirect()->route('admin.ativities.list');
+        }
+        
         return view('admin.ativities.details.index', $response);
     }
 
@@ -108,7 +112,15 @@ class AtivitieController extends Controller
 
     public function destroy($id)
     {
-        Ativitie::find($id)->delete();
-        return redirect('/admin/ativities/list')->with('destroy', '1');
+        $atividade = Ativitie::find($id);
+
+        if (!$atividade) {
+            return response()->json(['success' => false, 'message' => 'Atividade não encontrada.'], 404);
+        }
+
+        $atividade->delete();
+
+        return response()->json(['success' => true, 'message' => 'A Atividade foi excluída.']);
     }
+
 }

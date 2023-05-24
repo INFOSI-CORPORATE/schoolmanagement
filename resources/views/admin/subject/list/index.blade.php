@@ -39,11 +39,8 @@
                                                     href="{{ route('admin.subject.show', $subject->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.subject.edit', $subject->id) }}">Editar</a>
-                                                    <form action="{{ route('admin.subject.destroy', $subject->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Remover</button>
-                                                    </form>
+                                                    <a class="dropdown-item delete-button"
+                                                    data-based-id="{{ route('admin.subject.destroy', $subject->id) }}">Remover</a>
                                             </div>
                                         </div>
                                     </td>

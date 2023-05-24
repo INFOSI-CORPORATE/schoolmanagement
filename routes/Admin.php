@@ -49,7 +49,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/student/edit/{id}', ['as' => 'admin.student.edit', 'uses' => 'Admin\StudentController@edit']);
         /** End Student   */
 
-
         /** Teacher   */
 
         Route::get('/admin/teacher/list', ['as' => 'admin.teacher.list', 'uses' => 'Admin\TeacherController@index']);

@@ -23,15 +23,14 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5 p-0">
                                     <div class="d-flex justify-content-end">
-                                        <a href="{{ route('admin.exam.edit', $exam->id) }}" class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
-                                        <form action="{{ route('admin.exam.destroy', $exam->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-md btn-danger shadow-sm text-end ms-2">Remover</button>
-                                        </form>
+                                        <a href="{{ route('admin.exam.edit', $exam->id) }}"
+                                            class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
+
+                                        <a class="btn btn-md btn-danger shadow-sm text-end delete-button"
+                                            data-based-id="{{ route('admin.exam.destroy', $exam->id) }}">Remover</a>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
 
