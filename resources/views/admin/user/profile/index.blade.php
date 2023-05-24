@@ -65,6 +65,7 @@
             </div>
             <div class="col-md-9">
                 <div class="card">
+                    @include('extra._Error.index')
                     <div class="card-header border-bottom mb-3 d-flex d-md-none">
                         <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
                             <li class="nav-item">
@@ -160,7 +161,6 @@
                         <div class="tab-pane" id="security">
                             <h6>CONFIGURAÇÃO DE SEGURANÇA</h6>
                             <hr>
-                            @include('extra._Error.index')
                             <form action="{{ route('admin.profile.password', Auth::user()->id) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
