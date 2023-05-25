@@ -199,8 +199,8 @@
                             <h6>LOG DE ATIVIDADE</h6>
                             <hr>
                             <div class="table-responsive">
-                                <table id="dataTable" class="table table-striped table-bordered mb-3">
-                                    <thead class="bg-primary thead-dark">
+                                <table id="dataTable" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
                                         <tr class="text-center">
                                             <th>ID</th>
                                             <th class="text-left">CAMINHO</th>

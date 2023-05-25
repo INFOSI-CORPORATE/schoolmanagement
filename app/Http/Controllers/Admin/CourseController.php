@@ -6,9 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Exception;
-
+use App\Classes\Logger;
+use App\Models\Log;
 class CourseController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['courses'] = Course::OrderBy('id', 'Desc')->get();

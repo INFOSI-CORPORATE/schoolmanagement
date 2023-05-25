@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Classes\Logger;
+use App\Models\Log;
 class RuleController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['rules'] = Rule::OrderBy('id','Desc')->get();

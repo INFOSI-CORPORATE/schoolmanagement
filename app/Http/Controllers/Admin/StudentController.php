@@ -6,10 +6,17 @@ use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
-use Illuminate\Support\Facades\Log;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class StudentController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['students'] = Student::OrderBy('id', 'Desc')->get();

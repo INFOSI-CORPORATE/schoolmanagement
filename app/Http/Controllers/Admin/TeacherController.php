@@ -5,9 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Teacher;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class TeacherController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
+    
     public function index()
     {
         $response['teachers'] = Teacher::OrderBy('id','Desc')->get();

@@ -10,9 +10,17 @@ use App\Models\Grade;
 use App\Models\Schoolyear;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class CourseClasseGradeStudentSchoolyearController extends Controller
 {
+private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id','Desc')->get();

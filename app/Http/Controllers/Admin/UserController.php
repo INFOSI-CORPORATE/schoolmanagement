@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-
     private $Logger;
 
     public function __construct()

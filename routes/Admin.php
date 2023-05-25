@@ -215,7 +215,7 @@ Route::middleware('auth')->group(function () {
 
         /** End Ativities */
 
-        Route::post('/admin/pdf/registration/', ['as' => 'admin.pdf.registration', 'uses' => 'Admin\PDFController@registration']);
+        Route::get('/admin/pdf/registration/', ['as' => 'admin.pdf.registration', 'uses' => 'Admin\PDFController@registration']);
     });
 
 

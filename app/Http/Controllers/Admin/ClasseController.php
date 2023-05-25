@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Classe;
 use Illuminate\Http\Request;
-
+use App\Classes\Logger;
+use App\Models\Log;
 class ClasseController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['classes'] = Classe::OrderBy('id','Desc')->get();

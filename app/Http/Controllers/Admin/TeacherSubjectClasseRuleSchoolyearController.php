@@ -10,9 +10,18 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class TeacherSubjectClasseRuleSchoolyearController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
+    
     public function index()
     {
         $response['teachersSubjectsClassesRulesSchoolyears'] = TeacherSubjectClasseRuleSchoolyear::OrderBy('id','Desc')->get();

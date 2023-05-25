@@ -12,6 +12,8 @@ use App\Models\TeacherSubjectClasseRuleSchoolyear as Teacher;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Rule;
+use App\Classes\Logger;
+use App\Models\Log;
 
 
 
@@ -19,6 +21,13 @@ use Illuminate\Contracts\Validation\Rule;
 
 class TeacherClasseCourseGradeSubjetcController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
+    
     public function index()
     {
         $response['exams'] = Exam::OrderBy('id', 'Desc')->get();

@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Ativitie;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class AtivitieController extends Controller
 {
+    private $Logger;
 
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['ativities'] = Ativitie::OrderBy('id', 'Desc')->get();
@@ -17,6 +24,7 @@ class AtivitieController extends Controller
 
     public function create()
     {
+        $this->Logger->log('info', 'Criar ');
         return view('admin.ativities.create.index');
     }
 

@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Schoolyear;
 use Illuminate\Http\Request;
+use App\Classes\Logger;
+use App\Models\Log;
 
 class SchoolyearController extends Controller
 {
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger();
+    }
     public function index()
     {
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
@@ -25,6 +33,10 @@ class SchoolyearController extends Controller
         $data = $this->validate($request, [
             'name' => 'required',
             'details' => 'required|max:500',
+        ],[
+            'name.required' => 'O campo nome é obrigatório.',
+            'details.required' => 'O campo detalhes é obrigatório.',
+            'details.max' => 'O campo detalhes não pode exceder os 500 caractéres.',
         ]);
 
         Schoolyear::create($data);
@@ -48,6 +60,10 @@ class SchoolyearController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'details' => 'required|max:500',
+        ],[
+            'name.required' => 'O campo nome é obrigatório.',
+            'details.required' => 'O campo detalhes é obrigatório.',
+            'details.max' => 'O campo detalhes não pode exceder os 500 caractéres.',
         ]);
 
         Schoolyear::find($id)->update($data);
