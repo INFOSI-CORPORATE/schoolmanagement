@@ -1,10 +1,11 @@
 <div class="row">
     <div class="col-md-6 py-2">
         <div class="row">
-
+            <p class="text-muted font-size-sm">Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</p>
             <div class="col-md-6">
                 <label for="nProcess">Escolha Nº de Processo (Não obrigatório)</label>
-                <input class="form-control" type="text" name="nProcess" id="nProcess" placeholder="Nº de Processo" value="{{ old('nProcess') }}">
+                <input class="form-control" type="text" name="nProcess" id="nProcess" placeholder="Nº de Processo"
+                    value="{{ old('nProcess') }}">
             </div>
             <div class="col-md-6">
                 <label for="fk_students_id">Escolha Aluno</label>
@@ -12,14 +13,14 @@
                     <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
                     @foreach ($students as $student)
                         <option value="{{ $student->id }}"
-                            {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->students->id == $student->id ? 'selected' : ((old('fk_students_id') == $student->id) ? 'selected' : '') }}>
+                            {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->students->id == $student->id ? 'selected' : (old('fk_students_id') == $student->id ? 'selected' : '') }}>
                             {{ $student->name }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
 
- 
+
     </div>
 
     <div class="col-md-6 py-2">
@@ -28,7 +29,7 @@
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
             @foreach ($courses as $course)
                 <option value="{{ $course->id }}"
-                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->courses->id == $course->id ? 'selected' : ((old('fk_courses_id') == $course->id) ? 'selected' : '') }}>
+                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->courses->id == $course->id ? 'selected' : (old('fk_courses_id') == $course->id ? 'selected' : '') }}>
                     {{ $course->name }}</option>
             @endforeach
         </select>
@@ -40,7 +41,7 @@
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
             @foreach ($classes as $classe)
                 <option value="{{ $classe->id }}"
-                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->classes->id == $classe->id ? 'selected' : ((old('fk_classes_id') == $classe->id) ? 'selected' : '') }}>
+                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->classes->id == $classe->id ? 'selected' : (old('fk_classes_id') == $classe->id ? 'selected' : '') }}>
                     {{ $classe->name }}</option>
             @endforeach
         </select>
@@ -52,7 +53,7 @@
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
             @foreach ($grades as $grade)
                 <option value="{{ $grade->id }}"
-                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->grades->id == $grade->id ? 'selected' : ((old('fk_grades_id') == $grade->id) ? 'selected' : '') }}>
+                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->grades->id == $grade->id ? 'selected' : (old('fk_grades_id') == $grade->id ? 'selected' : '') }}>
                     {{ $grade->name }}</option>
             @endforeach
         </select>
@@ -64,7 +65,7 @@
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
             @foreach ($schoolyears as $schoolyear)
                 <option value="{{ $schoolyear->id }}"
-                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->grades->id == $schoolyear->id ? 'selected' : ((old('fk_schoolyears_id') == $schoolyear->id) ? 'selected' : '') }}>
+                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->grades->id == $schoolyear->id ? 'selected' : (old('fk_schoolyears_id') == $schoolyear->id ? 'selected' : '') }}>
                     {{ $schoolyear->name }}</option>
             @endforeach
         </select>
@@ -74,13 +75,13 @@
         <select class="form-control" name="season" id="season" required>
             <option></option>
             <option value="Manhã"
-                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'Manhã' ? 'selected' : ((old('season') == 'Manhã') ? 'selected' : '') }}>
+                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'Manhã' ? 'selected' : (old('season') == 'Manhã' ? 'selected' : '') }}>
                 Manhã</option>
             <option value="tarde"
-                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'tarde' ? 'selected' : ((old('season') == 'tarde') ? 'selected' : '') }}>
+                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'tarde' ? 'selected' : (old('season') == 'tarde' ? 'selected' : '') }}>
                 tarde</option>
             <option value="Noite"
-                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'Noite' ? 'selected' : ((old('season') == 'Noite') ? 'selected' : '') }}>
+                {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->season == 'Noite' ? 'selected' : (old('season') == 'Noite' ? 'selected' : '') }}>
                 Noite</option>
         </select>
     </div>
@@ -103,8 +104,8 @@
             });
         });
     });
-    
-// Preencher o nome
+
+    // Preencher o nome
 
     $('#nProcess').on('input', function() {
         var nProcess = $(this).val();
@@ -123,9 +124,11 @@
                     console.log(data);
                     $('#fk_students_id').empty();
                     if (data) {
-                        $('#fk_students_id').append($('<option>').text(data.name).attr('value', data.id));
+                        $('#fk_students_id').append($('<option>').text(data.name).attr('value', data
+                            .id));
                     } else {
-                        $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado').attr('value', ''));
+                        $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado')
+                            .attr('value', ''));
                     }
                 }
             });
@@ -156,5 +159,4 @@
             });
         }
     });  --}}
-    
 </script>
