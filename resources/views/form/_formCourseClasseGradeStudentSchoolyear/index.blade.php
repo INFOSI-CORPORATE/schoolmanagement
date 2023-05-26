@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 py-2">
         <div class="row">
-            <p class="text-muted font-size-sm">Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</p>
+            
             <div class="col-md-6">
                 <label for="nProcess">Escolha Nº de Processo (Não obrigatório)</label>
                 <input class="form-control" type="text" name="nProcess" id="nProcess" placeholder="Nº de Processo"
@@ -18,6 +18,7 @@
                     @endforeach
                 </select>
             </div>
+            <p class="text-muted">&nbsp;&nbsp;&nbsp;Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</p>
         </div>
 
 
