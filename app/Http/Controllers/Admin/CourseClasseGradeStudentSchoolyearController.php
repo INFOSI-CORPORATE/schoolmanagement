@@ -126,4 +126,11 @@ private $Logger;
         $students = Student::where('nProcess', $nProcess)->first();
         return response()->json($students);
     }
+
+    public function getNProcess($student)
+    {
+        $nProcess = Student::where('name', $student)->first();
+        return response()->json($nProcess);
+    }
+
 }

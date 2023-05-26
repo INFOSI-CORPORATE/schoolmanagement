@@ -35,7 +35,7 @@
 <body>
     <header class="header">
         <div class="img">
-            {{--  <img src="{{ public_path('/dashboard/assets/img/insignia.png') }}" alt="">  --}}
+            <img src="/dashboard/assets/img/insignia.png" alt="">
         </div>
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>

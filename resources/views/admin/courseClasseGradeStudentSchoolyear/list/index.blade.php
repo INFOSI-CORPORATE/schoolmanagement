@@ -25,7 +25,7 @@
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog">
 
-                            <form action="{{ route('pdf.registration') }}" method="get">
+                            <form action="{{ route('pdf.registration') }}" method="get" target="_blank">
                                 @csrf
                                 <!-- Modal content-->
                                 <div class="modal-content">

@@ -31,7 +31,7 @@ class PDFController extends Controller
             ->whereNull('registrations.deleted_at')
             ->get();
         $pdf = PDF::loadview('pdf.registration.index', $response);
-        return $pdf->setPaper('a4', 'landscape')->stream('pdf');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
 
     }
 

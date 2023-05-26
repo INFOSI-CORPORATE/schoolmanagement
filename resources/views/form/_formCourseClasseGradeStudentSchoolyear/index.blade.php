@@ -15,7 +15,6 @@
                             {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->students->id == $student->id ? 'selected' : ((old('fk_students_id') == $student->id) ? 'selected' : '') }}>
                             {{ $student->name }}</option>
                     @endforeach
-
                 </select>
             </div>
         </div>
@@ -104,6 +103,8 @@
             });
         });
     });
+    
+// Preencher o nome
 
     $('#nProcess').on('input', function() {
         var nProcess = $(this).val();
@@ -130,4 +131,30 @@
             });
         }
     });
+
+    // Preencher o id
+
+    {{--  $('#name').on('change', function() {
+        var student = $(this).val();
+    
+        if (student === '') {
+            $('#nprocess').empty();
+            $.each(students, function(key, value) {
+                $('#nprocess').append($('<input>').text(value.text).attr('value', value.value));
+            });
+        } else {
+            $.ajax({
+                url: '/get/nprocess/' + student,
+                type: 'get',
+                datatype: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $('#nprocess').empty();
+    
+                    $('#nprocess').append($('<input>').val(data.id));
+                }
+            });
+        }
+    });  --}}
+    
 </script>
