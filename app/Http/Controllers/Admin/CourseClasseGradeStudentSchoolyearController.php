@@ -24,6 +24,7 @@ private $Logger;
     public function index()
     {
         $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         return view('admin.courseClasseGradeStudentSchoolyear.list.index', $response);
     }
 

@@ -4,7 +4,14 @@
 </div>
 <div class="modal-body">
     <label for="schoolyear">Imprimir pelo ano lectivo.</label>
-    <input type="text" class="form-control" name="schoolyear" id="schoolyear" />
+    <label for="schoolyear">Escolha o Ano lectivo</label>
+        <select class="form-control" name="schoolyear" id="schoolyear" required>
+            opt
+            @foreach ($schoolyears as $schoolyear)
+                <option value="{{ $schoolyear->name }}" (old('fk_schoolyears_id') == $schoolyear->name) ? 'selected' : ''>
+                    {{ $schoolyear->name }}</option>
+            @endforeach
+        </select>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
