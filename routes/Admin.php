@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/profile/password/{id}', ['as' => 'admin.profile.password', 'uses' => 'Auth\ProfileController@password']);
     Route::delete('/admin/profile/{id}', ['as' => 'admin.profile.destroy', 'uses' => 'Admin\UserController@destroy']);
 
+    Route::get('admin/pagamentos/fatura/{code}', ['as' => 'admin.payments.invoice', 'uses' => 'Admin\PDFController@print']);
+
     /** ============================================================================== */
     /** |                                                                            | */
     /** |                                                                            | */
@@ -215,7 +217,7 @@ Route::middleware('auth')->group(function () {
 
         /** End Ativities */
 
-        Route::get('/pdf/registration/{schoolyear}', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);
+        Route::get('/pdf/registration/', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);
     });
 
 

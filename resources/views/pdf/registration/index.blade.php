@@ -2,8 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Lista de Matrículados</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Maticulados-{{ date('d/m/Y', strtotime(now())) }}</title>
     <style>
         table {
             font-family: arial, sans-serif;
@@ -32,14 +35,13 @@
 <body>
     <header class="header">
         <div class="img">
-            <img src="{{ public_path('/dashboard/assets/img/insignia.png') }}" alt="">
+            {{--  <img src="{{ public_path('/dashboard/assets/img/insignia.png') }}" alt="">  --}}
         </div>
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>
         <div class="text-center">SISTEMA DE GESTÃO ESCOLAR</div>
         <div class="text-center">LISTA DE ALUNOS MATRICULADOS</div>
     </header>
-
 
     <main>
         <div class="main">
@@ -69,8 +71,12 @@
             </table>
         </div>
     </main>
+    <hr class="pylarge bg-dark">
+    <footer class="col-12 mt-2 text-center" id="footer">
 
-    <footer>
+        <small class="text-left text-dark">
+            Documento Processado por Computador. <br>
+        </small>
 
     </footer>
 

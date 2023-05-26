@@ -6,10 +6,9 @@
     <label for="schoolyear">Imprimir pelo ano lectivo.</label>
     <label for="schoolyear">Escolha o Ano lectivo</label>
         <select class="form-control" name="schoolyear" id="schoolyear" required>
-            opt
+            <option value=""></option>
             @foreach ($schoolyears as $schoolyear)
-                <option value="{{ $schoolyear->name }}" (old('fk_schoolyears_id') == $schoolyear->name) ? 'selected' : ''>
-                    {{ $schoolyear->name }}</option>
+                <option value="{{ $schoolyear->name }}">{{ $schoolyear->name }}</option>
             @endforeach
         </select>
 </div>
