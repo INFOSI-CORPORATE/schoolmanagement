@@ -53,6 +53,7 @@ class ProfileController extends Controller
             'email' => $request->email,
         ]);
 
+        $this->Logger->log('info', 'Atualizou suas informações de perfil');
         return redirect()->back()->with('edit', '1');
 
     }
@@ -77,6 +78,7 @@ class ProfileController extends Controller
                 'password' => Hash::make($request->confirmPassword),
             ]);
 
+            $this->Logger->log('info', 'Atualizou sua Palavra-Passe');
             return redirect()->back()->with('edit', '1');
         } else {
             return redirect()->back()->with('error_password', '1');
@@ -92,6 +94,7 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou seu perfil');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O User foi excluído.']);

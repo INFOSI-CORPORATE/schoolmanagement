@@ -41,7 +41,7 @@
                                                     href="{{ route('admin.user.show', $user->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.user.edit', $user->id) }}">Editar</a>
-                                                <a class="dropdown-item delete-button"
+                                                <a class="dropdown-item delete-button" href="#"
                                                     data-based-id="{{ route('admin.user.destroy', $user->id) }}">Remover</a>
 
                                             </div>

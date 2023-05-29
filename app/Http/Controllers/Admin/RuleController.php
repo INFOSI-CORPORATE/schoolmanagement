@@ -18,12 +18,16 @@ class RuleController extends Controller
     public function index()
     {
         $response['rules'] = Rule::OrderBy('id','Desc')->get();
+        
+        $this->Logger->log('info', 'Lista de Cargos');
         return view('admin.rule.list.index', $response)->with('success', '1');
     }
 
 
     public function create()
     {
+        
+        $this->Logger->log('info', 'Criar Cargo');
         return view('admin.rule.create.index');
     }
 
@@ -39,18 +43,24 @@ class RuleController extends Controller
     );
 
         Rule::create($data);
+        
+        $this->Logger->log('info', 'Cadastrou Cargo');
         return redirect()->back()->with('create', '1');
     }
 
     public function show($id)
     {
         $response['rule'] = Rule::find($id);
+        
+        $this->Logger->log('info', 'Detalhes do Cargo');
         return view('admin.rule.details.index', $response);
     }
 
     public function edit($id)
     {
         $response['rule'] = Rule::find($id);
+        
+        $this->Logger->log('info', 'Editar o Cargo');
         return view('admin.rule.edit.index', $response);
     }
 
@@ -65,12 +75,16 @@ class RuleController extends Controller
         ]);
 
         Rule::find($id)->update($data);
+        
+        $this->Logger->log('info', 'Atualizou o Cargo');
         return redirect()->route('admin.rule.list')->with('edit', '1');
     }
 
     public function destroy($id)
     {
         Rule::find($id)->delete();
+        
+        $this->Logger->log('info', 'Eliminou o Cargo');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Cargo foi excluído.']);

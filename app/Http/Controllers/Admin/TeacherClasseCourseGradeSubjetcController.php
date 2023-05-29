@@ -31,6 +31,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
     public function index()
     {
         $response['exams'] = Exam::OrderBy('id', 'Desc')->get();
+        $this->Logger->log('info', 'Calendario de Exames');
         return view('admin.exam.list.index', $response);
     }
 
@@ -42,6 +43,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         $response['courses'] = Course::OrderBy('id', 'Desc')->get();
         $response['grades'] = Grade::OrderBy('id', 'Desc')->get();
         $response['subjects'] = Subject::OrderBy('id', 'Desc')->get();
+        $this->Logger->log('info', 'Criar Exame');
 
         return view('admin.exam.create.index', $response);
     }
@@ -85,6 +87,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         $data['end'] = $end;
 
         Exam::create($data);
+        $this->Logger->log('info', 'Cadastrou Exame');
         return redirect()->back()->with('create', '1');
     }
 
@@ -94,6 +97,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         if (!$response['exam']) {
             return redirect()->route('admin.exam.list');
         }
+        $this->Logger->log('info', 'Detalhes do Exame');
         return view('admin.exam.details.index', $response);
     }
 
@@ -106,6 +110,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         $response['subjects'] = Subject::OrderBy('id', 'Desc')->get();
 
         $response['exam'] = Exam::find($id);
+        $this->Logger->log('info', 'Editar Exame');
         return view('admin.exam.edit.index', $response);
     }
 
@@ -147,12 +152,14 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         $data['end'] = $end;
         
         Exam::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou o Exame');
         return redirect()->route('admin.exam.list')->with('edit', '1');
     }
 
     public function destroy($id)
     {
         Exam::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou a Exame');
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Exame foi excluído.']);
         } else {

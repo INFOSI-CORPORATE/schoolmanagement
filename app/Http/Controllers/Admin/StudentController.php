@@ -20,6 +20,7 @@ class StudentController extends Controller
     public function index()
     {
         $response['students'] = Student::OrderBy('id', 'Desc')->get();
+        $this->Logger->log('info', 'Lista de Alunos');
         return view('admin.student.list.index', $response)->with('success', '1');
     }
 
@@ -27,6 +28,7 @@ class StudentController extends Controller
     public function create()
     {
         $response['total'] = Student::withTrashed()->count();
+        $this->Logger->log('info', 'Criar Aluno');
         return view('admin.student.create.index', $response);
     }
 
@@ -66,6 +68,7 @@ class StudentController extends Controller
             return $ex;
         }
 
+        $this->Logger->log('info', 'Cadastrou Aluno');
         return redirect()->back()->with('create', '1');
     }
 
@@ -73,6 +76,7 @@ class StudentController extends Controller
     public function show($id)
     {
         $response['student'] = Student::find($id);
+        $this->Logger->log('info', 'Detalhes do Aluno');
         return view('admin.student.details.index', $response);
 
     }
@@ -82,6 +86,7 @@ class StudentController extends Controller
     {
         $response['student'] = Student::find($id);
         $response['total'] = Student::withTrashed()->count();
+        $this->Logger->log('info', 'Editar Aluno');
         return view('admin.student.edit.index', $response);
     }
 
@@ -100,6 +105,7 @@ class StudentController extends Controller
             'dateBirth' => 'required',
         ]);
         Student::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou o Aluno');
         return redirect()->route('admin.student.list')->with('edit', '1');
     }
 
@@ -108,14 +114,14 @@ class StudentController extends Controller
     {
 
         $student = Student::find($id);
-        
+
         // Verifica se o aluno está associado a outro registro
         if ($student->schoolyears->count() > 0) {
             return redirect()->back()->with('students_destroy_error', '1');
         }
-
         $student->delete();
-        
+$this->Logger->log('info', 'Eliminou o Aluno');
+
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O aluno foi excluído.']);
         } else {

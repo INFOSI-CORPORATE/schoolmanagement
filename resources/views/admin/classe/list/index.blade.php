@@ -39,7 +39,7 @@
                                                     href="{{ route('admin.classe.show', $classe->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.classe.edit', $classe->id) }}">Editar</a>
-                                                <a class="dropdown-item delete-button"
+                                                <a class="dropdown-item delete-button" href="#"
                                                     data-based-id="{{ route('admin.classe.destroy', $classe->id) }}">Remover</a>
 
                                             </div>

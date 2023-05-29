@@ -19,12 +19,16 @@ class SchoolyearController extends Controller
     public function index()
     {
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        
+        $this->Logger->log('info', 'Lista de Anos Lectivos');
         return view('admin.schoolyear.list.index', $response)->with('success', '1');
     }
 
 
     public function create()
     {
+        
+        $this->Logger->log('info', 'Criar Ano Lectivo');
         return view('admin.schoolyear.create.index');
     }
 
@@ -40,18 +44,24 @@ class SchoolyearController extends Controller
         ]);
 
         Schoolyear::create($data);
+        
+        $this->Logger->log('info', 'Cadastrou Ano Lectivo');
         return redirect()->back()->with('create', '1');
     }
 
     public function show($id)
     {
         $response['schoolyear'] = Schoolyear::find($id);
+        
+        $this->Logger->log('info', 'Detalhes do Ano Lectivo');
         return view('admin.schoolyear.details.index', $response);
     }
 
     public function edit($id)
     {
         $response['schoolyear'] = Schoolyear::find($id);
+        
+        $this->Logger->log('info', 'Editar Ano Lectivo');
         return view('admin.schoolyear.edit.index', $response);
     }
 
@@ -67,12 +77,16 @@ class SchoolyearController extends Controller
         ]);
 
         Schoolyear::find($id)->update($data);
+        
+        $this->Logger->log('info', 'Atualizou o Ano Lectivo');
         return redirect()->route('admin.schoolyear.list')->with('edit', '1');
     }
 
     public function destroy($id)
     {
         Schoolyear::find($id)->delete();
+        
+        $this->Logger->log('info', 'Eliminou o Ano Lectivo');
         
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Ano Lectivo foi excluído.']);

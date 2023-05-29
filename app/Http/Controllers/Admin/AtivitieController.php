@@ -119,19 +119,20 @@ class AtivitieController extends Controller
         $data['end'] = $end;
 
         Ativitie::find($id)->update($data);
+        $this->Logger->log('info', 'Actualizou Atividade');
         return redirect()->route('admin.ativities.list')->with('edit', '1');
     }
 
     public function destroy($id)
     {
         $atividade = Ativitie::find($id);
+        $this->Logger->log('info', 'Eliminou a Atividade');
 
         if (!$atividade) {
             return response()->json(['success' => false, 'message' => 'Atividade não encontrada.'], 404);
         }
 
         $atividade->delete();
-
         return response()->json(['success' => true, 'message' => 'A Atividade foi excluída.']);
     }
 

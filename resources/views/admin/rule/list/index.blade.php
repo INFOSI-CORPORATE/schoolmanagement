@@ -39,7 +39,7 @@
                                                     href="{{ route('admin.rule.show', $rule->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.rule.edit', $rule->id) }}">Editar</a>
-                                                <a class="dropdown-item delete-button"
+                                                <a class="dropdown-item delete-button" href="#"
                                                     data-based-id="{{ route('admin.rule.destroy', $rule->id) }}">Remover</a>
                                             </div>
                                         </div>

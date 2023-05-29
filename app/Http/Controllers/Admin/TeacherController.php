@@ -20,12 +20,14 @@ class TeacherController extends Controller
     public function index()
     {
         $response['teachers'] = Teacher::OrderBy('id','Desc')->get();
+        $this->Logger->log('info', 'Lista de Professores');
         return view('admin.teacher.list.index', $response)->with('success', '1');
     }
 
 
     public function create()
     {
+        $this->Logger->log('info', 'Criar Professor');
         return view('admin.teacher.create.index');
     }
 
@@ -42,18 +44,21 @@ class TeacherController extends Controller
         ]);
 
         Teacher::create($data);
+        $this->Logger->log('info', 'Cadastrou Professor');
         return redirect()->back()->with('create', '1');
     }
 
     public function show($id)
     {
         $response['teacher'] = Teacher::find($id);
+        $this->Logger->log('info', 'Detalhes do Professor');
         return view('admin.teacher.details.index', $response);
     }
 
     public function edit($id)
     {
         $response['teacher'] = Teacher::find($id);
+        $this->Logger->log('info', 'Editar Professor');
         return view('admin.teacher.edit.index', $response);
     }
 
@@ -70,6 +75,7 @@ class TeacherController extends Controller
         ]);
 
         Teacher::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou o Professor');
         return redirect()->route('admin.teacher.list')->with('edit', '1');
     }
 
@@ -81,6 +87,7 @@ class TeacherController extends Controller
             return redirect()->back()->with('teachers_destroy_error', '1');
         }
         $teacher->delete();
+        $this->Logger->log('info', 'Eliminou o Professor');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Professor foi excluído.']);

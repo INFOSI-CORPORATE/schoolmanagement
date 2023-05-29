@@ -25,6 +25,7 @@ private $Logger;
     {
         $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $this->Logger->log('info', 'Lista de Alunos Matriculados');
         return view('admin.courseClasseGradeStudentSchoolyear.list.index', $response);
     }
 
@@ -36,6 +37,7 @@ private $Logger;
         $response['grades'] = Grade::OrderBy('id','Desc')->get();
         $response['students'] = Student::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $this->Logger->log('info', 'Matricular Aluno');
         return view('admin.courseClasseGradeStudentSchoolyear.create.index', $response);
     }
 
@@ -60,6 +62,7 @@ private $Logger;
         ]);
 
         CourseClasseGradeStudentSchoolyear::create($data);
+        $this->Logger->log('info', 'Matriculou um Aluno');
         return redirect()->back()->with('create', '1');
     }
 
@@ -67,6 +70,7 @@ private $Logger;
     public function show($id)
     {
         $response['courseClasseGradeStudentSchoolyear'] = CourseClasseGradeStudentSchoolyear::find($id);
+        $this->Logger->log('info', 'Detalhes da Matricula');
         return view('admin.courseClasseGradeStudentSchoolyear.details.index', $response);
     }
 
@@ -79,6 +83,7 @@ private $Logger;
         $response['students'] = Student::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $response['courseClasseGradeStudentSchoolyear'] = CourseClasseGradeStudentSchoolyear::find($id);
+        $this->Logger->log('info', 'Editar Matricula');
         return view('admin.courseClasseGradeStudentSchoolyear.edit.index', $response);
     }
 
@@ -103,6 +108,7 @@ private $Logger;
         ]);
 
         CourseClasseGradeStudentSchoolyear::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou a Matricula');
         return redirect()->route('admin.courseClasseGradeStudentSchoolyear.list')->with('edit', '1');
     }
 
@@ -110,6 +116,8 @@ private $Logger;
     public function destroy($id)
     {
         CourseClasseGradeStudentSchoolyear::find($id)->delete();
+        $this->Logger->log('info', 'Removeu a Matricula');
+        
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'A Matrícula foi excluída.']);
         } else {

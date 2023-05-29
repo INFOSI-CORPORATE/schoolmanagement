@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -13,6 +14,14 @@ use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
 {
+
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
+
     /**
      * Display the registration view.
      *
@@ -20,6 +29,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        //Logger
+        $this->Logger->log('info', 'Entrou em Criar uma Conta de Utilizador');
         return view('auth.register');
     }
 
@@ -46,6 +57,9 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+        
+        //Logger
+        $this->Logger->log('info', 'Criou uma conta de Utilizador de ' . $user->name);
 
         Auth::login($user);
 

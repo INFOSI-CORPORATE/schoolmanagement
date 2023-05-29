@@ -25,6 +25,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
     public function index()
     {
         $response['teachersSubjectsClassesRulesSchoolyears'] = TeacherSubjectClasseRuleSchoolyear::OrderBy('id','Desc')->get();
+        $this->Logger->log('info', 'Lista de Admissão de Professores');
         return view('admin.teacherSubjectClasseRuleSchoolyear.list.index', $response);
     }
 
@@ -36,6 +37,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
         $response['classes'] = Classe::OrderBy('id','Desc')->get();
         $response['rules'] = Rule::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $this->Logger->log('info', 'Admitir Professor');
         return view('admin.teacherSubjectClasseRuleSchoolyear.create.index', $response);
     }
 
@@ -60,6 +62,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
         ]);
 
         TeacherSubjectClasseRuleSchoolyear::create($data);
+        $this->Logger->log('info', 'Admitiu o Professor');
         return redirect()->back()->with('create', '1');
     }
 
@@ -67,6 +70,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
     public function show($id)
     {
         $response['teacherSubjectClasseRuleSchoolyear'] = TeacherSubjectClasseRuleSchoolyear::find($id);
+        $this->Logger->log('info', 'Detalhes da Admissão do Professor');
         return view('admin.teacherSubjectClasseRuleSchoolyear.details.index', $response);
     }
 
@@ -79,6 +83,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
         $response['rules'] = Rule::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $response['teacherSubjectClasseRuleSchoolyear'] = TeacherSubjectClasseRuleSchoolyear::find($id);
+        $this->Logger->log('info', 'Editar Admissão do Professor');
         return view('admin.teacherSubjectClasseRuleSchoolyear.edit.index', $response);
     }
 
@@ -103,6 +108,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
         ]);
 
         TeacherSubjectClasseRuleSchoolyear::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou a Admissão do Professor');
         return redirect()->route('admin.teacherSubjectClasseRuleSchoolyear.list')->with('edit', '1');
     }
 
@@ -110,6 +116,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
     public function destroy($id)
     {
         TeacherSubjectClasseRuleSchoolyear::find($id)->delete();
+        $this->Logger->log('info', 'Removeu o Admissão do Professor');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Contrato foi excluído.']);

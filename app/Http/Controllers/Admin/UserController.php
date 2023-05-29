@@ -26,12 +26,14 @@ class UserController extends Controller
     public function index()
     {
         $response['users'] = User::OrderBy('id', 'Desc')->get();
+        $this->Logger->log('info', 'Lista de Usuários');
         return view('admin.user.list.index', $response);
     }
 
     public function create()
     {
         $response['roles'] = Role::get();
+        $this->Logger->log('info', 'Criar Usuário');
         return view('admin.user.create.index', $response);
     }
 
@@ -53,6 +55,7 @@ class UserController extends Controller
             ]);
 
             $user->roles()->attach($request->roles);
+        $this->Logger->log('info', 'Cadastrou Usuário');
 
             return redirect()->back()->with('create', '1');
         }
@@ -62,6 +65,7 @@ class UserController extends Controller
     public function show($id)
     {
         $response['user'] = User::find($id);
+        $this->Logger->log('info', 'Detalhes do Usuário');
         return view('admin.user.details.index', $response);
     }
 
@@ -69,6 +73,7 @@ class UserController extends Controller
     {
         $response['user'] = User::find($id);
         $response['roles'] = Role::get();
+        $this->Logger->log('info', 'Editar Usuário');
         return view('admin.user.edit.index', $response);
     }
 
@@ -93,6 +98,7 @@ class UserController extends Controller
             // dd($user->roles());
 
             $user->roles()->attach($request->roles);
+        $this->Logger->log('info', 'Atualizou o Usuário');
 
             return redirect()->route('admin.user.list')->with('edit', '1');
         }
@@ -102,6 +108,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
+        $this->Logger->log('info', 'Eliminou o Usuário');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O User foi excluído.']);
