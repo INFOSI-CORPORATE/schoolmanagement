@@ -18,9 +18,8 @@
                     @endforeach
                 </select>
             </div>
-            <p class="text-muted">&nbsp;&nbsp;&nbsp;Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</p>
+            <div class="col-md-12 text-muted">Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</div>
         </div>
-
     </div>
 
     <div class="col-md-6 py-2">
@@ -137,13 +136,13 @@
 
     // Preencher o id
 
-    {{--  $('#name').on('change', function() {
+    $('#fk_students_id').on('change', function() {
         var student = $(this).val();
     
         if (student === '') {
-            $('#nprocess').empty();
+            $('#nProcess').empty();
             $.each(students, function(key, value) {
-                $('#nprocess').append($('<input>').text(value.text).attr('value', value.value));
+                $('#nProcess').append($('<input>').text(value.text).attr('value', value.value));
             });
         } else {
             $.ajax({
@@ -152,11 +151,11 @@
                 datatype: 'json',
                 success: function(data) {
                     console.log(data);
-                    $('#nprocess').empty();
+                    $('#nProcess').empty();
     
-                    $('#nprocess').append($('<input>').val(data.id));
+                    $('#nProcess').val(data); 
                 }
             });
         }
-    });  --}}
+    });
 </script>

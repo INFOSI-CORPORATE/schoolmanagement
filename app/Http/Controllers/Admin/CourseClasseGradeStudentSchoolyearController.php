@@ -129,7 +129,7 @@ private $Logger;
 
     public function getNProcess($student)
     {
-        $nProcess = Student::where('name', $student)->first();
+        $nProcess = $student;
         return response()->json($nProcess);
     }
 

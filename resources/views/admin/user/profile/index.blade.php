@@ -4,7 +4,6 @@
 @section('content')
 
     <!-- Page Heading -->
-
     <div class="container-fluid">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -120,7 +119,17 @@
                     </div>
                     <div class="card-body tab-content">
                         <div class="tab-pane active" id="profile">
-                            <h6>INFORMAÇÃO DE PERFIL</h6>
+                            <h6>INFORMAÇÃO DE PERFIL DE
+                                @foreach (Auth::user()->roles as $item)
+                                    @if ($item->name == 'admin')
+                                        "ADMINISTRADOR"
+                                    @elseif($item->name == 'gerenciador')
+                                        "GESTOR"
+                                    @elseif($item->name == 'registrador')
+                                        "REGISTRADOR"
+                                    @endif
+                                @endforeach
+                            </h6>
                             <hr>
                             <form action="{{ route('admin.profile.dados', Auth::user()->id) }}" method="POST">
                                 @csrf
@@ -199,7 +208,8 @@
                             <h6>LOG DE ATIVIDADE</h6>
                             <hr>
                             <div class="table-responsive">
-                                <table id="dataTable" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table id="dataTable" class="table table-bordered" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
                                             <th>ID</th>

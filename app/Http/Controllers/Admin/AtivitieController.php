@@ -19,12 +19,13 @@ class AtivitieController extends Controller
     public function index()
     {
         $response['ativities'] = Ativitie::OrderBy('id', 'Desc')->get();
+        $this->Logger->log('info', 'Calendario de Atividades');
         return view('admin.ativities.list.index', $response);
     }
 
     public function create()
     {
-        $this->Logger->log('info', 'Criar ');
+        $this->Logger->log('info', 'Criar Atividade');
         return view('admin.ativities.create.index');
     }
 
@@ -64,6 +65,7 @@ class AtivitieController extends Controller
         $data['end'] = $end;
 
         Ativitie::create($data);
+        $this->Logger->log('info', 'Cadastrou Atividade');
         return redirect()->back()->with('create', '1');
     }
 
@@ -71,15 +73,17 @@ class AtivitieController extends Controller
     {
         $response['ativitie'] = Ativitie::find($id);
         if (!$response['ativitie']) {
+            $this->Logger->log('info', 'Calendario de Atividades');
             return redirect()->route('admin.ativities.list');
         }
-        
+        $this->Logger->log('info', 'Detalhes da Atividade');
         return view('admin.ativities.details.index', $response);
     }
 
     public function edit($id)
     {
         $response['ativitie'] = Ativitie::find($id);
+        $this->Logger->log('info', 'Editar Atividade');
         return view('admin.ativities.edit.index', $response);
     }
 

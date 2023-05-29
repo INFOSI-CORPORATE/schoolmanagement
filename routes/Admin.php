@@ -178,7 +178,7 @@ Route::middleware('auth')->group(function () {
         /** Get Method */
 
         Route::get('/get/student/{nProcess}', ['as' => 'get.student', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getStudent']);
-        Route::get('/get/nProcess/{student}', ['as' => 'get.nProcess', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getNProcess']);
+        Route::get('/get/nprocess/{student}', ['as' => 'get.nProcess', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getNProcess']);
 
         /** End courseClasseGradeStudentSchoolyear */
 

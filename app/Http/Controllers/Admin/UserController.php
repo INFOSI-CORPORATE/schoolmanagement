@@ -72,6 +72,33 @@ class UserController extends Controller
         return view('admin.user.edit.index', $response);
     }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'roles' => 'required',
+        ]);
+        if ($request->password != $request->password_confirmation) {
+            return redirect()->back()->with('');
+        } else {
+            
+            User::find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            $user = User::find($id);
+            // dd($user->roles());
+
+            $user->roles()->attach($request->roles);
+
+            return redirect()->route('admin.user.list')->with('edit', '1');
+        }
+
+    }
+
     public function destroy($id)
     {
         User::find($id)->delete();
@@ -83,5 +110,5 @@ class UserController extends Controller
         }
     }
 
-    
+
 }

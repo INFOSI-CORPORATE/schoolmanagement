@@ -34,7 +34,20 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small text-center">{{ Auth::user()->name }} <br>
+                                @foreach (Auth::user()->roles as $item)
+                                    @if ($item->name == 'admin')
+                                        Administrador
+                                        @break
+                                    @elseif($item->name == 'gerenciador')
+                                        Gestor
+                                        @break
+                                    @elseif($item->name == 'registrador')
+                                        Registrador
+                                        @break
+                                    @endif
+                                @endforeach
+                            </span>
                             <img class="img-profile rounded-circle" src="/dashboard/assets/img/undraw_profile.svg">
                         </a>
 
