@@ -35,7 +35,7 @@
 <body>
     <header class="header">
         <div class="img">
-            <img src="/dashboard/assets/img/insignia.png" alt="">
+            <img src="dashboard/assets/img/insignia.png" alt="">
         </div>
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>
@@ -49,8 +49,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nº de Processo</th>
                         <th>Nome</th>
+                        <th>Nº de Processo</th>
                         <th>Classe</th>
                         <th>Ano lectivo</th>
                         <th>Turno</th>

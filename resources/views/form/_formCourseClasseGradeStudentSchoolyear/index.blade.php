@@ -21,7 +21,6 @@
             <p class="text-muted">&nbsp;&nbsp;&nbsp;Poderá escolher pelo nome ou pelo nº de processo, as duas opções são válidas.</p>
         </div>
 
-
     </div>
 
     <div class="col-md-6 py-2">
