@@ -78,6 +78,12 @@ class ClasseController extends Controller
 
     public function destroy($id)
     {
+        $classe = Classe::find($id);
+
+        if ($classe->courses->count() > 0 && $classe->teacher->count() > 0 ) {
+            return redirect()->back()->with('classes_destroy_error', '1');
+        }
+
         Classe::find($id)->delete();
         $this->Logger->log('info', 'Eliminou a Turma');
 

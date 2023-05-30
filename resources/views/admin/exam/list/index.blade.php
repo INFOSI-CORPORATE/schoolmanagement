@@ -15,11 +15,12 @@
                 }
             });
             var calendar = $('#calendar').fullCalendar({
+                locale: 'pt-br',
                 editable: false,
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'month, agendaWeek, agendaDay'
+                    right: 'month'
                 },
                 events: exams,
                 selectable: true,

@@ -5,11 +5,12 @@
     $(document).ready(function() {
         var ativities = @json($ativities);
         var calendar = $('#calendar').fullCalendar({
+            locale: 'pt-br',
             editable: true,
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month, agendaWeek, agendaDay'
+                right: 'month'
             },
             events: ativities,
             selectable: true,

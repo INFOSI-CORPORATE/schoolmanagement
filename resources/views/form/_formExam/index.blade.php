@@ -3,11 +3,11 @@
     <div class="col-md-6 py-2">
         <label for="name">Nome</label>
         <input class="form-control" type="text" name="name" id="name"
-            placeholder="Digite o nome" required value={{ isset($exam->name) ? $exam->duration : old('name') }}>
+            placeholder="Digite o Título" required value="{{ isset($exam->name) ? $exam->name : old('name') }}">
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="fk_teachers_id">Escolha Professor</label>
+        <label for="fk_teachers_id">Escolhe o Professor</label>
         <select class="form-control" name="fk_teachers_id" id="fk_teachers_id" required>
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($teachers as $teacher)
@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="fk_classes_id">Escolha a Turma</label>
+        <label for="fk_classes_id">Escolhe a Turma</label>
         <select class="form-control" name="fk_classes_id" id="fk_classes_id" required>
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($classes as $classe)
@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="fk_courses_id">Escolha a Curso</label>
+        <label for="fk_courses_id">Escolhe o Curso</label>
         <select class="form-control" name="fk_courses_id" id="fk_courses_id" required>
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($courses as $course)
@@ -44,7 +44,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="fk_grades_id">Escolha a Classe</label>
+        <label for="fk_grades_id">Escolhe a Classe</label>
         <select class="form-control" name="fk_grades_id" id="fk_grades_id" required>
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($grades as $grade)
@@ -56,7 +56,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="fk_subjects_id">Escolha o Disciplina</label>
+        <label for="fk_subjects_id">Escolhe a Disciplina</label>
         <select class="form-control" name="fk_subjects_id" id="fk_subjects_id" required>
             <option {{ isset($exam) ? '' : 'selected' }}></option>
             @foreach ($subjects as $subject)
@@ -68,7 +68,7 @@
     </div>
 
     <div class="col-md-6 py-2">
-        <label for="season">Escolha o período</label>
+        <label for="season">Escolhe o período</label>
         <select class="form-control" name="season" id="season" required>
             <option></option>
             <option value="Manhã" {{ isset($exam) && $exam->season == 'Manhã' ? 'selected' : ((old('season') == 'Manhã') ? 'selected' : '') }}>Manhã</option>
@@ -80,7 +80,7 @@
 
     <div class="col-md-6 py-2">
         <label for="start">Data de Exame</label>
-        <input type="date" class="form-control" name="start" id="start" required
+        <input type="datetime-local" class="form-control" name="start" id="start" required
             value="{{ isset($exam->start) ? $exam->start : '' }}">
     </div>
 

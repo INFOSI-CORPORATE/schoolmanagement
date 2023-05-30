@@ -120,7 +120,7 @@ class StudentController extends Controller
             return redirect()->back()->with('students_destroy_error', '1');
         }
         $student->delete();
-$this->Logger->log('info', 'Eliminou o Aluno');
+        $this->Logger->log('info', 'Eliminou o Aluno');
 
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O aluno foi excluído.']);

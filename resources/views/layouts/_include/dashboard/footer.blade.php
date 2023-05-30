@@ -187,6 +187,15 @@
             timer: 4500
         })
     </script>
+@elseif(session('classes_destroy_error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Esta Turma está Tem associação e não pode ser excluído!',
+            showConfirmButton: false,
+            timer: 4500
+        })
+    </script>
 @endif
 
 <script>
@@ -225,7 +234,7 @@
                     error: function(xhr, status, error) {
                         Swal.fire(
                             'Erro!',
-                            'Ocorreu um erro ao deletar.',
+                            'Ocorreu um erro ou o dado não pode ser deletado.',
                             'error'
                         );
                     }

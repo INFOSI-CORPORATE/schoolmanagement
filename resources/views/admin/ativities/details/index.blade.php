@@ -18,7 +18,7 @@
                             <div class="row justify-content-between mb-4">
                                 <div class="col-12 col-md-6 col-lg-6 mt-5 ml-5">
                                     <h2 class="h3 page-title">
-                                        Nome: {{ $ativitie->name }}
+                                        Nome: {{ $ativitie->title }}
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
