@@ -31,11 +31,28 @@
             <h1 class="h3 mb-0 text-gray-800">Calendário de Atividades</h1>
         </div>
 
-        <br />
-        <div class="container">
-            <div class="col-12">
-                <div id="calendar"></div>
+
+        <!-- DataTales Example -->
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h6 class="m-0 font-weight-bold text-primary">Calendário de Atividades</h6>
+                    <a href="/pdf/ativitie" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <i class="fas fa-file-pdf fa-sm text-white-50"></i> Imprimir lista de Atividades
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+                <div class="container">
+                    <div class="col-12">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 @endsection('content')

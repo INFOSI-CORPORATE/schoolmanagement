@@ -10,7 +10,30 @@
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Professores Admitidos</h6>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h6 class="m-0 font-weight-bold text-primary">Professores Admitidos</h6>
+                    <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                        data-toggle="modal" data-target="#myModal">
+                        <i class="fas fa-file-pdf fa-sm text-white-50"></i> Imprimir lista
+                    </button>
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <form action="{{ route('pdf.contract') }}" method="get" target="_blank">
+                                @csrf
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    @include('form._formPDF.index')
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

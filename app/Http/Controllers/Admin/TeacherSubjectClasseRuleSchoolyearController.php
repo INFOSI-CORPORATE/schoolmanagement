@@ -25,6 +25,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
     public function index()
     {
         $response['teachersSubjectsClassesRulesSchoolyears'] = TeacherSubjectClasseRuleSchoolyear::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $this->Logger->log('info', 'Lista de Admissão de Professores');
         return view('admin.teacherSubjectClasseRuleSchoolyear.list.index', $response);
     }

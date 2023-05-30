@@ -218,7 +218,15 @@ Route::middleware('auth')->group(function () {
 
         /** End Ativities */
 
+        /** Print Routes */
+
         Route::get('/pdf/registration/', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);
+        Route::get('/pdf/contract/', ['as' => 'pdf.contract', 'uses' => 'Admin\PDFController@contract']);
+        Route::get('/pdf/exam', ['as' => 'pdf.exam', 'uses' => 'Admin\PDFController@exam']);
+        Route::get('/pdf/ativitie', ['as' => 'pdf.ativitie', 'uses' => 'Admin\PDFController@ativitie']);
+        
+
+        /** Print Routes */
     });
 
 

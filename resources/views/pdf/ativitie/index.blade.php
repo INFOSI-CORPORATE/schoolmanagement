@@ -40,41 +40,45 @@
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>
         <div class="text-center">SISTEMA DE GESTÃO ESCOLAR</div>
-        <div class="text-center">LISTA DE PROFESSORES ADMITIDOS</div>
+        <div class="text-center">LISTA DE TODAS AS ATIVIDADES</div>
     </header>
 
     <main>
         <div class="main">
-            @if ($teacherSchoolYear->count() <= 0)
-            <hr>
-                <div class="text-center">  Não Existe nenhum professor cadastrado neste ano lectivo</div>
+            @if ($ativities->count() <= 0)
+                <hr>
+                <div class="text-center"> Não Existe nenhuma Atividade Cadastrada</div>
             @else
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Professor</th>
-                            <th>Cargo</th>
-                            <th>Turma</th>
-                            <th>Disciplina</th>
-                            <th>Ano Lectivo</th>
-                            <th>Turno</th>
+                            <th>Atividade</th>
+                            <th>Local</th>
+                            <th>Duração</th>
+                            <th>Data / Hora</th>
+                            <th>Preço</th>
+                            <th>Estado</th>
+                            <th>Período</th>
+                            <th>Detalhes</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($teacherSchoolYear as $item)
+                        @foreach ($ativities as $item)
                             <tr>
-                                <td scope="row">{{ $loop->index + 1 }}</td>
-                                <td>{{ $item->teachers->name }}</td>
-                                <td>{{ $item->rules->name }}</td>
-                                <td>{{ $item->classes->name }}</td>
-                                <td>{{ $item->subjects->name }}</td>
-                                <td>{{ $item->schoolyears->name }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->location }}</td>
+                                <td>{{ $item->duration }}</td>
+                                <td>{{ date('Y-m-d', strtotime($item->start)) }} / {{ date('H:i', strtotime($item->start)) }}</td>
+                                <td>{{ $item->price }} KZ</td>
+                                <td>{{ $item->status }}</td>
                                 <td>{{ $item->season }}</td>
+                                <td>{{ $item->details }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
+
 
             @endif
 

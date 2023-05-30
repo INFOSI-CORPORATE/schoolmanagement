@@ -80,7 +80,7 @@ class ClasseController extends Controller
     {
         $classe = Classe::find($id);
 
-        if ($classe->courses->count() > 0 && $classe->teacher->count() > 0 ) {
+        if ($classe->courses->count() > 0) {
             return redirect()->back()->with('classes_destroy_error', '1');
         }
 

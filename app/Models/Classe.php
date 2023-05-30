@@ -17,32 +17,32 @@ class Classe extends Model
     /** Relacão da Matricula */
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'registrations');
+        return $this->belongsToMany(Course::class, 'registrations', 'fk_classes_id', 'fk_courses_id');
     }
     public function grades()
     {
-        return $this->belongsToMany(Grade::class, 'registrations');
+        return $this->belongsToMany(Grade::class, 'registrations', 'fk_classes_id', 'fk_grades_id');
     }
 
     /** Relacão do Contracto do Professor */
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'contracts');
+        return $this->belongsToMany(Subject::class, 'contracts', 'fk_classes_id', 'fk_subjects_id');
     }
 
     public function rules()
     {
-        return $this->belongsToMany(Rule::class, 'contracts');
+        return $this->belongsToMany(Rule::class, 'contracts', 'fk_classes_id', 'fk_rules_id');
     }
 
     /** Relacão do Exame */
     
     public function teacher()
     {
-        return $this->belongsToMany(Teacher::class, 'exams');
+        return $this->belongsToMany(Teacher::class, 'exams', 'fk_classes_id', 'fk_teachers_id');
     }
     public function course()
     {
-        return $this->belongsToMany(Course::class, 'exams');
+        return $this->belongsToMany(Course::class, 'exams', 'fk_classes_id', 'fk_courses_id');
     }
 }

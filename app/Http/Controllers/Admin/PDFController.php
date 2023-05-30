@@ -9,8 +9,11 @@ use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
 use App\Classes\Logger;
+use App\Models\Ativitie;
 use App\Models\Log;
+use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Support\Facades\App;
+use App\Models\TeacherClasseCourseGradeSubjetc as Exam;
 
 class PDFController extends Controller
 {
@@ -22,9 +25,14 @@ class PDFController extends Controller
     }
     public function registration(Request $request)
     {
-        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
-        $schoolyear = $request->schoolyear;
+        $data = $request->validate([
+            'schoolyear' => 'required',
+        ], [
+                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            ]);
 
+        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
+        $schoolyear = $data['schoolyear'];
 
         $response['studentSchoolYear'] = CourseClasseGradeStudentSchoolyear::join('schoolyears', 'registrations.fk_schoolyears_id', '=', 'schoolyears.id')
             ->where('schoolyears.name', $schoolyear)
@@ -35,11 +43,51 @@ class PDFController extends Controller
 
     }
 
-    public function print(Request $request)
+    public function contract(Request $request)
     {
-        $data = "Oi";
-        $pdf = Pdf::loadView('pdf.registration', $data);
-        return $pdf->download('invoice.pdf');
+        $data = $request->validate([
+            'schoolyear' => 'required',
+        ], [
+                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            ]);
+
+        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
+        $schoolyear = $data['schoolyear'];
+
+        $response['teacherSchoolYear'] = TeacherSubjectClasseRuleSchoolyear::join('schoolyears', 'contracts.fk_schoolyears_id', '=', 'schoolyears.id')
+            ->where('schoolyears.name', $schoolyear)
+            ->whereNull('contracts.deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.contract.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
 
     }
+
+    public function exam()
+    {
+        $response['exams'] = Exam::OrderBy('id', 'Desc')->get();
+
+        $pdf = PDF::loadview('pdf.contract.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
+    }
+
+    public function ativitie()
+    {
+        $response['ativities'] = Ativitie::OrderBy('id', 'Desc')->get();
+
+        $pdf = PDF::loadview('pdf.ativitie.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
+    }
+
+    
+
+    // public function print(request $request)
+    // {
+    //     $data = "oi";
+    //     $pdf = pdf::loadview('pdf.registration', $data);
+    //     return $pdf->download('invoice.pdf');
+
+    // }
 }
