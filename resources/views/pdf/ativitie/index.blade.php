@@ -55,10 +55,9 @@
                             <th>Atividade</th>
                             <th>Local</th>
                             <th>Duração</th>
-                            <th>Data / Hora</th>
+                            <th>Data / Hora </th>
                             <th>Preço</th>
                             <th>Estado</th>
-                            <th>Período</th>
                             <th>Detalhes</th>
                         </tr>
                     </thead>
@@ -69,16 +68,13 @@
                                 <td>{{ $item->location }}</td>
                                 <td>{{ $item->duration }}</td>
                                 <td>{{ date('Y-m-d', strtotime($item->start)) }} / {{ date('H:i', strtotime($item->start)) }}</td>
-                                <td>{{ $item->price }} KZ</td>
+                                <td>{{number_format($item->price, 2, '.', ',') }} KZ</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->season }}</td>
                                 <td>{{ $item->details }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-
 
             @endif
 

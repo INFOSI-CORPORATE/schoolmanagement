@@ -19,7 +19,7 @@ class CreateAtivitiesTable extends Migration
             $table->string('details', 500);
             $table->string('location');
             $table->string('duration');
-            $table->string('price');
+            $table->bigInteger('price');
             $table->string('status'); // Cancelada, Em andamento
             $table->dateTime('start');
             $table->dateTime('end');

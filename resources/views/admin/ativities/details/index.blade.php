@@ -52,7 +52,7 @@
                                     <h5>
                                         <b class="mb-1">Preço</b>
                                     </h5>
-                                    <p class="text-dark">{{ $ativitie->price }} KZ</p>
+                                    <p class="text-dark">{{number_format($ativitie->price, 2, '.', ',') }} KZ</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">

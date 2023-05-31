@@ -38,7 +38,7 @@ class AtivitieController extends Controller
                 'details' => 'required|string|max:500',
                 'location' => 'required',
                 'duration' => 'required',
-                'price' => 'required',
+                'price' => 'required|integer',
                 'status' => 'required',
                 'start' => 'required|date|after_or_equal:today',
             ],
@@ -51,7 +51,8 @@ class AtivitieController extends Controller
                 'status.required' => 'O campo estado de Atividade é obrigatório.',
                 'start.required' => 'O campo Data Inicio deve ser selecionado',
                 'start.after_or_equal' => 'Não pode adicionar uma data anterior',
-                'details.max' => 'O campo não pode exceder do 500 caractéres',
+                'details.max' => 'O campo detalhes não pode exceder do 500 caractéres',
+                'price.integer' => 'O campo de preço não pode conter caractére não numérico',
             ]
         );
 
@@ -95,7 +96,7 @@ class AtivitieController extends Controller
                 'details' => 'required|string|max:500',
                 'location' => 'required',
                 'duration' => 'required',
-                'price' => 'required',
+                'price' => 'required|integer|max:999999',
                 'status' => 'required',
             ],
             [
@@ -106,6 +107,8 @@ class AtivitieController extends Controller
                 'price.required' => 'O campo preço de Atividade é obrigatório.',
                 'status.required' => 'O campo estado de Atividade é obrigatório.',
                 'details.max' => 'O campo não pode exceder do 500 caractéres',
+                'price.integer' => 'O campo de preço não pode conter caractére não numérico',
+                'price.max' => 'O campo de preço não pode os 999999 números',
             ]
         );
 
