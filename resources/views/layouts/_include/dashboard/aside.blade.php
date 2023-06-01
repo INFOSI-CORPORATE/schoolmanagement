@@ -265,5 +265,25 @@
         </div>
     </li>
 
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Adicionais
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+            aria-expanded="true" aria-controls="collapseUser">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Propina</span>
+        </a>
+        <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.tuition.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.tuition.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
 </ul>
 <!-- End of Sidebar -->

@@ -263,5 +263,25 @@
         </div>
     </li>
 
+    {{--  <!-- heading -->
+    <div class="sidebar-heading">
+        adicionais
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetuition"
+            aria-expanded="true" aria-controls="collapsetuition">
+            <i class="fas fa-fw fa-user"></i>
+            <span>propina</span>
+        </a>
+        <div id="collapsetuition" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionsidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="#">cadastrar</a>
+                <a class="collapse-item $active" href="#">listar</a>
+            </div>
+        </div>
+    </li>  --}}
+
 </ul>
 <!-- End of Sidebar -->
