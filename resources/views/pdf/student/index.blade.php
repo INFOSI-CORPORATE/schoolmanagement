@@ -49,8 +49,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nº de Processo</th>
                         <th>Nome</th>
+                        <th>Nº de Processo</th>
                         <th>Nº BI</th>
                         <th>Ano lectivo</th>
                     </tr>
@@ -59,8 +59,8 @@
                     @foreach ($students as $item)
                         <tr>
                             <td scope="row">{{ $loop->index + 1 }}</td>
-                            <td>{{ $item->nProcess }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{ $item->nProcess }}</td>
                             <td>{{ $item->nBi }}</td>
                             <td>{{ $item->schoolyear }} </td>
                         </tr>
