@@ -218,12 +218,25 @@ Route::middleware('auth')->group(function () {
 
         /** End Ativities */
 
+        /** Tuitions */
+
+        Route::get('/admin/tuition/list', ['as' => 'admin.tuition.list', 'uses' => 'Admin\TuitionController@index']);
+        Route::post('/admin/tuition', ['as' => 'admin.tuition.store', 'uses' => 'Admin\TuitionController@store']);
+        Route::get('/admin/tuition/create', ['as' => 'admin.tuition.create', 'uses' => 'Admin\TuitionController@create']);
+        Route::get('/admin/tuition/show/{id}', ['as' => 'admin.tuition.show', 'uses' => 'Admin\TuitionController@show']);
+        Route::post('/admin/tuition/update/{id}', ['as' => 'admin.tuition.update', 'uses' => 'Admin\TuitionController@update']);
+        Route::delete('/admin/tuition/destroy/{id}', ['as' => 'admin.tuition.destroy', 'uses' => 'Admin\TuitionController@destroy']);
+        Route::get('/admin/tuition/edit/{id}', ['as' => 'admin.tuition.edit', 'uses' => 'Admin\TuitionController@edit']);
+
+        /** End Tuitions */
+
         /** Print Routes */
 
         Route::get('/pdf/registration/', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);
         Route::get('/pdf/contract/', ['as' => 'pdf.contract', 'uses' => 'Admin\PDFController@contract']);
         Route::get('/pdf/exam', ['as' => 'pdf.exam', 'uses' => 'Admin\PDFController@exam']);
         Route::get('/pdf/ativitie', ['as' => 'pdf.ativitie', 'uses' => 'Admin\PDFController@ativitie']);
+        Route::get('/pdf/student/', ['as' => 'pdf.student', 'uses' => 'Admin\PDFController@student']);
         
 
         /** Print Routes */

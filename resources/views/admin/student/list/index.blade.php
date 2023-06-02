@@ -10,7 +10,30 @@
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Alunos</h6>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h6 class="m-0 font-weight-bold text-primary">Alunos Inscritos</h6>
+                    <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                        data-toggle="modal" data-target="#myModal">
+                        <i class="fas fa-file-pdf fa-sm text-white-50"></i> Imprimir lista
+                    </button>
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <form action="{{ route('pdf.student') }}" method="get" target="_blank">
+                                @csrf
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    @include('form._formPDF.index')
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -20,6 +43,7 @@
                                 <th>#</th>
                                 <th>Nº de Processo</th>
                                 <th>Nome</th>
+                                <th>Ano Lectivo</th>
                                 <th>Nº BI</th>
                                 <th>Acções</th>
                             </tr>
@@ -30,6 +54,7 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $student->nProcess }}</td>
                                     <td>{{ $student->name }}</td>
+                                    <td>{{ $student->schoolyear }} </td>
                                     <td>{{ $student->nBi }}</td>
                                     <td>
                                         <div class="dropdown mb-4">

@@ -18,10 +18,7 @@ class Tuition extends Model
     {
         return $this->belongsTo(Student::class, 'fk_students_id');
     }
-    public function grades()
-    {
-        return $this->belongsTo(Grade::class, 'fk_grades_id');
-    }
+
     public function schoolyears()
     {
         return $this->belongsTo(Schoolyear::class, 'fk_schoolyears_id');

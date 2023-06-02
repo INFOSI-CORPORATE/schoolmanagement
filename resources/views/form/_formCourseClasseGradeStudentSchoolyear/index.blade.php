@@ -64,7 +64,7 @@
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
             @foreach ($schoolyears as $schoolyear)
                 <option value="{{ $schoolyear->id }}"
-                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->grades->id == $schoolyear->id ? 'selected' : (old('fk_schoolyears_id') == $schoolyear->id ? 'selected' : '') }}>
+                    {{ isset($courseClasseGradeStudentSchoolyear) && $courseClasseGradeStudentSchoolyear->schoolyear->id == $schoolyear->id ? 'selected' : (old('fk_schoolyears_id') == $schoolyear->id ? 'selected' : '') }}>
                     {{ $schoolyear->name }}</option>
             @endforeach
         </select>

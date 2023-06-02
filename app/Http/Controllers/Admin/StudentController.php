@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Exception;
 use App\Classes\Logger;
 use App\Models\Log;
+use App\Models\Schoolyear;
 
 class StudentController extends Controller
 {
@@ -19,6 +20,7 @@ class StudentController extends Controller
     }
     public function index()
     {
+        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
         $response['students'] = Student::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Lista de Alunos');
         return view('admin.student.list.index', $response)->with('success', '1');
@@ -28,6 +30,7 @@ class StudentController extends Controller
     public function create()
     {
         $response['total'] = Student::withTrashed()->count();
+        $response['schoolyear'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Criar Aluno');
         return view('admin.student.create.index', $response);
     }
@@ -44,6 +47,7 @@ class StudentController extends Controller
             'contactAlter' => 'required',
             'email' => 'required|email',
             'dateBirth' => 'required',
+            'schoolyear' => 'required',
         ], [
                 'name.required' => 'O campo Nome deve ser preenchido',
                 'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
@@ -54,6 +58,7 @@ class StudentController extends Controller
                 'email.required' => 'O campo E-mail deve ser preenchido',
                 'email.email' => 'O E-mail é invalido',
                 'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
+                'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
             ]);
 
         $Exists = Student::where('name', $data['name'])->exists();
@@ -85,6 +90,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $response['student'] = Student::find($id);
+        $response['schoolyear'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $response['total'] = Student::withTrashed()->count();
         $this->Logger->log('info', 'Editar Aluno');
         return view('admin.student.edit.index', $response);
@@ -101,8 +107,20 @@ class StudentController extends Controller
             'nBi' => 'required',
             'contact' => 'required',
             'contactAlter' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'dateBirth' => 'required',
+            'schoolyear' => 'required',
+        ], [
+            'name.required' => 'O campo Nome deve ser preenchido',
+            'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
+            'nBi.required' => 'O campo BI deve ser preenchido',
+            'nBi.unique' => 'Este BI já está cadastrado',
+            'contact.required' => 'O campo Contacto deve ser preenchido',
+            'contactAlter.required' => 'O campo Contacto Alternativo deve ser preenchido',
+            'email.required' => 'O campo E-mail deve ser preenchido',
+            'email.email' => 'O E-mail é invalido',
+            'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
+            'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
         ]);
         Student::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Aluno');

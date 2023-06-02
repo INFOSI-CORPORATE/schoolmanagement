@@ -44,6 +44,21 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-6 py-2">
+        <label for="schoolyear">Escolha o Ano lectivo</label>
+        <select class="form-control" name="schoolyear" id="schoolyear" required>
+            <option {{ isset($student) ? '' : 'selected' }}></option>
+            @foreach ($schoolyear as $item)
+                <option value="{{ $item->name }}"
+                    {{ isset($student) && $student->schoolyear == $item->name ? 'selected' : (old('schoolyear') == $item->name ? 'selected' : '') }}>
+                    {{ $item->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="col-md-6 py-2"></div>
+
     <div class="col-md-6 py-3">
         <button type="submit"
             class="btn btn-md btn-primary shadow-sm text-end">{{ isset($student) ? 'Atualizar' : 'Cadastrar' }}</button>

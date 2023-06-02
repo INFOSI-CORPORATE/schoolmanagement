@@ -191,12 +191,23 @@
     <script>
         Swal.fire({
             icon: 'error',
-            title: 'Esta Turma está Tem associação e não pode ser excluído!',
+            title: 'Esta Turma Tem associação e não pode ser excluída!',
+            showConfirmButton: false,
+            timer: 4500
+        })
+    </script>
+@elseif(session('propinas_destroy_error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Esta Propina Tem associação e não pode ser excluída!',
             showConfirmButton: false,
             timer: 4500
         })
     </script>
 @endif
+
+
 
 <script>
     $('.delete-button').click(function(event) {

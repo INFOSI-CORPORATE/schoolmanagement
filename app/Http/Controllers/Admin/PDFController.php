@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Classes\Logger;
 use App\Models\Ativitie;
 use App\Models\Log;
+use App\Models\Student;
 use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Support\Facades\App;
 use App\Models\TeacherClasseCourseGradeSubjetc as Exam;
@@ -42,6 +43,8 @@ class PDFController extends Controller
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
 
     }
+
+
 
     public function contract(Request $request)
     {
@@ -81,7 +84,26 @@ class PDFController extends Controller
 
     }
 
-    
+
+    public function student(Request $request)
+    {
+        $data = $request->validate([
+            'schoolyear' => 'required',
+        ], [
+                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            ]);
+
+        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
+        $response['schoolyear'] = $data['schoolyear'];
+
+        $response['students'] = Student::where('schoolyear', $response['schoolyear'] )
+            ->whereNull('deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.student.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
+    }
+
 
     // public function print(request $request)
     // {

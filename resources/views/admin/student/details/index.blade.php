@@ -61,8 +61,16 @@
                                     <h5>
                                         <b class="mb-1">Contacto do Aluno / Alternativo</b>
                                     </h5>
-                                    <p class="text-dark">{{ $student->contact }} / 923 832 456</p>
+                                    <p class="text-dark">{{ $student->contact }} / {{ $student->contactAlter }}</p>
                                 </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Ano lectivo</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $student->schoolyear }}</p>
+                                </div>
+
+                                
 
 
                             </div>

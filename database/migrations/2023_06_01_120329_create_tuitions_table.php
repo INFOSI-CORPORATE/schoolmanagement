@@ -17,12 +17,10 @@ class CreateTuitionsTable extends Migration
             $table->id();
             $table->string('month');
             $table->bigInteger('price');
+            $table->string('state');
 
             $table->unsignedBigInteger('fk_students_id');
             $table->foreign('fk_students_id')->references('id')->on('students')->onDelete('CASCADE')->onUpgrade('CASCADE');
-
-            $table->unsignedBigInteger('fk_grades_id');
-            $table->foreign('fk_grades_id')->references('id')->on('grades')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
             $table->unsignedBigInteger('fk_schoolyears_id');
             $table->foreign('fk_schoolyears_id')->references('id')->on('schoolyears')->onDelete('CASCADE')->onUpgrade('CASCADE');

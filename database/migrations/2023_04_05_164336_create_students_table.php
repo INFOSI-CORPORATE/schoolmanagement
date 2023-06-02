@@ -22,6 +22,7 @@ class CreateStudentsTable extends Migration
             $table->string('contactAlter');
             $table->string('email')->unique();
             $table->date('dateBirth');
+            $table->string('schoolyear');
             $table->timestamps();
             $table->softDeletes();
         });

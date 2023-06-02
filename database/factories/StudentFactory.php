@@ -21,6 +21,7 @@ class StudentFactory extends Factory
             'contactAlter' => $this->faker->phoneNumber,
             'email' => $this->faker->unique()->safeEmail,
             'dateBirth' => $this->faker->date(),
+            'schoolyear' => $this->faker->date(),
         ];
     }
 }

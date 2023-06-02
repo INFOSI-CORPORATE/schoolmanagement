@@ -18,15 +18,32 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nome</th>
+                                <th>Aluno</th>
+                                <th>Nº de Processo</th>
+                                <th>Ano lectivo</th>
+                                <th>Mês</th>
+                                <th>Estado</th>
                                 <th>Acções</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                             @foreach ($tuitions as $tuition)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $tuition->name }}</td>
+                                    <td>{{ $tuition->students->name }}</td>
+                                    <td>{{ $tuition->students->nProcess }}</td>
+                                    <td>{{ $tuition->schoolyears->name }}</td>
+                                    <td>{{ $tuition->month }}</td>
+                                    @if ($tuition->state == 'Pago')
+                                        <td><h5><span class="badge badge-success"> {{ $tuition->state }}</span></h5></td>
+                                    @elseif($tuition->state == 'Pendente')
+                                        <td><h5><span class="badge badge-warning"> {{ $tuition->state }}</span></h5></td>
+                                    @elseif($tuition->state == 'Cancelado')
+                                        <td><h5><span class="badge badge-danger"> {{ $tuition->state }}</span></h5></td>
+                                    @else
+                                        <td><h5><span class="badge badge-secondary"> {{ $tuition->state }}</span></h5></td>
+                                    @endif
+
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"
@@ -39,7 +56,7 @@
                                                     href="{{ route('admin.tuition.show', $tuition->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.tuition.edit', $tuition->id) }}">Editar</a>
-                                                    <a class="dropdown-item delete-button" href="#"
+                                                <a class="dropdown-item delete-button" href="#"
                                                     data-based-id="{{ route('admin.tuition.destroy', $tuition->id) }}">Remover</a>
                                             </div>
                                         </div>

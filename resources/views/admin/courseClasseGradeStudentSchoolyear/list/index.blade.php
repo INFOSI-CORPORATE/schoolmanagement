@@ -11,8 +11,6 @@
         <div class="card shadow">
             <div class="card-header">
 
-
-
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h6 class="m-0 font-weight-bold text-primary">Alunos Matriculados</h6>
                     <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"

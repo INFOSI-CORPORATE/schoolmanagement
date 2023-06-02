@@ -18,7 +18,7 @@
                             <div class="row justify-content-between mb-4">
                                 <div class="col-12 col-md-6 col-lg-6 mt-5 ml-5">
                                     <h2 class="h3 page-title">
-                                        Nome: {{ $tuition->name }}
+                                        Nome: {{ $tuition->students->name }}
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
@@ -32,10 +32,40 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
+                                        <b class="mb-1">Ano lectivo</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $tuition->schoolyears->name }}</p>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
                                         <b class="mb-1">Mês</b>
                                     </h5>
                                     <p class="text-dark">{{ $tuition->month }}</p>
                                 </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Preço</b>
+                                    </h5>
+                                    <p class="text-dark">{{ number_format($tuition->price, 2, '.', ',') }} KZ</p>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Estado</b>
+                                    </h5>
+                                    @if ($tuition->state == 'Pago')
+                                        <h5><span class="badge badge-success">{{ $tuition->state }}</span></h5>
+                                    @elseif($tuition->state == 'Pendente')
+                                        <h5><span class="badge badge-warning">{{ $tuition->state }}</span></h5>
+                                    @elseif($tuition->state == 'Cancelado')
+                                        <h5><span class="badge badge-danger">{{ $tuition->state }}</span></h5>
+                                    @else
+                                        <h5><span class="badge badge-secondary">{{ $tuition->state }}</span></h5>
+                                    @endif
+                                </div>
+
 
 
                             </div>
