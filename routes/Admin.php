@@ -41,6 +41,17 @@ Route::middleware('auth')->group(function () {
 
         /** End User */
 
+        /** Employee   */
+        Route::get('/admin/employee/list', ['as' => 'admin.employee.list', 'uses' => 'Admin\EmployeeController@index']);
+        Route::post('/admin/employee', ['as' => 'admin.employee.store', 'uses' => 'Admin\EmployeeController@store']);
+        Route::get('/admin/employee/create', ['as' => 'admin.employee.create', 'uses' => 'Admin\EmployeeController@create']);
+        Route::get('/admin/employee/show/{id}', ['as' => 'admin.employee.show', 'uses' => 'Admin\EmployeeController@show']);
+        Route::post('/admin/employee/update/{id}', ['as' => 'admin.employee.update', 'uses' => 'Admin\EmployeeController@update']);
+        Route::delete('/admin/employee/destroy/{id}', ['as' => 'admin.employee.destroy', 'uses' => 'Admin\EmployeeController@destroy']);
+        Route::get('/admin/employee/edit/{id}', ['as' => 'admin.employee.edit', 'uses' => 'Admin\EmployeeController@edit']);
+
+        /** End Employee */
+
     });
 
     //registrador

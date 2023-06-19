@@ -269,6 +269,22 @@
     </div>
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee"
+            aria-expanded="true" aria-controls="collapseEmployee">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Funcionários</span>
+        </a>
+        <div id="collapseEmployee" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.employee.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.employee.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTuition"
             aria-expanded="true" aria-controls="collapseTuition">
             <i class="fas fa-fw fa-user"></i>
