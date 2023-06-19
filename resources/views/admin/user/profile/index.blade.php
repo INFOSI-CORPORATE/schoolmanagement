@@ -174,12 +174,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="d-block">Atualizar a Palavra-Passe</label>
-                                    <input type="password" class="form-control" name="password" id="password"
+                                    <input type="password" class="form-control" name="originPassword" id="originPassword"
                                         placeholder="Palavra-Passe Antiga" required>
-                                    <input type="password" class="form-control mt-1" name="confirmPassword"
-                                        id="confirmPassword" placeholder="Nova Palavra-Passe" required>
-                                    <input type="password" class="form-control mt-1" name="ReConfirmPassword"
-                                        id="ReConfirmPassword" placeholder="Confirmar Palavra-Passe" required>
+                                    <input type="password" class="form-control mt-1" name="password"
+                                        id="password" placeholder="Nova Palavra-Passe" required>
+                                    <input type="password" class="form-control mt-1" name="password_confirmation"
+                                        id="password_confirmation" placeholder="Confirmar Palavra-Passe" required>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Atualizar Palavra-Passe</button>
                             </form>

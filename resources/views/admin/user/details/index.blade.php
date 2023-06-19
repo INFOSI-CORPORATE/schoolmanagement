@@ -45,6 +45,7 @@
                                     <p class="text-dark">
                                         @foreach ($user->roles as $role)
                                             {{ $role->name }}
+                                            @break
                                         @endforeach
                                     </p>
                                 </div>

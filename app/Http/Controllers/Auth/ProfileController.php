@@ -63,19 +63,18 @@ class ProfileController extends Controller
     {
 
         $request->validate([
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', rules\password::defaults()],
         ],[
-            'password.required' => 'O campo password deve ser preenchido.'
+            'password.required' => 'o campo password deve ser preenchido.'
         ]);
 
         $hashSenha = User::find($id)->password;
         
-        dd($hashSenha);
-        if (password_verify($request->password, $hashSenha)) {
+        if (!password_verify($request->originPassword, $hashSenha)) {
             return redirect()->back()->with('error_password', '1');
-        } elseif ($request->confirmPassword == $request->ReConfirmPassword) {
+        } elseif ($request->password == $request->password_confirmation) {
             $user = User::find($id)->update([
-                'password' => Hash::make($request->confirmPassword),
+                'password' => Hash::make($request->password),
             ]);
 
             $this->Logger->log('info', 'Atualizou sua Palavra-Passe');

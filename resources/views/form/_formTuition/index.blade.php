@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 py-2">
+    <div class="col-md-8 py-2">
         <div class="row">
 
             <div class="col-md-6">
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 py-2">
+    <div class="col-md-4 py-2">
         <label for="fk_schoolyears_id">Escolha o Ano lectivo</label>
         <select class="form-control" name="fk_schoolyears_id" id="fk_schoolyears_id" required>
             <option {{ isset($tuition) ? '' : 'selected' }}></option>
@@ -40,7 +40,7 @@
         </select>
     </div>
 
-    <div class="col-md-6 py-2">
+    <div class="col-md-4 py-2">
         <label for="season">Escolha o Mês</label>
 
         <select class="form-control" name="month" id="month" required>
@@ -59,8 +59,7 @@
 
     </div>
 
-
-    <div class="col-md-6 py-2">
+    <div class="col-md-4 py-2">
         <label for="state">Escolha o Estado</label>
         <select class="form-control" name="state" id="state" required>
             <option {{ isset($tuition) ? '' : 'selected' }}></option>
@@ -77,15 +76,15 @@
         </select>
     </div>
 
-    <div class="col-md-6 py-2">
+    <div class="col-md-4 py-2">
         <label for="price">Digite o preço</label>
         <input class="form-control" type="text" name="price" id="price" placeholder="Preço do mês"
             value="{{ isset($tuition->price) ? $tuition->price : old('price') }}">
     </div>
 
-    <div class="col-md-6 py-2"> 
-    </div>
-    <div class="col-md-6 py-3">
+    <div class="col-md-4 py-3"></div>
+
+    <div class="col-md-4 py-3">
         <button type="submit"
             class="btn btn-md btn-primary shadow-sm text-end">{{ isset($tuition) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
