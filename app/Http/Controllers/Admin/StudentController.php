@@ -9,6 +9,8 @@ use Exception;
 use App\Classes\Logger;
 use App\Models\Log;
 use App\Models\Schoolyear;
+use Carbon\Carbon;
+
 
 class StudentController extends Controller
 {
@@ -20,7 +22,7 @@ class StudentController extends Controller
     }
     public function index()
     {
-        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $response['students'] = Student::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Lista de Alunos');
         return view('admin.student.list.index', $response)->with('success', '1');
@@ -49,17 +51,17 @@ class StudentController extends Controller
             'dateBirth' => 'required',
             'schoolyear' => 'required',
         ], [
-                'name.required' => 'O campo Nome deve ser preenchido',
-                'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
-                'nBi.required' => 'O campo BI deve ser preenchido',
-                'nBi.unique' => 'Este BI já está cadastrado',
-                'contact.required' => 'O campo Contacto deve ser preenchido',
-                'contactAlter.required' => 'O campo Contacto Alternativo deve ser preenchido',
-                'email.required' => 'O campo E-mail deve ser preenchido',
-                'email.email' => 'O E-mail é invalido',
-                'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
-                'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
-            ]);
+            'name.required' => 'O campo Nome deve ser preenchido',
+            'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
+            'nBi.required' => 'O campo BI deve ser preenchido',
+            'nBi.unique' => 'Este BI já está cadastrado',
+            'contact.required' => 'O campo Contacto deve ser preenchido',
+            'contactAlter.required' => 'O campo Contacto Alternativo deve ser preenchido',
+            'email.required' => 'O campo E-mail deve ser preenchido',
+            'email.email' => 'O E-mail é invalido',
+            'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
+            'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
+        ]);
 
         $Exists = Student::where('name', $data['name'])->exists();
 
@@ -80,7 +82,14 @@ class StudentController extends Controller
 
     public function show($id)
     {
+
         $response['student'] = Student::find($id);
+
+        // $timeelapsed = $response['student']->created_at->diffforhumans();
+
+        // echo $timeelapsed;
+
+
         $this->Logger->log('info', 'Detalhes do Aluno');
         return view('admin.student.details.index', $response);
 
