@@ -56,13 +56,26 @@
                                     <h5>
                                         <b class="mb-1">Data de Nascimento</b>
                                     </h5>
-                                    <p class="text-dark">{{ $employee->dateBirth }}</p>
+                                    @if ($employee->dateBirth == '' || $employee->dateBirth == null)
+                                        <p class="text-dark">Não especificado</p>
+                                    @else
+                                        <p class="text-dark">{{ $employee->dateBirth }}</p>
+                                    @endif
+
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
                                         <b class="mb-1">Sexo</b>
                                     </h5>
-                                    <p class="text-dark">{{ $employee->sex }}</p>
+
+                                    @if ($employee->sex == 'Male')
+                                        <p class="text-dark">Masculino</p>
+                                    @elseif($employee->sex == 'Female')
+                                        <p class="text-dark">Feminino</p>
+                                    @elseif($employee->sex == 'Other')
+                                        <p class="text-dark">Não Especificado</p>
+                                    @endif
+
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
@@ -91,7 +104,7 @@
                                     <p class="text-dark">{{ $employee->admission }}</p>
                                 </div>
 
-                                
+
 
 
                             </div>

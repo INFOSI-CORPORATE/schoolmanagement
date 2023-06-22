@@ -52,6 +52,16 @@ Route::middleware('auth')->group(function () {
 
         /** End Employee */
 
+        /** department   */
+        Route::get('/admin/department/list', ['as' => 'admin.department.list', 'uses' => 'Admin\DepartmentController@index']);
+        Route::post('/admin/department', ['as' => 'admin.department.store', 'uses' => 'Admin\DepartmentController@store']);
+        Route::get('/admin/department/create', ['as' => 'admin.department.create', 'uses' => 'Admin\DepartmentController@create']);
+        Route::get('/admin/department/show/{id}', ['as' => 'admin.department.show', 'uses' => 'Admin\DepartmentController@show']);
+        Route::post('/admin/department/update/{id}', ['as' => 'admin.department.update', 'uses' => 'Admin\DepartmentController@update']);
+        Route::delete('/admin/department/destroy/{id}', ['as' => 'admin.department.destroy', 'uses' => 'Admin\DepartmentController@destroy']);
+        Route::get('/admin/department/edit/{id}', ['as' => 'admin.department.edit', 'uses' => 'Admin\DepartmentController@edit']);
+        /** End department   */
+
     });
 
     //registrador

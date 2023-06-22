@@ -2,12 +2,12 @@
     <div class="col-md-8 py-2">
         <div class="row">
 
-            <div class="col-md-6">
-                <label for="nProcess">Escolha Nº de Processo (Não obrigatório)</label>
+            <div class="col-md-4">
+                <label for="nProcess">Escolha Nº de Processo</label>
                 <input class="form-control" type="text" name="nProcess" id="nProcess" placeholder="Nº de Processo"
                     value="{{ old('nProcess') }}">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="fk_students_id">Escolha Aluno</label>
                 <select class="form-control" name="fk_students_id" id="fk_students_id" required>
                     <option {{ isset($tuition) ? '' : 'selected' }}></option>

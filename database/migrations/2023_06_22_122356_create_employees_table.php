@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
+            $table->string('name');
             $table->string('nBi');
             $table->string('address');
             $table->string('country');
@@ -26,7 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('office');
             $table->string('department');
             $table->enum('sex', ['Male', 'Female', 'Other']);
-            $table->date('dateBirth');
+            $table->date('dateBirth')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

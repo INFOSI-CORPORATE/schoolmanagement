@@ -85,10 +85,6 @@ class StudentController extends Controller
 
         $response['student'] = Student::find($id);
 
-        // $timeelapsed = $response['student']->created_at->diffforhumans();
-
-        // echo $timeelapsed;
-
 
         $this->Logger->log('info', 'Detalhes do Aluno');
         return view('admin.student.details.index', $response);
