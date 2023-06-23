@@ -26,7 +26,7 @@
                                 @csrf
                                 <!-- Modal content-->
                                 <div class="modal-content">
-                                    @include('form._formPDF.index')
+                                    @include('form.formPDF._formContract.index')
                                 </div>
                             </form>
 

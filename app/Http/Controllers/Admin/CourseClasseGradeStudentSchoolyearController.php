@@ -25,6 +25,7 @@ private $Logger;
     {
         $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id','Desc')->get();
         $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $response['classes'] = Classe::OrderBy('id','Desc')->get();
         $this->Logger->log('info', 'Lista de Alunos Matriculados');
         return view('admin.courseClasseGradeStudentSchoolyear.list.index', $response);
     }

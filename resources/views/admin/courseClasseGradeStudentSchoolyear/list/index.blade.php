@@ -21,13 +21,13 @@
                 <div class="container">
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" role="dialog">
+                        
                         <div class="modal-dialog">
-
                             <form action="{{ route('pdf.registration') }}" method="get" target="_blank">
                                 @csrf
                                 <!-- Modal content-->
                                 <div class="modal-content">
-                                    @include('form._formPDF.index')
+                                    @include('form.formPDF._formRegistration.index')
                                 </div>
                             </form>
 
@@ -38,6 +38,7 @@
 
             </div>
             <div class="card-body">
+                @include('extra._Error.index')
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>

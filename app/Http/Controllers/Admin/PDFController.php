@@ -28,15 +28,24 @@ class PDFController extends Controller
     {
         $data = $request->validate([
             'schoolyear' => 'required',
+            'classe' => 'required',
         ], [
                 'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+                'classe.required' => 'O campo Turma é obrigatório.',
             ]);
+            $response =  [
+                'schoolyear' => $request->schoolyear,
+                'classe' => $request->classe
+            ];
 
         //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $schoolyear = $data['schoolyear'];
+        $classe = $data['classe'];
 
         $response['studentSchoolYear'] = CourseClasseGradeStudentSchoolyear::join('schoolyears', 'registrations.fk_schoolyears_id', '=', 'schoolyears.id')
+            ->join('classes', 'registrations.fk_classes_id', '=', 'classes.id')
             ->where('schoolyears.name', $schoolyear)
+            ->where('classes.name', $classe)
             ->whereNull('registrations.deleted_at')
             ->get();
         $pdf = PDF::loadview('pdf.registration.index', $response);
@@ -70,7 +79,7 @@ class PDFController extends Controller
     {
         $response['exams'] = Exam::OrderBy('id', 'Desc')->get();
 
-        $pdf = PDF::loadview('pdf.contract.index', $response);
+        $pdf = PDF::loadview('pdf.exam.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
 
     }

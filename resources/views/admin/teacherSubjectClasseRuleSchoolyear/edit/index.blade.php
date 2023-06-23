@@ -16,7 +16,7 @@
 
                 <form action="{{ route('admin.teacherSubjectClasseRuleSchoolyear.update', $teacherSubjectClasseRuleSchoolyear->id) }}" method="POST">
                     @csrf
-                    @include('form._formTeacherSubjectClasseRuleSchoolyear.index')
+                    @include('form._formContract.index')
 
                 </form>
             </div>

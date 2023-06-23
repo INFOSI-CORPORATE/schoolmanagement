@@ -16,7 +16,7 @@
                 <form action="{{ route('admin.teacherSubjectClasseRuleSchoolyear.store') }}" method="POST">
                     @csrf
 
-                    @include('form._formTeacherSubjectClasseRuleSchoolyear.index')
+                    @include('form._formContract.index')
 
                 </form>
             </div>
