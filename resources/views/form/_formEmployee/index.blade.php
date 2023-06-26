@@ -61,11 +61,14 @@
             <div class="col-6">
                 <label for="country">País</label>
                 <select name="country" class="form-control" name="country" id="country">
+                    <option value=""></option>
                     <option value="Afeganistão">Afeganistão</option>
                     <option value="Albânia">Albânia</option>
                     <option value="Argélia">Argélia</option>
                     <option value="Andorra">Andorra</option>
-                    <option value="Angola" {{ isset($employee) && $employee->country == 'Angola' ? 'selected' : (old('country') == 'Angola' ? 'selected' : '') }}>Angola</option>
+                    <option value="Angola"
+                        {{ isset($employee) && $employee->country == 'Angola' ? 'selected' : (old('country') == 'Angola' ? 'selected' : '') }}>
+                        Angola</option>
                     <option value="Antígua e Barbuda">Antígua e Barbuda</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Armênia">Armênia</option>
@@ -283,10 +286,16 @@
                     value="{{ isset($employee->office) ? $employee->office : old('office') }}">
             </div>
             <div class="col-6">
-                <label for="department">Departamento</label>
-                <input class="form-control" type="text" name="department" id="department"
-                    placeholder="Digite o Departamento" required
-                    value="{{ isset($employee->department) ? $employee->department : old('department') }}">
+                <label for="fk_departments_id">Escolha o Departamento</label>
+                <select class="form-control" name="fk_departments_id" id="fk_departments_id" required>
+                    <option {{ isset($employee) ? '' : 'selected' }}></option>
+                    @foreach ($departments as $department)
+                        <option value="{{ $department->id }}"
+                            {{ isset($employee) && $department->id == $employee->department->id ? 'selected' : (old('fk_departments_id') == $department->id ? 'selected' : '') }}>
+                            {{ $department->name }}</option>
+                    @endforeach
+                </select>
+
             </div>
         </div>
     </div>

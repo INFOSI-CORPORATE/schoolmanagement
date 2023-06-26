@@ -94,7 +94,7 @@
                                     <h5>
                                         <b class="mb-1">Cargo / Departamento</b>
                                     </h5>
-                                    <p class="text-dark">{{ $employee->office }} / {{ $employee->department }}</p>
+                                    <p class="text-dark">{{ $employee->office }} / {{ $employee->departments->name }}</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">

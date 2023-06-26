@@ -24,9 +24,11 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->date('admission');
             $table->string('office');
-            $table->string('department');
             $table->enum('sex', ['Male', 'Female', 'Other']);
             $table->date('dateBirth')->nullable();
+
+            $table->unsignedBigInteger('fk_departments_id');
+            $table->foreign('fk_departments_id')->references('id')->on('departments')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
             $table->softDeletes();
             $table->timestamps();

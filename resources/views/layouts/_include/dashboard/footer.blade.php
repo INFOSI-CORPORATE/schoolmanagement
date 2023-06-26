@@ -45,13 +45,28 @@
 
 
 <!-- Carregue primeiro os scripts do Bootstrap e do jQuery -->
+
 <script src="/dashboard/assets/js/jquery-3.6.0.min.js"></script>
 <script src="/dashboard/assets/js/jquery-ui.min.js"></script>
 <script src="/dashboard/assets/js/moment.min.js"></script>
-<script src="/dashboard/assets/js/fullcalendar.min.js"></script>
 <script src='/dashboard/assets/js/pt-br.js'></script>
+
+<script>
+
+    $(function() {
+
+        $('#calendar').fullCalendar({
+           lang: 'pt-br'
+        });
+
+    });
+
+</script>
+
 <script src="/dashboard/assets/js/popper.min.js"></script>
 <script src="/dashboard/assets/js/bootstrap.min.js"></script>
+<script src="/dashboard/assets/js/fullcalendar.min.js"></script>
+
 <!-- Depois, os plugins -->
 <script src="/dashboard/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="/dashboard/assets/vendor/chart.js/Chart.min.js"></script>

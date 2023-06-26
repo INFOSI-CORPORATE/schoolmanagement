@@ -34,7 +34,7 @@
                                     <td>{{ $employee->name }}</td>
                                     <td>{{ $employee->email }}</td>
                                     <td>{{ $employee->office }}</td>
-                                    <td>{{ $employee->department }}</td>
+                                    <td>{{ $employee->departments->name }}</td>
                                     <td>
                                         <div class="dropdown mb-4">
                                             <button class="btn btn-primary dropdown-toggle" type="button"

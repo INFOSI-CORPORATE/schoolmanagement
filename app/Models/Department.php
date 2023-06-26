@@ -16,4 +16,5 @@ class Department extends Model
     protected $dates = ['deleted_at'];
 
     
+    
 }

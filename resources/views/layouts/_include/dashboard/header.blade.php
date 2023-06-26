@@ -29,13 +29,10 @@
 
     {{-- FullCalendary --}}
     <link rel="stylesheet" href="/dashboard/assets/css/fullcalendar/fullcalendar.css" />
-    <link rel="stylesheet" href="/dashboard/assets/js/fullcalendar/jquery.min.js" />
-    <link rel="stylesheet" href="/dashboard/assets/js/fullcalendar/jquery-ui.min.js" />
-    <link rel="stylesheet" href="/dashboard/assets/js/fullcalendar/moment.min.js" />
-    <link rel="stylesheet" href="/dashboard/assets/js/fullcalendar/fullcalendar.min.js" />
-
-
-
+    <script src="/dashboard/assets/js/fullcalendar/jquery.min.js"></script>
+    <script src="/dashboard/assets/js/fullcalendar/jquery-ui.min.js"></script>
+    <script src="/dashboard/assets/js/fullcalendar/moment.min.js"></script>
+    <script src="/dashboard/assets/js/fullcalendar/fullcalendar.min.js"></script>
 
 </head>
 
