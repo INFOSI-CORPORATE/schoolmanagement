@@ -137,7 +137,7 @@ class EmployeeController extends Controller
         Employee::find($id)->delete();
 
         // Verifica se o Funcionário está associado a outro registro
-        // if ($employee->subjects->count() > 0) {
+        // if ($employee->departments->count() > 0) {
         //     return redirect()->back()->with('employees_destroy_error', '1');
         // }
         // $employee->delete();

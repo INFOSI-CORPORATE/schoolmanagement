@@ -62,6 +62,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/department/edit/{id}', ['as' => 'admin.department.edit', 'uses' => 'Admin\DepartmentController@edit']);
         /** End department   */
 
+        /** departmentboss   */
+        Route::get('/admin/departmentboss/list', ['as' => 'admin.departmentBoss.list', 'uses' => 'Admin\DepartmentbossController@index']);
+        Route::post('/admin/departmentboss', ['as' => 'admin.departmentBoss.store', 'uses' => 'Admin\DepartmentbossController@store']);
+        Route::get('/admin/departmentboss/create', ['as' => 'admin.departmentBoss.create', 'uses' => 'Admin\DepartmentbossController@create']);
+        Route::get('/admin/departmentboss/show/{id}', ['as' => 'admin.departmentBoss.show', 'uses' => 'Admin\DepartmentbossController@show']);
+        Route::post('/admin/departmentboss/update/{id}', ['as' => 'admin.departmentBoss.update', 'uses' => 'Admin\DepartmentbossController@update']);
+        Route::delete('/admin/departmentboss/destroy/{id}', ['as' => 'admin.departmentBoss.destroy', 'uses' => 'Admin\DepartmentbossController@destroy']);
+        Route::get('/admin/departmentboss/edit/{id}', ['as' => 'admin.departmentBoss.edit', 'uses' => 'Admin\DepartmentbossController@edit']);
+        /** End department   */
+
     });
 
     //registrador
