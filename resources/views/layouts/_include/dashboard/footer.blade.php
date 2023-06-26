@@ -45,23 +45,23 @@
 
 
 <!-- Carregue primeiro os scripts do Bootstrap e do jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/pt-br.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/dashboard/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/dashboard/assets/js/jquery-ui.min.js"></script>
+<script src="/dashboard/assets/js/moment.min.js"></script>
+<script src="/dashboard/assets/js/fullcalendar.min.js"></script>
+<script src='/dashboard/assets/js/pt-br.js'></script>
+<script src="/dashboard/assets/js/popper.min.js"></script>
+<script src="/dashboard/assets/js/bootstrap.min.js"></script>
 <!-- Depois, os plugins -->
 <script src="/dashboard/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="/dashboard/assets/vendor/chart.js/Chart.min.js"></script>
 <script src="/dashboard/assets/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"></script>
+<script src="/dashboard/assets/vendor/datatables/Portuguese-Brasil.json"></script>
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable({
             language: {
-                url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+                url: "/dashboard/assets/vendor/datatables/Portuguese-Brasil.json"
             }
         });
     });
@@ -74,8 +74,7 @@
 <script src="/dashboard/assets/js/demo/chart-pie-demo.js"></script>
 <script src="/dashboard/assets/js/demo/datatables-demo.js"></script>
 <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-
+<script src="/dashboard/assets/js/jquery.validate.min.js"></script>
 
 
 </main>

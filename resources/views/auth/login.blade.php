@@ -27,13 +27,15 @@
                     </div>
 
                     <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form1Example23">Palavra-Passe</label>
-                        <input name="password" type="password" id="form1Example23" class="form-control form-control-lg"
-                            required autocomplete="current-password" />
-
+                    <div class="form-outline mb-4 position-relative">
+                        <label class="form-label" for="form1example23">Palavra-passe</label>
+                        <input name="password" type="password" id="form1example23" class="form-control form-control-lg" required autocomplete="current-password">
+                    
+                        <div class="eye-icon">
+                            <img src="eye.png" id="eye" alt="eye" style="width: 1.5rem; height: 1.5rem; margin-top: 1.9rem;" onclick="visualizarSenha()">
+                        </div>
                     </div>
-
+                    
                     <div class="d-flex justify-content-around align-items-center mb-4">
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
@@ -48,6 +50,8 @@
                     </div>
 
                 </form>
+
+
             </div>
         </div>
     </div>

@@ -35,21 +35,44 @@
             height: 1px;
             background: #eee;
         }
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            transform: translateY(-50%);
+            cursor: pointer;
+          }
+          
     </style>
 </head>
 
 <body>
 
     @include('layouts._include.site.nav')
-    <div class="py-5 mt-5">
+
+    <div class="container py-5 mt-5 bg-light">
 
         @yield('content')
-        
+
     </div>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var input = document.getElementById("form1example23");
+        var eye = document.getElementById("eye");
+
+        function visualizarSenha() {
+
+            if (input.type == "password") {
+                eye.src = "eye-open.png";
+                input.type = "text";
+            } else {
+                eye.src = "eye.png";
+                input.type = "password";
+            }
+
+        }
+    </script>
 
 </body>
 
