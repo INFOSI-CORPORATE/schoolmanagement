@@ -209,6 +209,7 @@ Route::middleware('auth')->group(function () {
         /** Get Method */
 
         Route::get('/get/student/{nProcess}', ['as' => 'get.student', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getStudent']);
+        Route::get('/get/registration/{nProcess}', ['as' => 'get.registration', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getRegistration']);        
         Route::get('/get/nprocess/{student}', ['as' => 'get.nProcess', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getNProcess']);
 
         /** End courseClasseGradeStudentSchoolyear */
@@ -268,8 +269,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/pdf/exam', ['as' => 'pdf.exam', 'uses' => 'Admin\PDFController@exam']);
         Route::get('/pdf/ativitie', ['as' => 'pdf.ativitie', 'uses' => 'Admin\PDFController@ativitie']);
         Route::get('/pdf/student/', ['as' => 'pdf.student', 'uses' => 'Admin\PDFController@student']);
+        Route::get('/pdf/tuition/{id}', ['as' => 'pdf.tuition', 'uses' => 'Admin\PDFController@tuition']);
         
-
         /** Print Routes */
     });
 

@@ -15,6 +15,7 @@ use App\Models\Student;
 use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Support\Facades\App;
 use App\Models\TeacherClasseCourseGradeSubjetc as Exam;
+use App\Models\Tuition;
 
 class PDFController extends Controller
 {
@@ -30,13 +31,13 @@ class PDFController extends Controller
             'schoolyear' => 'required',
             'classe' => 'required',
         ], [
-                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
-                'classe.required' => 'O campo Turma é obrigatório.',
-            ]);
-            $response =  [
-                'schoolyear' => $request->schoolyear,
-                'classe' => $request->classe
-            ];
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            'classe.required' => 'O campo Turma é obrigatório.',
+        ]);
+        $response = [
+            'schoolyear' => $request->schoolyear,
+            'classe' => $request->classe
+        ];
 
         //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $schoolyear = $data['schoolyear'];
@@ -60,8 +61,8 @@ class PDFController extends Controller
         $data = $request->validate([
             'schoolyear' => 'required',
         ], [
-                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
-            ]);
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+        ]);
 
         //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $schoolyear = $data['schoolyear'];
@@ -99,13 +100,13 @@ class PDFController extends Controller
         $data = $request->validate([
             'schoolyear' => 'required',
         ], [
-                'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
-            ]);
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+        ]);
 
         //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $response['schoolyear'] = $data['schoolyear'];
 
-        $response['students'] = Student::where('schoolyear', $response['schoolyear'] )
+        $response['students'] = Student::where('schoolyear', $response['schoolyear'])
             ->whereNull('deleted_at')
             ->get();
         $pdf = PDF::loadview('pdf.student.index', $response);
@@ -114,11 +115,18 @@ class PDFController extends Controller
     }
 
 
-    // public function print(request $request)
-    // {
-    //     $data = "oi";
-    //     $pdf = pdf::loadview('pdf.registration', $data);
-    //     return $pdf->download('invoice.pdf');
+    /** Tuition */
 
-    // }
+    public function tuition($id)
+    {
+
+        $response['tuition'] = Tuition::find($id);
+
+        $pdf = PDF::loadview('pdf.tuition.index', $response);
+
+        $this->Logger->log('info', 'Factura da Propina do Aluno');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
+
+
 }

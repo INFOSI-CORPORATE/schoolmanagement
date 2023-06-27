@@ -82,7 +82,6 @@
             value="{{ isset($tuition->price) ? $tuition->price : old('price') }}">
     </div>
 
-    <div class="col-md-4 py-3"></div>
 
     <div class="col-md-4 py-3">
         <button type="submit"
@@ -115,17 +114,17 @@
             });
         } else {
             $.ajax({
-                url: '/get/student/' + nProcess,
+                url: '/get/registration/' + nProcess,
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data);
+                    
                     $('#fk_students_id').empty();
                     if (data) {
                         $('#fk_students_id').append($('<option>').text(data.name).attr('value', data
                             .id));
                     } else {
-                        $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado')
+                        $('#fk_students_id').append($('<option>').text('Nenhum aluno encontrado neste processo')
                             .attr('value', ''));
                     }
                 }

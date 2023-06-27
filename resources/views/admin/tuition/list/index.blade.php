@@ -53,6 +53,8 @@
                                             <div class="dropdown-menu animated--fade-in"
                                                 aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item"
+                                                    href="{{ route('pdf.tuition', $tuition->id) }}" target="_blank">Factura</a>
+                                                <a class="dropdown-item"
                                                     href="{{ route('admin.tuition.show', $tuition->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.tuition.edit', $tuition->id) }}">Editar</a>

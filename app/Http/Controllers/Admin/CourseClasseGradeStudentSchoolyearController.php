@@ -15,7 +15,7 @@ use App\Models\Log;
 
 class CourseClasseGradeStudentSchoolyearController extends Controller
 {
-private $Logger;
+    private $Logger;
 
     public function __construct()
     {
@@ -23,9 +23,9 @@ private $Logger;
     }
     public function index()
     {
-        $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id','Desc')->get();
-        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
-        $response['classes'] = Classe::OrderBy('id','Desc')->get();
+        $response['coursesClassesGradesStudentsSchoolyears'] = CourseClasseGradeStudentSchoolyear::OrderBy('id', 'Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id', 'Desc')->get();
+        $response['classes'] = Classe::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Lista de Alunos Matriculados');
         return view('admin.courseClasseGradeStudentSchoolyear.list.index', $response);
     }
@@ -33,11 +33,11 @@ private $Logger;
 
     public function create()
     {
-        $response['courses'] = Course::OrderBy('id','Desc')->get();
-        $response['classes'] = Classe::OrderBy('id','Desc')->get();
-        $response['grades'] = Grade::OrderBy('id','Desc')->get();
-        $response['students'] = Student::OrderBy('id','Desc')->get();
-        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $response['courses'] = Course::OrderBy('id', 'Desc')->get();
+        $response['classes'] = Classe::OrderBy('id', 'Desc')->get();
+        $response['grades'] = Grade::OrderBy('id', 'Desc')->get();
+        $response['students'] = Student::OrderBy('id', 'Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Matricular Aluno');
         return view('admin.courseClasseGradeStudentSchoolyear.create.index', $response);
     }
@@ -45,22 +45,25 @@ private $Logger;
 
     public function store(Request $request)
     {
-        $data = $this->validate($request, [
-            'fk_courses_id' => 'required',
-            'fk_classes_id' =>  'required',
-            'fk_grades_id' => 'required',
-            'fk_students_id' =>  'required',
-            'fk_schoolyears_id' =>  'required',
-            'season' => 'required',
-        ],
-        [
-            'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
-            'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
-            'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
-            'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
-            'fk_schoolyears_id.required' => 'O campo Ano Lectivo deve ser selecionado',
-            'season.required' => 'O campo Turno deve ser selecionado',
-        ]);
+        $data = $this->validate(
+            $request,
+            [
+                'fk_courses_id' => 'required',
+                'fk_classes_id' => 'required',
+                'fk_grades_id' => 'required',
+                'fk_students_id' => 'required',
+                'fk_schoolyears_id' => 'required',
+                'season' => 'required',
+            ],
+            [
+                'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
+                'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
+                'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
+                'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
+                'fk_schoolyears_id.required' => 'O campo Ano Lectivo deve ser selecionado',
+                'season.required' => 'O campo Turno deve ser selecionado',
+            ]
+        );
 
         CourseClasseGradeStudentSchoolyear::create($data);
         $this->Logger->log('info', 'Matriculou um Aluno');
@@ -78,11 +81,11 @@ private $Logger;
 
     public function edit($id)
     {
-        $response['courses'] = Course::OrderBy('id','Desc')->get();
-        $response['classes'] = Classe::OrderBy('id','Desc')->get();
-        $response['grades'] = Grade::OrderBy('id','Desc')->get();
-        $response['students'] = Student::OrderBy('id','Desc')->get();
-        $response['schoolyears'] = Schoolyear::OrderBy('id','Desc')->get();
+        $response['courses'] = Course::OrderBy('id', 'Desc')->get();
+        $response['classes'] = Classe::OrderBy('id', 'Desc')->get();
+        $response['grades'] = Grade::OrderBy('id', 'Desc')->get();
+        $response['students'] = Student::OrderBy('id', 'Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $response['courseClasseGradeStudentSchoolyear'] = CourseClasseGradeStudentSchoolyear::find($id);
         $this->Logger->log('info', 'Editar Matricula');
         return view('admin.courseClasseGradeStudentSchoolyear.edit.index', $response);
@@ -91,22 +94,24 @@ private $Logger;
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'fk_courses_id' => 'required',
-            'fk_classes_id' =>  'required',
-            'fk_grades_id' => 'required',
-            'fk_students_id' =>  'required',
-            'fk_schoolyears_id' =>  'required',
-            'season' => 'required',
-        ],
-        [
-            'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
-            'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
-            'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
-            'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
-            'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
-            'season.required' => 'O campo Turno deve ser selecionado',
-        ]);
+        $data = $request->validate(
+            [
+                'fk_courses_id' => 'required',
+                'fk_classes_id' => 'required',
+                'fk_grades_id' => 'required',
+                'fk_students_id' => 'required',
+                'fk_schoolyears_id' => 'required',
+                'season' => 'required',
+            ],
+            [
+                'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
+                'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
+                'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
+                'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
+                'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
+                'season.required' => 'O campo Turno deve ser selecionado',
+            ]
+        );
 
         CourseClasseGradeStudentSchoolyear::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou a Matricula');
@@ -118,7 +123,7 @@ private $Logger;
     {
         CourseClasseGradeStudentSchoolyear::find($id)->delete();
         $this->Logger->log('info', 'Removeu a Matricula');
-        
+
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'A Matrícula foi excluída.']);
         } else {
@@ -126,7 +131,7 @@ private $Logger;
         }
     }
 
-    
+
     /** methods get */
 
 
@@ -134,6 +139,20 @@ private $Logger;
     {
         $students = Student::where('nProcess', $nProcess)->first();
         return response()->json($students);
+    }
+
+    /** methods get alunos matriculados */
+    public function getRegistration($nProcess)
+    {
+        $students = Student::where('nProcess', $nProcess)->first();
+        $studentExists = CourseClasseGradeStudentSchoolyear::where('fk_students_id', $students->id)->first();
+
+        if (isset($studentExists)) {
+            return response()->json($students);
+        } else {
+            return response()->json("");
+        }
+
     }
 
     public function getNProcess($student)
