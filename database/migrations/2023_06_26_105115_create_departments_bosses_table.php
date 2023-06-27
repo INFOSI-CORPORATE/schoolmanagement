@@ -23,8 +23,15 @@ class CreateDepartmentsBossesTable extends Migration
             $table->unsignedBigInteger('fk_departments_id');
             $table->foreign('fk_departments_id')->references('id')->on('departments')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
+
+ /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+     
             $table->softDeletes();
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
