@@ -66,7 +66,7 @@ class TransportController extends Controller
 
     public function show($id)
     {
-        $response['Transport'] = Transport::find($id);
+        $response['transport'] = Transport::find($id);
         
         $this->Logger->log('info', 'Detalhes do Transporte');
         return view('admin.transport.details.index', $response);
