@@ -21,6 +21,7 @@ class TuitionController extends Controller
     public function index()
     {
         $response['tuitions'] = Tuition::OrderBy('id', 'Desc')->get();
+        $response['schoolyears'] = Schoolyear::OrderBy('id', 'Desc')->get();
         $this->Logger->log('info', 'Lista de Propinas');
         return view('admin.tuition.list.index', $response)->with('success', '1');
     }

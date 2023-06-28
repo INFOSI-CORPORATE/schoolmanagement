@@ -10,7 +10,30 @@
         <!-- DataTales Example -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Propinas</h6>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h6 class="m-0 font-weight-bold text-primary">Propinas</h6>
+                    <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                        data-toggle="modal" data-target="#myModal">
+                        <i class="fas fa-file-pdf fa-sm text-white-50"></i> Factura Geral
+                    </button>
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <form action="{{ route('pdf.tuition') }}" method="get" target="_blank">
+                                @csrf
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    @include('form.formPDF._formTuition.index')
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -35,13 +58,21 @@
                                     <td>{{ $tuition->schoolyears->name }}</td>
                                     <td>{{ $tuition->month }}</td>
                                     @if ($tuition->state == 'Pago')
-                                        <td><h5><span class="badge badge-success"> {{ $tuition->state }}</span></h5></td>
+                                        <td>
+                                            <h5><span class="badge badge-success"> {{ $tuition->state }}</span></h5>
+                                        </td>
                                     @elseif($tuition->state == 'Pendente')
-                                        <td><h5><span class="badge badge-warning"> {{ $tuition->state }}</span></h5></td>
+                                        <td>
+                                            <h5><span class="badge badge-warning"> {{ $tuition->state }}</span></h5>
+                                        </td>
                                     @elseif($tuition->state == 'Cancelado')
-                                        <td><h5><span class="badge badge-danger"> {{ $tuition->state }}</span></h5></td>
+                                        <td>
+                                            <h5><span class="badge badge-danger"> {{ $tuition->state }}</span></h5>
+                                        </td>
                                     @else
-                                        <td><h5><span class="badge badge-secondary"> {{ $tuition->state }}</span></h5></td>
+                                        <td>
+                                            <h5><span class="badge badge-secondary"> {{ $tuition->state }}</span></h5>
+                                        </td>
                                     @endif
 
                                     <td>
@@ -52,8 +83,15 @@
                                             </button>
                                             <div class="dropdown-menu animated--fade-in"
                                                 aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                    href="{{ route('pdf.tuition', $tuition->id) }}" target="_blank">Factura</a>
+
+
+                                                @if ($tuition->state == 'Pago')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('pdf.tuition.student', $tuition->id) }}"
+                                                        target="_blank">Factura</a>
+                                                @endif
+
+
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.tuition.show', $tuition->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"

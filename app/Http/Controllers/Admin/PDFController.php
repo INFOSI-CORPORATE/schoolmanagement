@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Classes\Logger;
 use App\Models\Ativitie;
 use App\Models\Log;
+use App\Models\Schoolyear;
 use App\Models\Student;
 use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Support\Facades\App;
@@ -114,15 +115,47 @@ class PDFController extends Controller
 
     }
 
+    /** tuition */
 
-    /** Tuition */
+    public function tuition(Request $request)
+    {
+        $data = $request->validate([
+            'schoolyear' => 'required',
+            'month' => 'required',
+        ], [
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            'month.required' => 'O campo Mês é obrigatório.',
+        ]);
 
-    public function tuition($id)
+        $response = [
+            'schoolyear' => $request->schoolyear,
+            'month' => $request->month,
+            'pay' => $request->pay,
+            'cancel' => $request->cancel,
+            'pending' => $request->pending,
+        ];
+
+        
+        $schoolyear = Schoolyear::where('name', $response['schoolyear'])->first();
+
+        $response['tuitions'] = Tuition::where('fk_schoolyears_id', $schoolyear->id)
+            ->where('month', $response['month'])
+            ->whereNull('deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.tuition.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
+    }
+
+
+    /** TuitionStudent */
+
+    public function tuitionStudent($id)
     {
 
         $response['tuition'] = Tuition::find($id);
 
-        $pdf = PDF::loadview('pdf.tuition.index', $response);
+        $pdf = PDF::loadview('pdf.tuitionStudent.index', $response);
 
         $this->Logger->log('info', 'Factura da Propina do Aluno');
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);

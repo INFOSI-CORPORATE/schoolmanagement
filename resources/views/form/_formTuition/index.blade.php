@@ -41,7 +41,7 @@
     </div>
 
     <div class="col-md-4 py-2">
-        <label for="season">Escolha o Mês</label>
+        <label for="month">Escolha o Mês</label>
 
         <select class="form-control" name="month" id="month" required>
             <option {{ isset($tuition) ? '' : 'selected' }}></option>
