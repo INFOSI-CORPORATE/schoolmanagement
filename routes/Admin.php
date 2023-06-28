@@ -72,6 +72,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/departmentboss/edit/{id}', ['as' => 'admin.departmentBoss.edit', 'uses' => 'Admin\DepartmentbossController@edit']);
         /** End department   */
 
+        /** Transport   */
+        Route::get('/admin/transport/list', ['as' => 'admin.transport.list', 'uses' => 'Admin\TransportController@index']);
+        Route::post('/admin/transport', ['as' => 'admin.transport.store', 'uses' => 'Admin\TransportController@store']);
+        Route::get('/admin/transport/create', ['as' => 'admin.transport.create', 'uses' => 'Admin\TransportController@create']);
+        Route::get('/admin/transport/show/{id}', ['as' => 'admin.transport.show', 'uses' => 'Admin\TransportController@show']);
+        Route::post('/admin/transport/update/{id}', ['as' => 'admin.transport.update', 'uses' => 'Admin\TransportController@update']);
+        Route::delete('/admin/transport/destroy/{id}', ['as' => 'admin.transport.destroy', 'uses' => 'Admin\TransportController@destroy']);
+        Route::get('/admin/transport/edit/{id}', ['as' => 'admin.transport.edit', 'uses' => 'Admin\TransportController@edit']);
+        /** End Transport   */
+
     });
 
     //registrador
@@ -261,6 +271,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/tuition/edit/{id}', ['as' => 'admin.tuition.edit', 'uses' => 'Admin\TuitionController@edit']);
 
         /** End Tuitions */
+
+        /** TransportPay */
+
+        Route::get('/admin/transportPay/list', ['as' => 'admin.transportPay.list', 'uses' => 'Admin\TransportPayController@index']);
+        Route::post('/admin/transportPay', ['as' => 'admin.transportPay.store', 'uses' => 'Admin\TransportPayController@store']);
+        Route::get('/admin/transportPay/create', ['as' => 'admin.transportPay.create', 'uses' => 'Admin\TransportPayController@create']);
+        Route::get('/admin/transportPay/show/{id}', ['as' => 'admin.transportPay.show', 'uses' => 'Admin\TransportPayController@show']);
+        Route::post('/admin/transportPay/update/{id}', ['as' => 'admin.transportPay.update', 'uses' => 'Admin\TransportPayController@update']);
+        Route::delete('/admin/transportPay/destroy/{id}', ['as' => 'admin.transportPay.destroy', 'uses' => 'Admin\TransportPayController@destroy']);
+        Route::get('/admin/transportPay/edit/{id}', ['as' => 'admin.transportPay.edit', 'uses' => 'Admin\TransportPayController@edit']);
+
+        /** End TransportPay */
 
         /** Print Routes */
 

@@ -74,7 +74,7 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">Departamento</b>
+                                        <b class="mb-1">Chefe do Departamento</b>
                                     </h5>
                                     <p class="text-dark">{{ $departmentBoss->departments->name }}</p>
                                 </div>

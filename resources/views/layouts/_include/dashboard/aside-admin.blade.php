@@ -173,6 +173,8 @@
         </div>
     </li>
 
+
+
     <div class="sidebar-heading">
         Instituição
     </div>
@@ -219,6 +221,21 @@
 
                 <a class="collapse-item $active" href="{{ route('admin.departmentBoss.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.departmentBoss.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransport"
+            aria-expanded="true" aria-controls="collapseTransport">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Transporte</span>
+        </a>
+        <div id="collapseTransport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.transport.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.transport.list') }}">Listar</a>
             </div>
         </div>
     </li>
@@ -315,7 +332,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Adicionais
+        Pagamentos
     </div>
 
 
@@ -323,7 +340,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTuition"
             aria-expanded="true" aria-controls="collapseTuition">
             <i class="fas fa-fw fa-user"></i>
-            <span>Propina</span>
+            <span>Pagar Propina</span>
         </a>
         <div id="collapseTuition" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -333,6 +350,23 @@
             </div>
         </div>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransportPay"
+            aria-expanded="true" aria-controls="collapseTransportPay">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Pagar Transporte</span>
+        </a>
+        <div id="collapseTransportPay" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.transportPay.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.transportPay.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+    
 
 </ul>
 <!-- End of Sidebar -->
