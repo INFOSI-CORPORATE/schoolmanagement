@@ -77,7 +77,7 @@ class DepartmentController extends Controller
 
         Department::find($id)->update($data);
         
-        $this->Logger->log('info', 'Atualizou o Ano Lectivo');
+        $this->Logger->log('info', 'Atualizou Departamento');
         return redirect()->route('admin.department.list')->with('edit', '1');
     }
 
