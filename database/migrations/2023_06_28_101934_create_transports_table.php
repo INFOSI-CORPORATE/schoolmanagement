@@ -21,7 +21,8 @@ class CreateTransportsTable extends Migration
             $table->string('route');
             $table->string('state');
             $table->string('safe');
-            $table->string('documentation');           
+            $table->string('documentation');     
+            $table->string('details', 500);      
 
             $table->softDeletes();
             $table->timestamps();

@@ -42,7 +42,6 @@ class TransportController extends Controller
             'documentation' => 'required',            
             'details' => 'required|max:500',
         ],[
-            'name.required' => 'O campo Nome é obrigatório.',
             'plate.required' => 'O campo Placa é obrigatório.',
             'model.required' => 'O campo Model é obrigatório.',
             'capacity.required' => 'O campo Capacidade é obrigatório.',
@@ -52,7 +51,12 @@ class TransportController extends Controller
             'documentation.required' => 'O campo Documentação é obrigatório.',
             'details.required' => 'O campo Detalhes é obrigatório.',
             'details.max' => 'O campo detalhes não pode exceder os 500 caractéres.',
+            'capacity.max' => 'A capacidade do transporte não pode exceder os 100 lugares .',
         ]);
+
+        if ($request->documentation) {
+            $data['documentation'] = $request->documentation->store('transport');
+        }
 
         Transport::create($data);
         
@@ -85,10 +89,9 @@ class TransportController extends Controller
             'route' => 'required',
             'state' => 'required',
             'safe' => 'required',
-            'documentation' => 'required',            
+            'documentation' => 'required|mimes:pdf',            
             'details' => 'required|max:500',
         ],[
-            'name.required' => 'O campo Nome é obrigatório.',
             'plate.required' => 'O campo Placa é obrigatório.',
             'model.required' => 'O campo Model é obrigatório.',
             'capacity.required' => 'O campo Capacidade é obrigatório.',
@@ -96,8 +99,10 @@ class TransportController extends Controller
             'state.required' => 'O campo Estado é obrigatório.',
             'safe.required' => 'O campo Seguro é obrigatório.',
             'documentation.required' => 'O campo Documentação é obrigatório.',
+            'documentation.mimes' => 'O campo Documentação deve ser um arquivo PDF.',
             'details.required' => 'O campo Detalhes é obrigatório.',
             'details.max' => 'O campo detalhes não pode exceder os 500 caractéres.',
+            'capacity.max' => 'A capacidade do transporte não pode exceder os 100 lugares .',
         ]);
 
         Transport::find($id)->update($data);

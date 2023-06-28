@@ -14,7 +14,7 @@
 
             <div class="card-body">
 
-                <form action="{{ route('admin.transport.update', $transport->id) }}" method="POST">
+                <form action="{{ route('admin.transport.update', $transport->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @include('form._formTransport.index')
 
