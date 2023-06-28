@@ -12,6 +12,7 @@
 
             @include('extra._Error.index')
 
+
             <div class="card-body">
                 <form action="{{ route('admin.ativities.store') }}" method="POST">
                     @csrf
@@ -19,6 +20,7 @@
                     @include('form._formAtivitie.index')
 
                 </form>
+                
             </div>
         </div>
 
