@@ -13,4 +13,20 @@ class TransportPay extends Model
     protected $guarded = ['id'];
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function students()
+    {
+        return $this->belongsTo(Student::class, 'fk_students_id');
+    }
+
+    public function transports()
+    {
+        return $this->belongsTo(Transport::class, 'fk_transports_id');
+    }
+
+    public function schoolyears()
+    {
+        return $this->belongsTo(Schoolyear::class, 'fk_schoolyears_id');
+    }
+
 }

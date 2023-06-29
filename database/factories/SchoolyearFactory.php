@@ -14,6 +14,7 @@ class SchoolyearFactory extends Factory
     public function definition()
     {
         return [
+            'id' => 1,
             'name' => '2022-2023',
             'details' => 'Este e o ano lectivo default do sistema'
         ];
