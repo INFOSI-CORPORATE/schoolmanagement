@@ -7,13 +7,9 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    /**
-     * Define the model's default state cvcvcvcv.
-     *
-     * @return array
-     */
 
 
+   
     public function definition()
     {
         return [
