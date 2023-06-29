@@ -64,21 +64,21 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    {{--  <!-- nav item - pages collapse menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursDisc"
-            aria-expanded="true" aria-controls="collapseCursDisc">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecursdisc"
+            aria-expanded="true" aria-controls="collapsecursdisc">
             <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Cursos Associados</span>
+            <span>cursos associados</span>
         </a>
-        <div id="collapseCursDisc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapsecursdisc" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionsidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.courseSubjectGrade.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.coursesubjectgrade.create') }}">cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.coursesubjectgrade.list') }}">listar</a>
             </div>
         </div>
-    </li>
+    </li>  --}}
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">

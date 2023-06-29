@@ -16,7 +16,10 @@ use App\Models\Student;
 use App\Models\TeacherSubjectClasseRuleSchoolyear;
 use Illuminate\Support\Facades\App;
 use App\Models\TeacherClasseCourseGradeSubjetc as Exam;
+use App\Models\Transport;
+use App\Models\TransportPay;
 use App\Models\Tuition;
+use Illuminate\Support\Facades\Storage;
 
 class PDFController extends Controller
 {
@@ -135,7 +138,7 @@ class PDFController extends Controller
             'pending' => $request->pending,
         ];
 
-        
+
         $schoolyear = Schoolyear::where('name', $response['schoolyear'])->first();
 
         $response['tuitions'] = Tuition::where('fk_schoolyears_id', $schoolyear->id)
@@ -161,5 +164,44 @@ class PDFController extends Controller
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 
+    public function transportPay(Request $request)
+    {
+        $data = $request->validate([
+            'schoolyear' => 'required',
+            'month' => 'required',
+        ], [
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+            'month.required' => 'O campo Mês é obrigatório.',
+        ]);
+
+        $response = [
+            'schoolyear' => $request->schoolyear,
+            'month' => $request->month,
+            'pay' => $request->pay,
+            'cancel' => $request->cancel,
+            'pending' => $request->pending,
+        ];
+
+
+        $schoolyear = Schoolyear::where('name', $response['schoolyear'])->first();
+
+        $response['transports'] = TransportPay::where('fk_schoolyears_id', $schoolyear->id)
+            ->where('month', $response['month'])
+            ->whereNull('deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.transportPay.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
+    }
+
+    public function transportDocumentation($id)
+    {
+
+        $transport = transport::find($id);
+
+        $path = storage_path('app/' . $transport->documentation);
+        return response()->download($path);
+
+    }
 
 }

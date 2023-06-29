@@ -40,42 +40,45 @@
         <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">MINISTÉRIO DA EDUCAÇÃO</div>
         <div class="text-center">SISTEMA DE GESTÃO ESCOLAR</div>
-        <div class="text-center">LISTA DE ALUNOS MATRICULADOS</div>
-        <div class="text-center">TURMA "{{ $classe }}"</div>
+        <div class="text-center">LISTA DE PAGAMENTOS DE PROPINAs</div>
+        <div class="text-center">MÊS DE "<b>{{ $month }}</b>"</div>
+        <div class="text-center">ANO LECTIVO "<b>{{ $schoolyear }}</b>", </div>
     </header>
-
 
     <main>
         <div class="main">
-            @if ($studentSchoolYear->count() <= 0)
-                <hr>
-                <div class="text-center"> Não Existe nenhum Aluno na turma "{{ $classe }}" do ano lectivo de "{{ $schoolyear }}" </div>
-            @else
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Nº de Processo</th>
-                            <th>Classe</th>
-                            <th>Ano lectivo</th>
-                            <th>Turno</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($studentSchoolYear as $item)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Nº de Processo</th>
+                        <th>Ano lectivo</th>
+                        <th>Valor pago</th>
+                        <th>Estado do Pagamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($transports as $item)
+                        @if ($pay == null && $item->state == "Pago")
+                            @continue
+                        @elseif ($cancel == null && $item->state == "Cancelado")
+                            @continue
+                        @elseif ($pending == null && $item->state == "Pendente")
+                            @continue
+                        @else
                             <tr>
                                 <td scope="row">{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->students->name }}</td>
                                 <td>{{ $item->students->nProcess }}</td>
-                                <td>{{ $item->grades->name }}</td>
-                                <td>{{ $item->schoolyears->name }}</td>
-                                <td>{{ $item->season }}</td>
+                                <td>{{ $item->schoolyears->name }} </td>
+                                <td>{!! number_format($item->price, 2, ',', '.') . ' ' . 'kz' !!}</td>
+                                <td>{{ $item->state }}</td>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @endif
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </main>
     <hr class="pylarge bg-dark">

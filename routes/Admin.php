@@ -293,6 +293,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/pdf/student/', ['as' => 'pdf.student', 'uses' => 'Admin\PDFController@student']);
         Route::get('/pdf/tuition/', ['as' => 'pdf.tuition', 'uses' => 'Admin\PDFController@tuition']);
         Route::get('/pdf/tuition/student/{id}', ['as' => 'pdf.tuition.student', 'uses' => 'Admin\PDFController@tuitionStudent']);
+
+        Route::get('/pdf/transportPay/', ['as' => 'pdf.transportPay', 'uses' => 'Admin\PDFController@transportPay']);
+        Route::get('/pdf/transportPay/student/{id}', ['as' => 'pdf.transportPay.student', 'uses' => 'Admin\PDFController@transportPayStudent']);
+
+        Route::get('/pdf/transportdocumentation/{id}', ['as' => 'pdf.transportdocumentation', 'uses' => 'Admin\PDFController@transportDocumentation']);
         
         /** Print Routes */
     });

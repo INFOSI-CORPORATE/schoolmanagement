@@ -22,6 +22,9 @@ class CreateTransportPaysTable extends Migration
             $table->unsignedBigInteger('fk_students_id');
             $table->foreign('fk_students_id')->references('id')->on('students')->onDelete('CASCADE')->onUpgrade('CASCADE');
 
+            $table->unsignedBigInteger('fk_schoolyears_id');
+            $table->foreign('fk_schoolyears_id')->references('id')->on('schoolyears')->onDelete('CASCADE')->onUpgrade('CASCADE');
+
             $table->unsignedBigInteger('fk_transports_id');
             $table->foreign('fk_transports_id')->references('id')->on('transports')->onDelete('CASCADE')->onUpgrade('CASCADE');
 

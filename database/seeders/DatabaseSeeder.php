@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use App\Models\Schoolyear;
+use App\Models\Student;
 use App\Models\User;
 use App\Models\UserRole;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,10 @@ class DatabaseSeeder extends Seeder
             'fk_users_id' => $user->id,
             'fk_roles_id' => $adminRole->id,
         ]);
+
+
+        Student::factory()->count(50)->create();
+        Schoolyear::factory()->create();
 
         
     }

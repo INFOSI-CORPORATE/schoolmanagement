@@ -105,6 +105,10 @@ class TransportController extends Controller
             'capacity.max' => 'A capacidade do transporte não pode exceder os 100 lugares .',
         ]);
 
+        if ($request->documentation) {
+            $data['documentation'] = $request->documentation->store('transport');
+        }
+
         Transport::find($id)->update($data);
         
         $this->Logger->log('info', 'Atualizou o Transporte');

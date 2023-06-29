@@ -55,7 +55,7 @@ class UserController extends Controller
             ]);
 
             $user->roles()->attach($request->roles);
-        $this->Logger->log('info', 'Cadastrou Usuário');
+            $this->Logger->log('info', 'Cadastrou Usuário');
 
             return redirect()->back()->with('create', '1');
         }
@@ -95,7 +95,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
             ]);
             $user = User::find($id);
-            // dd($user->roles());
+            
 
             $user->roles()->attach($request->roles);
         $this->Logger->log('info', 'Atualizou o Usuário');
