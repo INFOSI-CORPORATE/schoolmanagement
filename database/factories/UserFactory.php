@@ -9,9 +9,10 @@ class UserFactory extends Factory
 {
 
 
-   
+
     public function definition()
     {
+    
         return [
             'name' => 'Eliude Quintas',
             'email' => 'admin@infosi.com',
