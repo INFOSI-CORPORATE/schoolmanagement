@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-6 py-2">
         <label for="documentation">Documentação</label>
-        <input class="form-control" type="file" name="documentation" id="documentation" required>
+        <input class="form-control" type="file" name="documentation" id="documentation" {{ isset($transport) ? '' : 'required' }}>
     </div>
     <div class="col-md-6 py-2">
         <label for="details">Detalhes</label>
@@ -49,7 +49,7 @@
 
     <div class="col-md-6 py-3">
         <button type="submit"
-            class="btn btn-md btn-primary shadow-sm text-end">{{ isset($student) ? 'Atualizar' : 'Cadastrar' }}</button>
+            class="btn btn-md btn-primary shadow-sm text-end">{{ isset($transport) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
 
 </div>

@@ -89,7 +89,7 @@ class TransportController extends Controller
             'route' => 'required',
             'state' => 'required',
             'safe' => 'required',
-            'documentation' => 'required|mimes:pdf',            
+            'documentation' => 'mimes:pdf',            
             'details' => 'required|max:500',
         ],[
             'plate.required' => 'O campo Placa é obrigatório.',
@@ -98,7 +98,6 @@ class TransportController extends Controller
             'route.required' => 'O campo Rota é obrigatório.',
             'state.required' => 'O campo Estado é obrigatório.',
             'safe.required' => 'O campo Seguro é obrigatório.',
-            'documentation.required' => 'O campo Documentação é obrigatório.',
             'documentation.mimes' => 'O campo Documentação deve ser um arquivo PDF.',
             'details.required' => 'O campo Detalhes é obrigatório.',
             'details.max' => 'O campo detalhes não pode exceder os 500 caractéres.',

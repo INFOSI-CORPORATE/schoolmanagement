@@ -19,6 +19,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>modelo</th>
+                                <th>Placa</th>
                                 <th>capacidade</th>
                                 <th>estado</th>
                                 <th>Acções</th>
@@ -30,6 +31,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $transport->model }}</td>
+                                    <td>{{ $transport->plate }}</td>
                                     <td>{{ $transport->capacity }}</td>
                                     <td>{{ $transport->state }}</td>
                                     <td>

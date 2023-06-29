@@ -166,11 +166,11 @@
             showConfirmButton: true
         })
     </script>
-@elseif(session('existing_candidate'))
+@elseif(session('documentation_not_exist'))
     <script>
         Swal.fire({
             icon: 'error',
-            title: 'Já existe um estudante com este Número de Identificação',
+            title: 'Não existe nenhuma documentação deste transporte',
             showConfirmButton: true
         })
     </script>

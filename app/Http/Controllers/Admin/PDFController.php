@@ -182,7 +182,6 @@ class PDFController extends Controller
             'pending' => $request->pending,
         ];
 
-
         $schoolyear = Schoolyear::where('name', $response['schoolyear'])->first();
 
         $response['transports'] = TransportPay::where('fk_schoolyears_id', $schoolyear->id)
@@ -196,12 +195,12 @@ class PDFController extends Controller
 
     public function transportDocumentation($id)
     {
-
-        $transport = transport::find($id);
-
+        $transport = transport::find($id);        
         $path = storage_path('app/' . $transport->documentation);
+        if(!file_exists($path)){
+            return redirect()->back()->with('documentation_not_exist','1');
+        }
         return response()->download($path);
-
     }
 
 }
