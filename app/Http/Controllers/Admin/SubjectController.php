@@ -65,7 +65,7 @@ class SubjectController extends Controller
 
         Subject::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou a Disciplina');
-        return redirect()->route('admin.subject.list')->with('edit', '1');
+        return redirect()->route('admin.subject.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

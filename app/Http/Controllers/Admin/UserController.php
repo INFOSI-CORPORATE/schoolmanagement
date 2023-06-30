@@ -100,7 +100,7 @@ class UserController extends Controller
             $user->roles()->attach($request->roles);
         $this->Logger->log('info', 'Atualizou o Usuário');
 
-            return redirect()->route('admin.user.list')->with('edit', '1');
+            return redirect()->route('admin.user.show',$id)->with('edit', '1');
         }
 
     }

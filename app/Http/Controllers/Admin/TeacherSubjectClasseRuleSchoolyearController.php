@@ -110,7 +110,7 @@ class TeacherSubjectClasseRuleSchoolyearController extends Controller
 
         TeacherSubjectClasseRuleSchoolyear::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou a Admissão do Professor');
-        return redirect()->route('admin.teacherSubjectClasseRuleSchoolyear.list')->with('edit', '1');
+        return redirect()->route('admin.teacherSubjectClasseRuleSchoolyear.show',$id)->with('edit', '1');
     }
 
 

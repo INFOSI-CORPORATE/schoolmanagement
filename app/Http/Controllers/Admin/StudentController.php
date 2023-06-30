@@ -129,7 +129,7 @@ class StudentController extends Controller
         ]);
         Student::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Aluno');
-        return redirect()->route('admin.student.list')->with('edit', '1');
+        return redirect()->route('admin.student.show',$id)->with('edit', '1');
     }
 
 

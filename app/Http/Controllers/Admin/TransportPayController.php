@@ -113,7 +113,7 @@ class TransportPayController extends Controller
         TransportPay::find($id)->update($data);
 
         $this->Logger->log('info', 'Atualizou a Pagamento de Transporte');
-        return redirect()->route('admin.transportPay.list')->with('edit', '1');
+        return redirect()->route('admin.transportPay.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

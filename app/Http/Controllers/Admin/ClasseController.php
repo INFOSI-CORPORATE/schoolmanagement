@@ -73,7 +73,7 @@ class ClasseController extends Controller
 
         Classe::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou a turma');
-        return redirect()->route('admin.classe.list')->with('edit', '1');
+        return redirect()->route('admin.classe.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

@@ -153,7 +153,7 @@ class TeacherClasseCourseGradeSubjetcController extends Controller
         
         Exam::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Exame');
-        return redirect()->route('admin.exam.list')->with('edit', '1');
+        return redirect()->route('admin.exam.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

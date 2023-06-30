@@ -115,7 +115,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
 
         CourseClasseGradeStudentSchoolyear::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou a Matricula');
-        return redirect()->route('admin.courseClasseGradeStudentSchoolyear.list')->with('edit', '1');
+        return redirect()->route('admin.courseClasseGradeStudentSchoolyear.show',$id)->with('edit', '1');
     }
 
 
