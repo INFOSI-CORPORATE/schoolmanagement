@@ -70,6 +70,7 @@
                                         <b class="mb-1">Documentação</b>
                                     </h5>
                                     <p class="text-dark"><a href="{{ route('pdf.transportdocumentation', $transport->id ) }}">Documentação.pdf</a></p>
+
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">

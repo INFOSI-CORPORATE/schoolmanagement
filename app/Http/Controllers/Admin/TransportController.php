@@ -56,6 +56,13 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
+
+
+            // $file = $request->documentation;
+            // $fileName = $file->getClientOriginalName();
+            // dd($fileName);
+            // $hasName = $file->hashName();
+
             $data['documentation'] = Storage::putFile('public', $request->documentation);
 
         }
