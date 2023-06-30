@@ -6,6 +6,7 @@ use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Models\Transport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TransportController extends Controller
 {
@@ -17,8 +18,8 @@ class TransportController extends Controller
     }
     public function index()
     {
-        $response['transports'] = Transport::OrderBy('id','Desc')->get();
-        
+        $response['transports'] = Transport::OrderBy('id', 'Desc')->get();
+
         $this->Logger->log('info', 'Lista de Transportes');
         return view('admin.transport.list.index', $response)->with('success', '1');
     }
@@ -39,9 +40,9 @@ class TransportController extends Controller
             'route' => 'required',
             'state' => 'required',
             'safe' => 'required',
-            'documentation' => 'required',            
+            'documentation' => 'required|mimes:pdf',
             'details' => 'required|max:500',
-        ],[
+        ], [
             'plate.required' => 'O campo Placa é obrigatório.',
             'model.required' => 'O campo Model é obrigatório.',
             'capacity.required' => 'O campo Capacidade é obrigatório.',
@@ -55,11 +56,12 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
-            $data['documentation'] = $request->documentation->store('transport');
+            $data['documentation'] = Storage::putFile('public', $request->documentation);
+
         }
 
         Transport::create($data);
-        
+
         $this->Logger->log('info', 'Cadastrou Transporte');
         return redirect()->back()->with('create', '1');
     }
@@ -67,7 +69,7 @@ class TransportController extends Controller
     public function show($id)
     {
         $response['transport'] = Transport::find($id);
-        
+
         $this->Logger->log('info', 'Detalhes do Transporte');
         return view('admin.transport.details.index', $response);
     }
@@ -75,7 +77,7 @@ class TransportController extends Controller
     public function edit($id)
     {
         $response['transport'] = Transport::find($id);
-        
+
         $this->Logger->log('info', 'Editar Transporte');
         return view('admin.transport.edit.index', $response);
     }
@@ -89,9 +91,9 @@ class TransportController extends Controller
             'route' => 'required',
             'state' => 'required',
             'safe' => 'required',
-            'documentation' => 'mimes:pdf',            
+            'documentation' => 'mimes:pdf',
             'details' => 'required|max:500',
-        ],[
+        ], [
             'plate.required' => 'O campo Placa é obrigatório.',
             'model.required' => 'O campo Model é obrigatório.',
             'capacity.required' => 'O campo Capacidade é obrigatório.',
@@ -105,11 +107,11 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
-            $data['documentation'] = $request->documentation->store('transport');
-        }
+            $data['documentation'] = Storage::putFile('public', $request->documentation);
 
+        }
         Transport::find($id)->update($data);
-        
+
         $this->Logger->log('info', 'Atualizou o Transporte');
         return redirect()->route('admin.transport.list')->with('edit', '1');
     }
@@ -117,9 +119,9 @@ class TransportController extends Controller
     public function destroy($id)
     {
         Transport::find($id)->delete();
-        
+
         $this->Logger->log('info', 'Eliminou o Transporte');
-        
+
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Transporte foi excluído.']);
         } else {

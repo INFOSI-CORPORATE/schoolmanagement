@@ -195,8 +195,15 @@ class PDFController extends Controller
 
     public function transportDocumentation($id)
     {
+<<<<<<< HEAD
         $transport = transport::find($id);
         $path = storage_path('app/public/' . $transport->documentation);
+=======
+        $transport = transport::find($id);     
+        $path = storage_path('app/'.$transport->documentation);   
+
+
+>>>>>>> 2f9a36266ee9fb14a74d015bde499ea26d75b355
         if(!file_exists($path)){
             return redirect()->back()->with('documentation_not_exist','1');
         }
