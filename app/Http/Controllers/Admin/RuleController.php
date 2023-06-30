@@ -77,7 +77,7 @@ class RuleController extends Controller
         Rule::find($id)->update($data);
         
         $this->Logger->log('info', 'Atualizou o Cargo');
-        return redirect()->route('admin.rule.list')->with('edit', '1');
+        return redirect()->route('admin.rule.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

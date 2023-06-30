@@ -88,7 +88,7 @@ class CourseController extends Controller
 
         Course::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Curso');
-        return redirect()->route('admin.course.list')->with('edit', '1');
+        return redirect()->route('admin.course.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

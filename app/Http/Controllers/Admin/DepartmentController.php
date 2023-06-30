@@ -78,7 +78,7 @@ class DepartmentController extends Controller
         Department::find($id)->update($data);
         
         $this->Logger->log('info', 'Atualizou Departamento');
-        return redirect()->route('admin.department.list')->with('edit', '1');
+        return redirect()->route('admin.department.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

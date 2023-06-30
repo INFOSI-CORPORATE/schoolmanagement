@@ -123,7 +123,7 @@ class AtivitieController extends Controller
 
         Ativitie::find($id)->update($data);
         $this->Logger->log('info', 'Actualizou Atividade');
-        return redirect()->route('admin.ativities.list')->with('edit', '1');
+        return redirect()->route('admin.ativities.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

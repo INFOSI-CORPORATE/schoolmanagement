@@ -105,7 +105,7 @@ class TuitionController extends Controller
         Tuition::find($id)->update($data);
 
         $this->Logger->log('info', 'Atualizou a Propina');
-        return redirect()->route('admin.tuition.list')->with('edit', '1');
+        return redirect()->route('admin.tuition.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

@@ -113,7 +113,7 @@ class TransportController extends Controller
         Transport::find($id)->update($data);
 
         $this->Logger->log('info', 'Atualizou o Transporte');
-        return redirect()->route('admin.transport.list')->with('edit', '1');
+        return redirect()->route('admin.transport.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)

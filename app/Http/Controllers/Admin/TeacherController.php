@@ -76,7 +76,7 @@ class TeacherController extends Controller
 
         Teacher::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Professor');
-        return redirect()->route('admin.teacher.list')->with('edit', '1');
+        return redirect()->route('admin.teacher.show',$id)->with('edit', '1');
     }
 
     public function destroy($id)
