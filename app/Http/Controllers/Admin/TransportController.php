@@ -56,7 +56,7 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
-            $data['documentation'] = Storage::putFile('public', $request->documentation);
+            $data['documentation'] = Storage::putFile('transport', $request->documentation);
 
         }
 
