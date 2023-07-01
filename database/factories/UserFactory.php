@@ -12,9 +12,9 @@ class UserFactory extends Factory
 
     public function definition()
     {
-    
+
         return [
-            'name' => 'Eliude Quintas',
+            'name' => 'Miguel Hamuyela',
             'email' => 'admin@infosi.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$xJsUtRZVtpqFl5ZjuNWpbuV5w0VxsR4PHphG1xkSi2j7csAsqSZae', // abc...123 ou bcrypt('abc...123')

@@ -13,7 +13,6 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-    
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->integer('nProcess');
@@ -27,7 +26,6 @@ class CreateStudentsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
     }
 
     /**
