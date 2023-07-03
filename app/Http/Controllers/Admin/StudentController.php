@@ -101,7 +101,6 @@ class StudentController extends Controller
 
         $response['student'] = Student::find($id);
 
-
         $this->Logger->log('info', 'Detalhes do Aluno');
         return view('admin.student.details.index', $response);
     }

@@ -57,7 +57,6 @@ class TransportController extends Controller
 
         if ($request->documentation) {
             $data['documentation'] = Storage::putFile('transport', $request->documentation);
-
         }
 
         Transport::create($data);
@@ -129,3 +128,10 @@ class TransportController extends Controller
         }
     }
 }
+
+
+// Ao trabalhar com o storage do laravel 8, com o comando "php artisan storage:link" ele cria um link entre o directório "storage/app/public" e o directório "public storage"
+// Então para o salvamento dos meus documentos pdf, estou usando o seguinte código no meu controller:
+
+// $data['documentation'] = Storage::putFile('transport', $request->documentation);
+// Transport::create($data);
