@@ -13,14 +13,14 @@
     <div class="col-md-6 py-2">
         <label for="father">Nome do Pai</label>
         <input class="form-control" type="text" name="father" id="father"
-            placeholder="Digite o nome do Pai" required
+            placeholder="Digite o Nome do Pai" required
             value="{{ isset($student->father) ? $student->father : old('father') }}">
     </div>
 
     <div class="col-md-6 py-2">
         <label for="mother">Nome da Mâe</label>
         <input class="form-control" type="text" name="mother" id="mother"
-            placeholder="Digite o nome da mãe" required
+            placeholder="Digite o Nome da mãe" required
             value="{{ isset($student->mother) ? $student->mother : old('mother') }}">
     </div>
 
