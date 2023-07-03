@@ -72,6 +72,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/departmentboss/edit/{id}', ['as' => 'admin.departmentBoss.edit', 'uses' => 'Admin\DepartmentbossController@edit']);
         /** End department   */
 
+        /** dormitório   */
+        Route::get('/admin/bedroom/list', ['as' => 'admin.bedroom.list', 'uses' => 'Admin\BedroomController@index']);
+        Route::post('/admin/bedroom', ['as' => 'admin.bedroom.store', 'uses' => 'Admin\BedroomController@store']);
+        Route::get('/admin/bedroom/create', ['as' => 'admin.bedroom.create', 'uses' => 'Admin\BedroomController@create']);
+        Route::get('/admin/bedroom/show/{id}', ['as' => 'admin.bedroom.show', 'uses' => 'Admin\BedroomController@show']);
+        Route::post('/admin/bedroom/update/{id}', ['as' => 'admin.bedroom.update', 'uses' => 'Admin\BedroomController@update']);
+        Route::delete('/admin/bedroom/destroy/{id}', ['as' => 'admin.bedroom.destroy', 'uses' => 'Admin\BedroomController@destroy']);
+        Route::get('/admin/bedroom/edit/{id}', ['as' => 'admin.bedroom.edit', 'uses' => 'Admin\BedroomController@edit']);
+        /** End dormitório   */
+
         /** Transport   */
         Route::get('/admin/transport/list', ['as' => 'admin.transport.list', 'uses' => 'Admin\TransportController@index']);
         Route::post('/admin/transport', ['as' => 'admin.transport.store', 'uses' => 'Admin\TransportController@store']);
@@ -160,16 +170,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/admin/schoolyear/destroy/{id}', ['as' => 'admin.schoolyear.destroy', 'uses' => 'Admin\SchoolyearController@destroy']);
         Route::get('/admin/schoolyear/edit/{id}', ['as' => 'admin.schoolyear.edit', 'uses' => 'Admin\SchoolyearController@edit']);
         /** End Schoolyear   */
-
-        /** dormitory   */
-        Route::get('/admin/dormitory/list', ['as' => 'admin.dormitory.list', 'uses' => 'Admin\DormitoryController@index']);
-        Route::post('/admin/dormitory', ['as' => 'admin.dormitory.store', 'uses' => 'Admin\DormitoryController@store']);
-        Route::get('/admin/dormitory/create', ['as' => 'admin.dormitory.create', 'uses' => 'Admin\DormitoryController@create']);
-        Route::get('/admin/dormitory/show/{id}', ['as' => 'admin.dormitory.show', 'uses' => 'Admin\DormitoryController@show']);
-        Route::post('/admin/dormitory/update/{id}', ['as' => 'admin.dormitory.update', 'uses' => 'Admin\DormitoryController@update']);
-        Route::delete('/admin/dormitory/destroy/{id}', ['as' => 'admin.dormitory.destroy', 'uses' => 'Admin\DormitoryController@destroy']);
-        Route::get('/admin/dormitory/edit/{id}', ['as' => 'admin.dormitory.edit', 'uses' => 'Admin\DormitoryController@edit']);
-        /** End dormitory   */
 
         /** rule   */
         Route::get('/admin/rule/list', ['as' => 'admin.rule.list', 'uses' => 'Admin\RuleController@index']);

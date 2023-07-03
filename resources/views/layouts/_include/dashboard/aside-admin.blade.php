@@ -179,18 +179,17 @@
         Instituição
     </div>
 
-
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartment"
-            aria-expanded="true" aria-controls="collapseDepartment">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetttttt"
+            aria-expanded="true" aria-controls="collapsetttttt">
             <i class="fas fa-fw fa-user"></i>
-            <span>Departamentos</span>
+            <span>Dormitório</span>
         </a>
-        <div id="collapseDepartment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapsetttttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.bedroom.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.bedroom.list') }}">Listar</a>
             </div>
         </div>
     </li>
@@ -209,6 +208,24 @@
             </div>
         </div>
     </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedddddd"
+            aria-expanded="true" aria-controls="collapsedddddd">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Departamento</span>
+        </a>
+        <div id="collapsedddddd" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartmentBoss"
