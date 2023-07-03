@@ -179,6 +179,21 @@
         Instituição
     </div>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTttt"
+            aria-expanded="true" aria-controls="collapseTttt">
+            <i class="fas fa-fw fa-user"></i>
+            <span>ttttt</span>
+        </a>
+        <div id="collapseTttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartment"
@@ -284,21 +299,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    {{--  <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecursdisc"
-            aria-expanded="true" aria-controls="collapsecursdisc">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>cursos associados</span>
-        </a>
-        <div id="collapsecursdisc" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionsidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-
-                <a class="collapse-item $active" href="{{ route('admin.coursesubjectgrade.create') }}">cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.coursesubjectgrade.list') }}">listar</a>
-            </div>
-        </div>
-    </li>  --}}
+    
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
