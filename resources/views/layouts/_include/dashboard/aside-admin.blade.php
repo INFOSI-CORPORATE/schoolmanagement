@@ -179,8 +179,6 @@
         Instituição
     </div>
 
-<<<<<<< HEAD
-=======
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTttt"
@@ -197,7 +195,6 @@
         </div>
     </li>
 
->>>>>>> ffd3fc4aefbcbb978f0b1ab268b4e19afcd1aa14
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetttttt"
             aria-expanded="true" aria-controls="collapsetttttt">
@@ -320,7 +317,7 @@
         </div>
     </li>
 
-    
+
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
