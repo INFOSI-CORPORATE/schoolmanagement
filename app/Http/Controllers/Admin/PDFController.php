@@ -55,7 +55,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.registration.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -77,7 +76,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.contract.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     public function exam()
@@ -86,7 +84,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadview('pdf.exam.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     public function ativitie()
@@ -95,7 +92,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadview('pdf.ativitie.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -115,7 +111,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.student.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     /** tuition */
@@ -147,7 +142,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.tuition.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -190,19 +184,19 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.transportPay.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     public function transportDocumentation($id)
     {
-        $transport = transport::find($id);     
-        $path = storage_path('app/'.$transport->documentation);   
 
+        $transport = Transport::find($id);
+        $path = public_path('storage/' . $transport->documentation);
+        //$path = asset('storage/'.$transport->documentation);
+        //dd($path);
 
-        if(!file_exists($path)){
-            return redirect()->back()->with('documentation_not_exist','1');
+        if (!file_exists($path)) {
+            return redirect()->back()->with('documentation_not_exist', '1');
         }
         return response()->download($path);
     }
-
 }

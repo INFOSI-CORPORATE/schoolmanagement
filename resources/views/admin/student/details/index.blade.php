@@ -65,13 +65,22 @@
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
+                                        <b class="mb-1">Nome do Pai</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $student->father }}</p>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
+                                        <b class="mb-1">Nome da Mâe</b>
+                                    </h5>
+                                    <p class="text-dark">{{ $student->mother }}</p>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <h5>
                                         <b class="mb-1">Ano lectivo</b>
                                     </h5>
                                     <p class="text-dark">{{ $student->schoolyear }}</p>
                                 </div>
-
-                                
-
 
                             </div>
                             <div class="row align-items-center">

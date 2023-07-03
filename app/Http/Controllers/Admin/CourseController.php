@@ -17,6 +17,7 @@ class CourseController extends Controller
     {
         $this->Logger = new Logger();
     }
+    
     public function index()
     {
         $response['courses'] = Course::OrderBy('id', 'Desc')->get();

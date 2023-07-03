@@ -81,7 +81,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/admin/transport/destroy/{id}', ['as' => 'admin.transport.destroy', 'uses' => 'Admin\TransportController@destroy']);
         Route::get('/admin/transport/edit/{id}', ['as' => 'admin.transport.edit', 'uses' => 'Admin\TransportController@edit']);
         /** End Transport   */
-
     });
 
     //registrador
@@ -162,6 +161,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/schoolyear/edit/{id}', ['as' => 'admin.schoolyear.edit', 'uses' => 'Admin\SchoolyearController@edit']);
         /** End Schoolyear   */
 
+        /** dormitory   */
+        Route::get('/admin/dormitory/list', ['as' => 'admin.dormitory.list', 'uses' => 'Admin\DormitoryController@index']);
+        Route::post('/admin/dormitory', ['as' => 'admin.dormitory.store', 'uses' => 'Admin\DormitoryController@store']);
+        Route::get('/admin/dormitory/create', ['as' => 'admin.dormitory.create', 'uses' => 'Admin\DormitoryController@create']);
+        Route::get('/admin/dormitory/show/{id}', ['as' => 'admin.dormitory.show', 'uses' => 'Admin\DormitoryController@show']);
+        Route::post('/admin/dormitory/update/{id}', ['as' => 'admin.dormitory.update', 'uses' => 'Admin\DormitoryController@update']);
+        Route::delete('/admin/dormitory/destroy/{id}', ['as' => 'admin.dormitory.destroy', 'uses' => 'Admin\DormitoryController@destroy']);
+        Route::get('/admin/dormitory/edit/{id}', ['as' => 'admin.dormitory.edit', 'uses' => 'Admin\DormitoryController@edit']);
+        /** End dormitory   */
+
         /** rule   */
         Route::get('/admin/rule/list', ['as' => 'admin.rule.list', 'uses' => 'Admin\RuleController@index']);
         Route::post('/admin/rule', ['as' => 'admin.rule.store', 'uses' => 'Admin\RuleController@store']);
@@ -219,7 +228,7 @@ Route::middleware('auth')->group(function () {
         /** Get Method */
 
         Route::get('/get/student/{nProcess}', ['as' => 'get.student', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getStudent']);
-        Route::get('/get/registration/{nProcess}', ['as' => 'get.registration', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getRegistration']);        
+        Route::get('/get/registration/{nProcess}', ['as' => 'get.registration', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getRegistration']);
         Route::get('/get/nprocess/{student}', ['as' => 'get.nProcess', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getNProcess']);
 
         /** End courseClasseGradeStudentSchoolyear */
@@ -298,9 +307,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/pdf/transportPay/student/{id}', ['as' => 'pdf.transportPay.student', 'uses' => 'Admin\PDFController@transportPayStudent']);
 
         Route::get('/pdf/transportdocumentation/{id}', ['as' => 'pdf.transportdocumentation', 'uses' => 'Admin\PDFController@transportDocumentation']);
-        
+
         /** Print Routes */
     });
-
-
 });
