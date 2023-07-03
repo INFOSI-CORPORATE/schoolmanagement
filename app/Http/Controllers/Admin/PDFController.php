@@ -186,6 +186,17 @@ class PDFController extends Controller
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 
+    public function transportPayStudent($id)
+    {
+
+        $response['transportPayStudent'] = TransportPay::find($id);
+
+        $pdf = PDF::loadview('pdf.transportPayStudent.index', $response);
+
+        $this->Logger->log('info', 'Factura do Pagamento de Transporte do Aluno');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
+
     public function transportDocumentation($id)
     {
 

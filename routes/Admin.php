@@ -293,6 +293,18 @@ Route::middleware('auth')->group(function () {
 
         /** End TransportPay */
 
+        /** bedroomStudent */
+
+        Route::get('/admin/bedroomStudent/list', ['as' => 'admin.bedroomStudent.list', 'uses' => 'Admin\BedroomStudentController@index']);
+        Route::post('/admin/bedroomStudent', ['as' => 'admin.bedroomStudent.store', 'uses' => 'Admin\BedroomStudentController@store']);
+        Route::get('/admin/bedroomStudent/create', ['as' => 'admin.bedroomStudent.create', 'uses' => 'Admin\BedroomStudentController@create']);
+        Route::get('/admin/bedroomStudent/show/{id}', ['as' => 'admin.bedroomStudent.show', 'uses' => 'Admin\BedroomStudentController@show']);
+        Route::post('/admin/bedroomStudent/update/{id}', ['as' => 'admin.bedroomStudent.update', 'uses' => 'Admin\BedroomStudentController@update']);
+        Route::delete('/admin/bedroomStudent/destroy/{id}', ['as' => 'admin.bedroomStudent.destroy', 'uses' => 'Admin\BedroomStudentController@destroy']);
+        Route::get('/admin/bedroomStudent/edit/{id}', ['as' => 'admin.bedroomStudent.edit', 'uses' => 'Admin\BedroomStudentController@edit']);
+
+        /** End bedroomStudent */
+
         /** Print Routes */
 
         Route::get('/pdf/registration/', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);

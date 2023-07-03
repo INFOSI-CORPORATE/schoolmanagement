@@ -179,22 +179,6 @@
         Instituição
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTttt"
-            aria-expanded="true" aria-controls="collapseTttt">
-            <i class="fas fa-fw fa-user"></i>
-            <span>ttttt</span>
-        </a>
-        <div id="collapseTttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-
-                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
-            </div>
-        </div>
-    </li>
-
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetttttt"
             aria-expanded="true" aria-controls="collapsetttttt">
@@ -347,6 +331,23 @@
 
                 <a class="collapse-item $active" href="{{ route('admin.ativities.create') }}">Cadastrar</a>
                 <a class="collapse-item $active" href="{{ route('admin.ativities.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTttt"
+            aria-expanded="true" aria-controls="collapseTttt">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Aluno ao Dormitório</span>
+        </a>
+        <div id="collapseTttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.bedroomStudent.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.bedroomStudent.list') }}">Listar</a>
             </div>
         </div>
     </li>
