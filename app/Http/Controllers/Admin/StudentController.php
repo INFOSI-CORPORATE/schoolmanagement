@@ -54,6 +54,9 @@ class StudentController extends Controller
                 'email' => 'required|email',
                 'dateBirth' => 'required',
                 'schoolyear' => 'required',
+
+                'father' => 'required',
+                'mother' => 'required',
             ],
 
             [
@@ -67,6 +70,10 @@ class StudentController extends Controller
                 'email.email' => 'O E-mail é invalido',
                 'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
                 'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
+                'father.required' => 'O campo Nome do Pai  deve ser preenchido',
+                'mother.required' => 'O campo Nome da Mâe deve ser selecionado',
+
+
             ]
         );
 
@@ -124,7 +131,11 @@ class StudentController extends Controller
             'email' => 'required|email',
             'dateBirth' => 'required',
             'schoolyear' => 'required',
-        ], [
+            'father' => 'required',
+            'mother' => 'required',
+        ],
+
+        [
             'name.required' => 'O campo Nome deve ser preenchido',
             'nProcess.required' => 'O campo Nº de Processo deve ser preenchido',
             'nBi.required' => 'O campo BI deve ser preenchido',
@@ -135,6 +146,8 @@ class StudentController extends Controller
             'email.email' => 'O E-mail é invalido',
             'dateBirth.required' => 'O campo Data de Nascimento deve ser preenchido',
             'schoolyear.required' => 'O campo do Ano Lectivo deve ser selecionado',
+            'father.required' => 'O campo Nome do Pai  deve ser preenchido',
+            'mother.required' => 'O campo Nome da Mâe deve ser selecionado',
         ]);
         Student::find($id)->update($data);
         $this->Logger->log('info', 'Atualizou o Aluno');

@@ -179,7 +179,7 @@
         Instituição
     </div>
 
-    
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartment"
             aria-expanded="true" aria-controls="collapseDepartment">
@@ -239,6 +239,8 @@
             </div>
         </div>
     </li>
+
+
 
     <!-- Independent Views-->
 
@@ -366,7 +368,7 @@
         </div>
     </li>
 
-    
+
 
 </ul>
 <!-- End of Sidebar -->

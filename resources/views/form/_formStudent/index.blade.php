@@ -23,6 +23,7 @@
             placeholder="Digite o nome da mãe" required
             value="{{ isset($student->mother) ? $student->mother : old('mother') }}">
     </div>
+
     <div class="col-md-6 py-2">
         <label for="nBi">Nº do BI</label>
         <input class="form-control" type="text" name="nBi" id="nBi"
