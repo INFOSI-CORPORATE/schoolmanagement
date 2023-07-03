@@ -28,7 +28,7 @@ class ProfileController extends Controller
         } else {
 
             $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
-
+            
             //Logger
             $this->Logger->log('info', 'Visualizou o Próprio Perfil');
 

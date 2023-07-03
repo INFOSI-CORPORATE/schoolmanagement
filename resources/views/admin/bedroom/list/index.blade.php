@@ -1,16 +1,16 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Lista de Funcionários')
+@section('title', 'Lista de Quartos')
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Lista de Funcionários</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lista de Quartos</h1>
         </div>
 
         <!-- DataTales employeeple -->
         <div class="card shadow">
             <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Funcionários</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Quartos</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

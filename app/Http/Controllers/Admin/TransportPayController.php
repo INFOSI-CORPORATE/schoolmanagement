@@ -60,9 +60,9 @@ class TransportPayController extends Controller
                 'fk_transports_id.required' => 'O campo do Transporte é obrigatório',
                 'fk_schoolyears_id.required' => 'O campo do Ano Lectivo é obrigatório',
                 'price.integer' => 'O campo de preço não pode conter caractéres não numericos',
-                
+
             ]);
-            
+
         TransportPay::create($data);
 
         $this->Logger->log('info', 'Cadastrou Pagamento de Transporte');
@@ -121,14 +121,14 @@ class TransportPayController extends Controller
         $TransportPay = TransportPay::find($id);
 
         // Verifica se a Pagamento de Transporte está associada a outro registro
-        if ($TransportPay->registrations->count() > 0) {
-            return redirect()->back()->with('Pagamento de Transportes_destroy_error', '1');
+        if ($TransportPay->students->count() > 0) {
+            return redirect()->back()->with('transports_destroy_error', '1');
         }
         TransportPay::find($id)->delete();
         $this->Logger->log('info', 'Eliminou a Pagamento de Transporte');
 
         if (request()->ajax()) {
-            return response()->json(['success' => true, 'message' => 'A Pagamento de Transporte foi excluído.']);
+            return response()->json(['success' => true, 'message' => 'O Pagamento de Transporte foi excluído.']);
         } else {
             return redirect()->back()->with('destroy', '1');
         }

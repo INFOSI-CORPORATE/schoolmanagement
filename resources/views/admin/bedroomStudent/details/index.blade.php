@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Detalhes do Quarto')
+@section('title', 'Detalhes do Aluno ao Dormitório')
 @section('content')
     <div class="container-fluid">
         <div class="card shadow mb-4">
@@ -16,11 +16,11 @@
                             <div class="row justify-content-between mb-4">
                                 <div class="col-12 col-md-6 col-lg-6 mt-5 ml-5">
                                     <h2 class="h3 page-title">
-                                        Nome do Quarto: {{ $bedrooms->name }}
+                                        Nome do Quarto: {{ $bedroomStudent->bedrooms->name }}
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
-                                    <a href="{{ route('admin.bedroom.edit', $bedrooms->id) }}"
+                                    <a href="{{ route('admin.bedroomStudent.edit', $bedroomStudent->id) }}"
                                         class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
                                 </div>
                             </div>
@@ -28,32 +28,32 @@
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">Número de Estudante</b>
+                                        <b class="mb-1">Nº de Processo do Estudante</b>
                                     </h5>
-                                    <p class="text-dark">{{ $bedrooms->numberStudent }}</p>
+                                    <p class="text-dark">{{ $bedroomStudent->students->nProcess }}</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">Número de Cama</b>
+                                        <b class="mb-1">Nome do Estudante</b>
                                     </h5>
-                                    <p class="text-dark">{{ $bedrooms->numberBad }}</p>
+                                    <p class="text-dark">{{ $bedroomStudent->students->name }}</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
                                     <h5>
-                                        <b class="mb-1">Descrição de Sobre o Quarto</b>
+                                        <b class="mb-1">Descrição</b>
                                     </h5>
-                                    <p class="text-dark">{{ $bedrooms->description }}</p>
+                                    <p class="text-dark">{{ $bedroomStudent->description }}</p>
                                 </div>
 
                             </div>
                             <div class="row align-items-center">
                                 <div class="col-md-7 mb-2">
                                     <hr>
-                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ $bedrooms->created_at }}
+                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ $bedroomStudent->created_at }}
                                     </p>
-                                    <p class="mb-1 text-dark"><b>Última Actualização</b> {{ $bedrooms->updated_at }}
+                                    <p class="mb-1 text-dark"><b>Última Actualização</b> {{ $bedroomStudent->updated_at }}
                                     </p>
 
                                 </div>

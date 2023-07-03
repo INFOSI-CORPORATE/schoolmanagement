@@ -49,6 +49,22 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseYear"
+            aria-expanded="true" aria-controls="collapseYear">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Ano Lectivo</span>
+        </a>
+        <div id="collapseYear" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.schoolyear.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.schoolyear.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-user"></i>
@@ -63,21 +79,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseYear"
-            aria-expanded="true" aria-controls="collapseYear">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Ano Lectivo</span>
-        </a>
-        <div id="collapseYear" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item $active" href="{{ route('admin.schoolyear.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.schoolyear.list') }}">Listar</a>
-            </div>
-        </div>
-    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
