@@ -330,6 +330,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pdf/transportdocumentation/{id}', ['as' => 'pdf.transportdocumentation', 'uses' => 'Admin\PDFController@transportDocumentation']);
 
+        Route::get('/pdf/studentCard/{id}', ['as' => 'pdf.studentCard', 'uses' => 'Admin\PDFController@studentCard']);
+
         /** Print Routes */
     });
 });

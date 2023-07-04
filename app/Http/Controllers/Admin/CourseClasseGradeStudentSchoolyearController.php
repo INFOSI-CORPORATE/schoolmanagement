@@ -12,6 +12,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Classes\Logger;
 use App\Models\Log;
+use Illuminate\Support\Facades\Storage;
 
 class CourseClasseGradeStudentSchoolyearController extends Controller
 {
@@ -54,7 +55,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
                 'fk_students_id' => 'required',
                 'fk_schoolyears_id' => 'required',
                 'season' => 'required',
-                'image' => 'required|image|mimes:png,jpg',
+                'image' => 'required|image|mimes:png,jpg,jpeg|max:500',
             ],
             [
                 'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
@@ -63,8 +64,15 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
                 'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
                 'fk_schoolyears_id.required' => 'O campo Ano Lectivo deve ser selecionado',
                 'season.required' => 'O campo Turno deve ser selecionado',
+                'image.required' => 'O campo da imagem é obrigatória.',
+                'image.mimes' => 'O campo de imagem só pode receber arquivos do tipo: png, jpg ou jpeg',
+                'image.max' => 'A imagem é muito grande, deve conter no máximo 500KB'
             ]
         );
+
+        $image = Storage::putFile('public/images', $request->image);
+        $imageName = str_replace('public/images/', '', $image);
+        $data['image'] = $imageName;
 
         CourseClasseGradeStudentSchoolyear::create($data);
         $this->Logger->log('info', 'Matriculou um Aluno');
@@ -103,20 +111,36 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
                 'fk_students_id' => 'required',
                 'fk_schoolyears_id' => 'required',
                 'season' => 'required',
+                'image' => 'required|image|mimes:png,jpg,jpeg',
             ],
             [
                 'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
                 'fk_classes_id.required' => 'O campo Turma deve ser selecionado',
                 'fk_grades_id.required' => 'O campo Classe deve ser selecionado',
                 'fk_students_id.required' => 'O campo Aluno deve ser selecionado',
-                'fk_schoolyears_id.required' => 'O campo Ano lectivo deve ser selecionado',
+                'fk_schoolyears_id.required' => 'O campo Ano Lectivo deve ser selecionado',
                 'season.required' => 'O campo Turno deve ser selecionado',
+                'image.required' => 'O campo da imagem é obrigatória.',
+                'image.mimes' => 'O campo de imagem só pode receber arquivos do tipo: png, jpg ou jpeg'
             ]
         );
 
-        CourseClasseGradeStudentSchoolyear::find($id)->update($data);
+
+
+        $registration = CourseClasseGradeStudentSchoolyear::find($id);
+
+        if ($request->image) {
+            Storage::disk('images')->delete($registration->image);
+            
+            $image = Storage::putFile('public/images', $request->image);
+            $imageName = str_replace('public/images/','',$image);
+            $data['image'] = $imageName;
+
+        }
+        $registration->update($data);
+
         $this->Logger->log('info', 'Atualizou a Matricula');
-        return redirect()->route('admin.courseClasseGradeStudentSchoolyear.show',$id)->with('edit', '1');
+        return redirect()->route('admin.courseClasseGradeStudentSchoolyear.show', $id)->with('edit', '1');
     }
 
 

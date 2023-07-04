@@ -56,7 +56,10 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
-            $data['documentation'] = Storage::putFile('transport', $request->documentation);
+            
+            $image = Storage::putFile('public/transport', $request->documentation);
+            $imageName = str_replace('public/transport/','',$image);
+            $data['documentation'] = $imageName;
         }
 
         Transport::create($data);
@@ -108,11 +111,17 @@ class TransportController extends Controller
             'capacity.max' => 'A capacidade do transporte não pode exceder os 100 lugares .',
         ]);
 
+        $transport = Transport::find($id);
+
         if ($request->documentation) {
-            $data['documentation'] = Storage::putFile('public', $request->documentation);
+            Storage::disk('transport')->delete($transport->documentation);
+            
+            $image = Storage::putFile('public/transport', $request->documentation);
+            $imageName = str_replace('public/transport/','',$image);
+            $data['documentation'] = $imageName;
 
         }
-        Transport::find($id)->update($data);
+        $transport->update($data);
 
         $this->Logger->log('info', 'Atualizou o Transporte');
         return redirect()->route('admin.transport.show',$id)->with('edit', '1');

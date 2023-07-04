@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 py-2">
+    <div class="col-md-3 py-2">
         <label for="fk_courses_id">Escolha o Curso</label>
         <select class="form-control" name="fk_courses_id" id="fk_courses_id" required>
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
@@ -34,7 +34,7 @@
         </select>
     </div>
 
-    <div class="col-md-6 py-2">
+    <div class="col-md-3 py-2">
         <label for="fk_classes_id">Escolha a Turma</label>
         <select class="form-control" name="fk_classes_id" id="fk_classes_id" required>
             <option {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'selected' }}></option>
@@ -84,6 +84,12 @@
                 Noite</option>
         </select>
     </div>
+
+    <div class="col-md-6 py-2">
+        <label for="image">Imagem do Aluno</label>
+        <input class="form-control" type="file" name="image" id="image" {{ isset($courseClasseGradeStudentSchoolyear) ? '' : 'required' }}>
+    </div>
+    
 
     <div class="col-md-6 py-3">
         <button type="submit"

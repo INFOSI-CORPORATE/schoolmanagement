@@ -76,8 +76,16 @@
                                     </h5>
                                     <p class="text-dark">{{ $courseClasseGradeStudentSchoolyear->students->contact }} | {{ $courseClasseGradeStudentSchoolyear->students->contactAlter }} </p>
                                 </div>
-
+                                <hr>
                             </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <img src="/storage/images/{{ $courseClasseGradeStudentSchoolyear->image }}" alt="Imagem - {{ $courseClasseGradeStudentSchoolyear->students->name }}">
+                                    <p class="text-dark"> </p>
+                                </div>
+                            </div>
+
                             <div class="row align-items-center">
                                 <div class="col-md-7 mb-2">
                                     <hr>

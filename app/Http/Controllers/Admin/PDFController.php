@@ -219,7 +219,7 @@ class PDFController extends Controller
     {
 
         $transport = Transport::find($id);
-        $path = public_path('storage/' . $transport->documentation);
+        $path = public_path('storage/transport/' . $transport->documentation);
         //$path = asset('storage/'.$transport->documentation);
         //dd($path);
 
@@ -227,5 +227,16 @@ class PDFController extends Controller
             return redirect()->back()->with('documentation_not_exist', '1');
         }
         return response()->download($path);
+    }
+
+    public function studentCard($id)
+    {
+
+        $response['registration'] = CourseClasseGradeStudentSchoolyear::find($id);
+
+        $pdf = PDF::loadview('pdf.studentCard.index', $response);
+
+        $this->Logger->log('info', 'Cartão de Estudante');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 }
