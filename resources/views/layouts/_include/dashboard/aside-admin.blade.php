@@ -306,16 +306,16 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTtttq"
-            aria-expanded="true" aria-controls="collapseTtttq">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTtttaa"
+            aria-expanded="true" aria-controls="collapseTtttaa">
             <i class="fas fa-fw fa-user"></i>
             <span>Casa dos Professores</span>
         </a>
-        <div id="collapseTttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTtttaa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
+                <a class="collapse-item $active" href="{{ route('admin.residence.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.residence.list') }}">Listar</a>
             </div>
         </div>
     </li>
