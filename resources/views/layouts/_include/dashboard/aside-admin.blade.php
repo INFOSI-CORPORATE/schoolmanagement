@@ -249,7 +249,8 @@
             <i class="fas fa-fw fa-user"></i>
             <span>Chefe de Departamento</span>
         </a>
-        <div id="collapseDepartmentBoss" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseDepartmentBoss" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
                 <a class="collapse-item $active" href="{{ route('admin.departmentBoss.create') }}">Cadastrar</a>
@@ -317,6 +318,22 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTtttq"
+            aria-expanded="true" aria-controls="collapseTtttq">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Casa dos Professores</span>
+        </a>
+        <div id="collapseTttt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.department.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.department.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
 
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -378,7 +395,8 @@
             <i class="fas fa-fw fa-user"></i>
             <span>Pagar Transporte</span>
         </a>
-        <div id="collapseTransportPay" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTransportPay" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
                 <a class="collapse-item $active" href="{{ route('admin.transportPay.create') }}">Cadastrar</a>

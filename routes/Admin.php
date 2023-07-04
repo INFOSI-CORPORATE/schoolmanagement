@@ -117,6 +117,15 @@ Route::middleware('auth')->group(function () {
 
         /** End Teacher   */
 
+        /** residencia do professor   */
+        Route::get('/admin/residence/list', ['as' => 'admin.residence.list', 'uses' => 'Admin\ResidenceController@index']);
+        Route::post('/admin/residence', ['as' => 'admin.residence.store', 'uses' => 'Admin\ResidenceController@store']);
+        Route::get('/admin/residence/create', ['as' => 'admin.residence.create', 'uses' => 'Admin\ResidenceController@create']);
+        Route::get('/admin/residence/show/{id}', ['as' => 'admin.residence.show', 'uses' => 'Admin\ResidenceController@show']);
+        Route::post('/admin/residence/update/{id}', ['as' => 'admin.residence.update', 'uses' => 'Admin\ResidenceController@update']);
+        Route::delete('/admin/residence/destroy/{id}', ['as' => 'admin.residence.destroy', 'uses' => 'Admin\ResidenceController@destroy']);
+        Route::get('/admin/residence/edit/{id}', ['as' => 'admin.residence.edit', 'uses' => 'Admin\ResidenceController@edit']);
+        /** End residencia do professor   */
         /** Classe   */
 
         Route::get('/admin/classe/list', ['as' => 'admin.classe.list', 'uses' => 'Admin\ClasseController@index']);

@@ -63,6 +63,9 @@ class TransportController extends Controller
 
         $this->Logger->log('info', 'Cadastrou Transporte');
         return redirect()->back()->with('create', '1');
+
+
+        
     }
 
     public function show($id)
