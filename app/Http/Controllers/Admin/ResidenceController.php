@@ -43,7 +43,26 @@ class ResidenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'nameResidence' => 'required',
+            'typology' => 'required',
+            'tel' => 'required',
+            'address' => 'required',
+            'description' => 'required|max:500',
+        ],[
+            'nameResidence.required' => 'O campo nome da Residência é obrigatório.',
+            'typology.required' => 'O campo de Tipologia é obrigatório.',
+            'tel.required' => 'O campo Número do Telefone da Casa é obrigatório.',
+            'address.required' => 'O campo Número de Cama  é obrigatório.',
+            'description.required' => 'O campo detalhes sobre o Quarto  é obrigatório.',
+            'description.max' => 'O campo detalhes sobre o Quarto não pode exceder os 500 caractéres.',
+        ]);
+
+        Residence::create($data);
+
+        $this->Logger->log('info', 'Cadastrou una Residência');
+        return redirect()->back()->with('create', '1');
+
     }
 
     /**
@@ -83,7 +102,27 @@ class ResidenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'nameResidence' => 'required',
+            'typology' => 'required',
+            'tel' => 'required',
+            'address' => 'required',
+            'description' => 'required|max:500',
+        ], [
+            'nameResidence.required' => 'O campo nome da Residência é obrigatório.',
+            'typology.required' => 'O campo de Tipologia é obrigatório.',
+            'tel.required' => 'O campo Número do Telefone da Casa é obrigatório.',
+            'address.required' => 'O campo Número de Cama  é obrigatório.',
+            'description.required' => 'O campo detalhes sobre o Quarto  é obrigatório.',
+            'description.max' => 'O campo detalhes sobre o Quarto não pode exceder os 500 caractéres.',
+        ]);
+
+        $data['dateBirth'] = $request->dateBirth;
+
+        Residence::find($id)->update($data);
+        $this->Logger->log('info', 'Atualizou o Quarto');
+        return redirect()->route('admin.residence.show', $id)->with('edit', '1');
+
     }
 
     /**
