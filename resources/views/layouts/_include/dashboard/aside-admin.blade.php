@@ -19,6 +19,12 @@
             <span>Painel</span></a>
     </li>
 
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('home') }}">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Site</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 

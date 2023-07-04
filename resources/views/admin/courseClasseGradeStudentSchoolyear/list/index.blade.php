@@ -69,14 +69,7 @@
                                             </button>
 
                                             <div class="dropdown-menu animated--fade-in"
-                                                aria-labelledby="dropdownMenuButton">
-                                                
-                                                @if (true)
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('pdf.studentCard', $courseClasseGradeStudentSchoolyear->id) }}"
-                                                        target="_blank">Cartão</a>
-                                                @endif
-                                                
+                                                aria-labelledby="dropdownMenuButton">                                                
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.courseClasseGradeStudentSchoolyear.show', $courseClasseGradeStudentSchoolyear->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"
