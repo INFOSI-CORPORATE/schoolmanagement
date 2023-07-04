@@ -187,6 +187,22 @@
         Instituição
     </div>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTtttaa"
+            aria-expanded="true" aria-controls="collapseTtttaa">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Casa dos Professores</span>
+        </a>
+        <div id="collapseTtttaa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item $active" href="{{ route('admin.residence.create') }}">Cadastrar</a>
+                <a class="collapse-item $active" href="{{ route('admin.residence.list') }}">Listar</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetttttt"
             aria-expanded="true" aria-controls="collapsetttttt">
@@ -310,24 +326,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTtttaa"
-            aria-expanded="true" aria-controls="collapseTtttaa">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Casa dos Professores</span>
-        </a>
-        <div id="collapseTtttaa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-
-                <a class="collapse-item $active" href="{{ route('admin.residence.create') }}">Cadastrar</a>
-                <a class="collapse-item $active" href="{{ route('admin.residence.list') }}">Listar</a>
-            </div>
-        </div>
-    </li>
-
-
-
+    
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExam"
