@@ -16,6 +16,7 @@ class CreateRegistrationsTable extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
             $table->string('season');
+            $table->string('image');
 
             $table->unsignedBigInteger('fk_courses_id');
             $table->foreign('fk_courses_id')->references('id')->on('courses')->onDelete('CASCADE')->onUpgrade('CASCADE');

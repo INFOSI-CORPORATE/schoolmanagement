@@ -10,6 +10,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
 use App\Classes\Logger;
 use App\Models\Ativitie;
+use App\Models\BedroomStudent;
 use App\Models\Log;
 use App\Models\Schoolyear;
 use App\Models\Student;
@@ -55,7 +56,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.registration.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -77,7 +77,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.contract.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     public function exam()
@@ -86,7 +85,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadview('pdf.exam.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
     public function ativitie()
@@ -95,7 +93,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadview('pdf.ativitie.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -107,7 +104,6 @@ class PDFController extends Controller
             'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
         ]);
 
-        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $response['schoolyear'] = $data['schoolyear'];
 
         $response['students'] = Student::where('schoolyear', $response['schoolyear'])
@@ -115,7 +111,24 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.student.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
 
+    public function bedroomStudent(Request $request)
+    {
+        $data = $request->validate([
+            'schoolyear' => 'required',
+        ], [
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+        ]);
+
+        $schoolyear = $data['schoolyear'];
+
+        $response['bedroomStudents'] = BedroomStudent::join('schoolyears', 'bedroom_students.fk_schoolyears_id', '=', 'schoolyears.id')
+            ->where('schoolyears.name', $schoolyear)
+            ->whereNull('bedroom_students.deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.bedroomStudent.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 
     /** tuition */
@@ -147,7 +160,6 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.tuition.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
-
     }
 
 
@@ -190,19 +202,41 @@ class PDFController extends Controller
             ->get();
         $pdf = PDF::loadview('pdf.transportPay.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
 
+    public function transportPayStudent($id)
+    {
+
+        $response['transportPayStudent'] = TransportPay::find($id);
+
+        $pdf = PDF::loadview('pdf.transportPayStudent.index', $response);
+
+        $this->Logger->log('info', 'Factura do Pagamento de Transporte do Aluno');
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 
     public function transportDocumentation($id)
     {
-        $transport = transport::find($id);     
-        $path = storage_path('app/'.$transport->documentation);   
 
+        $transport = Transport::find($id);
+        $path = public_path('storage/transport/' . $transport->documentation);
+        //$path = asset('storage/'.$transport->documentation);
+        //dd($path);
 
-        if(!file_exists($path)){
-            return redirect()->back()->with('documentation_not_exist','1');
+        if (!file_exists($path)) {
+            return redirect()->back()->with('documentation_not_exist', '1');
         }
         return response()->download($path);
     }
 
+    public function studentCard($id)
+    {
+
+        $response['registration'] = CourseClasseGradeStudentSchoolyear::find($id);
+
+        $pdf = PDF::loadview('pdf.studentCard.index', $response);
+
+        $this->Logger->log('info', 'Cartão de Estudante');
+        return $pdf->setPaper('a7', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
 }

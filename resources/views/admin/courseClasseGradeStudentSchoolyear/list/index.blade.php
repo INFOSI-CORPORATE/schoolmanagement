@@ -21,7 +21,7 @@
                 <div class="container">
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" role="dialog">
-                        
+
                         <div class="modal-dialog">
                             <form action="{{ route('pdf.registration') }}" method="get" target="_blank">
                                 @csrf
@@ -67,8 +67,9 @@
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                             </button>
+
                                             <div class="dropdown-menu animated--fade-in"
-                                                aria-labelledby="dropdownMenuButton">
+                                                aria-labelledby="dropdownMenuButton">                                                
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.courseClasseGradeStudentSchoolyear.show', $courseClasseGradeStudentSchoolyear->id) }}">Detalhes</a>
                                                 <a class="dropdown-item"

@@ -15,10 +15,11 @@ class DepartmentController extends Controller
     {
         $this->Logger = new Logger();
     }
+
     public function index()
     {
         $response['departments'] = Department::OrderBy('id','Desc')->get();
-        
+
         $this->Logger->log('info', 'Lista de Departamentos');
         return view('admin.department.list.index', $response)->with('success', '1');
     }
@@ -26,10 +27,11 @@ class DepartmentController extends Controller
 
     public function create()
     {
-        
+
         $this->Logger->log('info', 'Criar Departamento');
         return view('admin.department.create.index');
     }
+
 
     public function store(Request $request)
     {
@@ -43,7 +45,7 @@ class DepartmentController extends Controller
         ]);
 
         Department::create($data);
-        
+
         $this->Logger->log('info', 'Cadastrou Departamento');
         return redirect()->back()->with('create', '1');
     }
@@ -51,7 +53,7 @@ class DepartmentController extends Controller
     public function show($id)
     {
         $response['department'] = Department::find($id);
-        
+
         $this->Logger->log('info', 'Detalhes do Departamento');
         return view('admin.department.details.index', $response);
     }
@@ -59,7 +61,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $response['department'] = Department::find($id);
-        
+
         $this->Logger->log('info', 'Editar Departamento');
         return view('admin.department.edit.index', $response);
     }
@@ -76,7 +78,7 @@ class DepartmentController extends Controller
         ]);
 
         Department::find($id)->update($data);
-        
+
         $this->Logger->log('info', 'Atualizou Departamento');
         return redirect()->route('admin.department.show',$id)->with('edit', '1');
     }
@@ -84,9 +86,9 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
         Department::find($id)->delete();
-        
+
         $this->Logger->log('info', 'Eliminou o Departamento');
-        
+
         if (request()->ajax()) {
             return response()->json(['success' => true, 'message' => 'O Departamento foi excluído.']);
         } else {

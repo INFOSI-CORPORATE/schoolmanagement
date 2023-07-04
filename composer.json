@@ -13,6 +13,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "livewire/livewire": "^2.12",
         "nesbot/carbon": "^2.67",
         "realrashid/sweet-alert": "^6.0",
         "simplesoftwareio/simple-qrcode": "^0.0.4@beta",

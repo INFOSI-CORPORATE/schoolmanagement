@@ -212,6 +212,7 @@
                                     cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
+                                            <th>#</th>
                                             <th>ID</th>
                                             <th class="text-left">CAMINHO</th>
                                             <th>IP</th>
@@ -223,6 +224,7 @@
 
                                         @foreach ($logs as $item)
                                             <tr class="text-center text-dark">
+                                                <td>{{ $loop->index + 1 }}</td>
                                                 <td>{{ $item->id }}</td>
                                                 <td class="text-left">{{ $item->PATH_INFO }} </td>
                                                 <td>{{ $item->REMOTE_ADDR }} </td>

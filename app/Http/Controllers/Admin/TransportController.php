@@ -56,21 +56,19 @@ class TransportController extends Controller
         ]);
 
         if ($request->documentation) {
-
-
-            // $file = $request->documentation;
-            // $fileName = $file->getClientOriginalName();
-            // dd($fileName);
-            // $hasName = $file->hashName();
-
-            $data['documentation'] = Storage::putFile('public', $request->documentation);
-
+            
+            $image = Storage::putFile('public/transport', $request->documentation);
+            $imageName = str_replace('public/transport/','',$image);
+            $data['documentation'] = $imageName;
         }
 
         Transport::create($data);
 
         $this->Logger->log('info', 'Cadastrou Transporte');
         return redirect()->back()->with('create', '1');
+
+
+        
     }
 
     public function show($id)
@@ -113,11 +111,17 @@ class TransportController extends Controller
             'capacity.max' => 'A capacidade do transporte não pode exceder os 100 lugares .',
         ]);
 
+        $transport = Transport::find($id);
+
         if ($request->documentation) {
-            $data['documentation'] = Storage::putFile('public', $request->documentation);
+            Storage::disk('transport')->delete($transport->documentation);
+            
+            $image = Storage::putFile('public/transport', $request->documentation);
+            $imageName = str_replace('public/transport/','',$image);
+            $data['documentation'] = $imageName;
 
         }
-        Transport::find($id)->update($data);
+        $transport->update($data);
 
         $this->Logger->log('info', 'Atualizou o Transporte');
         return redirect()->route('admin.transport.show',$id)->with('edit', '1');
@@ -136,3 +140,10 @@ class TransportController extends Controller
         }
     }
 }
+
+
+// Ao trabalhar com o storage do laravel 8, com o comando "php artisan storage:link" ele cria um link entre o directório "storage/app/public" e o directório "public storage"
+// Então para o salvamento dos meus documentos pdf, estou usando o seguinte código no meu controller:
+
+// $data['documentation'] = Storage::putFile('transport', $request->documentation);
+// Transport::create($data);

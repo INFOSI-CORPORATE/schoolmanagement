@@ -72,6 +72,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/departmentboss/edit/{id}', ['as' => 'admin.departmentBoss.edit', 'uses' => 'Admin\DepartmentbossController@edit']);
         /** End department   */
 
+        /** dormitório   */
+        Route::get('/admin/bedroom/list', ['as' => 'admin.bedroom.list', 'uses' => 'Admin\BedroomController@index']);
+        Route::post('/admin/bedroom', ['as' => 'admin.bedroom.store', 'uses' => 'Admin\BedroomController@store']);
+        Route::get('/admin/bedroom/create', ['as' => 'admin.bedroom.create', 'uses' => 'Admin\BedroomController@create']);
+        Route::get('/admin/bedroom/show/{id}', ['as' => 'admin.bedroom.show', 'uses' => 'Admin\BedroomController@show']);
+        Route::post('/admin/bedroom/update/{id}', ['as' => 'admin.bedroom.update', 'uses' => 'Admin\BedroomController@update']);
+        Route::delete('/admin/bedroom/destroy/{id}', ['as' => 'admin.bedroom.destroy', 'uses' => 'Admin\BedroomController@destroy']);
+        Route::get('/admin/bedroom/edit/{id}', ['as' => 'admin.bedroom.edit', 'uses' => 'Admin\BedroomController@edit']);
+        /** End dormitório   */
+
         /** Transport   */
         Route::get('/admin/transport/list', ['as' => 'admin.transport.list', 'uses' => 'Admin\TransportController@index']);
         Route::post('/admin/transport', ['as' => 'admin.transport.store', 'uses' => 'Admin\TransportController@store']);
@@ -81,7 +91,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/admin/transport/destroy/{id}', ['as' => 'admin.transport.destroy', 'uses' => 'Admin\TransportController@destroy']);
         Route::get('/admin/transport/edit/{id}', ['as' => 'admin.transport.edit', 'uses' => 'Admin\TransportController@edit']);
         /** End Transport   */
-
     });
 
     //registrador
@@ -108,6 +117,15 @@ Route::middleware('auth')->group(function () {
 
         /** End Teacher   */
 
+        /** residencia do professor   */
+        Route::get('/admin/residence/list', ['as' => 'admin.residence.list', 'uses' => 'Admin\ResidenceController@index']);
+        Route::post('/admin/residence', ['as' => 'admin.residence.store', 'uses' => 'Admin\ResidenceController@store']);
+        Route::get('/admin/residence/create', ['as' => 'admin.residence.create', 'uses' => 'Admin\ResidenceController@create']);
+        Route::get('/admin/residence/show/{id}', ['as' => 'admin.residence.show', 'uses' => 'Admin\ResidenceController@show']);
+        Route::post('/admin/residence/update/{id}', ['as' => 'admin.residence.update', 'uses' => 'Admin\ResidenceController@update']);
+        Route::delete('/admin/residence/destroy/{id}', ['as' => 'admin.residence.destroy', 'uses' => 'Admin\ResidenceController@destroy']);
+        Route::get('/admin/residence/edit/{id}', ['as' => 'admin.residence.edit', 'uses' => 'Admin\ResidenceController@edit']);
+        /** End residencia do professor   */
         /** Classe   */
 
         Route::get('/admin/classe/list', ['as' => 'admin.classe.list', 'uses' => 'Admin\ClasseController@index']);
@@ -219,7 +237,7 @@ Route::middleware('auth')->group(function () {
         /** Get Method */
 
         Route::get('/get/student/{nProcess}', ['as' => 'get.student', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getStudent']);
-        Route::get('/get/registration/{nProcess}', ['as' => 'get.registration', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getRegistration']);        
+        Route::get('/get/registration/{nProcess}', ['as' => 'get.registration', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getRegistration']);
         Route::get('/get/nprocess/{student}', ['as' => 'get.nProcess', 'uses' => 'Admin\CourseClasseGradeStudentSchoolyearController@getNProcess']);
 
         /** End courseClasseGradeStudentSchoolyear */
@@ -284,6 +302,18 @@ Route::middleware('auth')->group(function () {
 
         /** End TransportPay */
 
+        /** bedroomStudent */
+
+        Route::get('/admin/bedroomStudent/list', ['as' => 'admin.bedroomStudent.list', 'uses' => 'Admin\BedroomStudentController@index']);
+        Route::post('/admin/bedroomStudent', ['as' => 'admin.bedroomStudent.store', 'uses' => 'Admin\BedroomStudentController@store']);
+        Route::get('/admin/bedroomStudent/create', ['as' => 'admin.bedroomStudent.create', 'uses' => 'Admin\BedroomStudentController@create']);
+        Route::get('/admin/bedroomStudent/show/{id}', ['as' => 'admin.bedroomStudent.show', 'uses' => 'Admin\BedroomStudentController@show']);
+        Route::post('/admin/bedroomStudent/update/{id}', ['as' => 'admin.bedroomStudent.update', 'uses' => 'Admin\BedroomStudentController@update']);
+        Route::delete('/admin/bedroomStudent/destroy/{id}', ['as' => 'admin.bedroomStudent.destroy', 'uses' => 'Admin\BedroomStudentController@destroy']);
+        Route::get('/admin/bedroomStudent/edit/{id}', ['as' => 'admin.bedroomStudent.edit', 'uses' => 'Admin\BedroomStudentController@edit']);
+
+        /** End bedroomStudent */
+
         /** Print Routes */
 
         Route::get('/pdf/registration/', ['as' => 'pdf.registration', 'uses' => 'Admin\PDFController@registration']);
@@ -291,6 +321,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/pdf/exam', ['as' => 'pdf.exam', 'uses' => 'Admin\PDFController@exam']);
         Route::get('/pdf/ativitie', ['as' => 'pdf.ativitie', 'uses' => 'Admin\PDFController@ativitie']);
         Route::get('/pdf/student/', ['as' => 'pdf.student', 'uses' => 'Admin\PDFController@student']);
+        Route::get('/pdf/bedroomStudent/', ['as' => 'pdf.bedroomStudent', 'uses' => 'Admin\PDFController@bedroomStudent']);
         Route::get('/pdf/tuition/', ['as' => 'pdf.tuition', 'uses' => 'Admin\PDFController@tuition']);
         Route::get('/pdf/tuition/student/{id}', ['as' => 'pdf.tuition.student', 'uses' => 'Admin\PDFController@tuitionStudent']);
 
@@ -298,9 +329,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/pdf/transportPay/student/{id}', ['as' => 'pdf.transportPay.student', 'uses' => 'Admin\PDFController@transportPayStudent']);
 
         Route::get('/pdf/transportdocumentation/{id}', ['as' => 'pdf.transportdocumentation', 'uses' => 'Admin\PDFController@transportDocumentation']);
-        
+
+        Route::get('/pdf/studentCard/{id}', ['as' => 'pdf.studentCard', 'uses' => 'Admin\PDFController@studentCard']);
+
         /** Print Routes */
     });
-
-
 });

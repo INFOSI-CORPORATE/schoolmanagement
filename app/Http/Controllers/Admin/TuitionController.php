@@ -55,9 +55,9 @@ class TuitionController extends Controller
                 'fk_students_id.required' => 'O campo do Aluno é obrigatório',
                 'fk_schoolyears_id.required' => 'O campo do Ano Lectivo é obrigatório',
                 'price.integer' => 'O campo de preço não pode conter caractéres não numericos',
-                
+
             ]);
-            
+
         Tuition::create($data);
 
         $this->Logger->log('info', 'Cadastrou Propina');
@@ -113,7 +113,7 @@ class TuitionController extends Controller
         $tuition = Tuition::find($id);
 
         // Verifica se a propina está associada a outro registro
-        if ($tuition->registrations->count() > 0) {
+        if ($tuition->students->count() > 0) {
             return redirect()->back()->with('propinas_destroy_error', '1');
         }
         Tuition::find($id)->delete();

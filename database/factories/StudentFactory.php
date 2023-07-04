@@ -22,6 +22,8 @@ class StudentFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'dateBirth' => $this->faker->date(),
             'schoolyear' => '2022-2023',
+            'father' => $this->faker->name,
+            'mother' => $this->faker->name,
         ];
     }
 }

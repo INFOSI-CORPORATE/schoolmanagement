@@ -15,9 +15,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->integer('nProcess');
             $table->string('nBi')->unique();
-            $table->string('name');
+            $table->string('father');
+            $table->string('mother');
             $table->string('contact');
             $table->string('contactAlter');
             $table->string('email');
@@ -25,14 +27,11 @@ class CreateStudentsTable extends Migration
             $table->string('schoolyear');
             $table->timestamps();
             $table->softDeletes();
+            
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('students');

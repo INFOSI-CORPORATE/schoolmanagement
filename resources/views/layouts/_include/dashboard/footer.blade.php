@@ -52,15 +52,13 @@
 <script src='/dashboard/assets/js/pt-br.js'></script>
 
 <script>
-
     $(function() {
 
         $('#calendar').fullCalendar({
-           lang: 'pt-br'
+            lang: 'pt-br'
         });
 
     });
-
 </script>
 
 <script src="/dashboard/assets/js/popper.min.js"></script>
@@ -215,6 +213,24 @@
         Swal.fire({
             icon: 'error',
             title: 'Esta Propina Tem associação e não pode ser excluída!',
+            showConfirmButton: false,
+            timer: 4500
+        })
+    </script>
+@elseif(session('transports_destroy_error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Este Pagamento de Transporte Tem associação e não pode ser excluída!',
+            showConfirmButton: false,
+            timer: 4500
+        })
+    </script>
+@elseif(session('bedroom_students_destroy_error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Este Aluno ao Dormitório Tem associação e não pode ser excluída!',
             showConfirmButton: false,
             timer: 4500
         })
