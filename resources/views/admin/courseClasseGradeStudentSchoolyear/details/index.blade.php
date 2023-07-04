@@ -9,7 +9,7 @@
                     <h1 class="h3 mb-0 text-gray-800">Detalhes</h1>
                 </div>
             </div>
-            
+
             <div class="card-body">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -22,6 +22,9 @@
                                     </h2>
                                 </div>
                                 <div class="col-12 col-md-4 col-lg-4 text-right mt-5">
+                                    
+                                    <a href="{{ route('pdf.studentCard', $courseClasseGradeStudentSchoolyear->id) }}"
+                                        target="_blank" class="btn btn-md btn-warning shadow-sm text-end">Cartão</a>
                                     <a href="{{ route('admin.courseClasseGradeStudentSchoolyear.edit', $courseClasseGradeStudentSchoolyear->id) }}"
                                         class="btn btn-md btn-primary shadow-sm text-end">Editar</a>
                                 </div>
@@ -74,14 +77,16 @@
                                     <h5>
                                         <b class="mb-1">Contacto | Alternativo</b>
                                     </h5>
-                                    <p class="text-dark">{{ $courseClasseGradeStudentSchoolyear->students->contact }} | {{ $courseClasseGradeStudentSchoolyear->students->contactAlter }} </p>
+                                    <p class="text-dark">{{ $courseClasseGradeStudentSchoolyear->students->contact }} |
+                                        {{ $courseClasseGradeStudentSchoolyear->students->contactAlter }} </p>
                                 </div>
                                 <hr>
                             </div>
 
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                    <img src="/storage/images/{{ $courseClasseGradeStudentSchoolyear->image }}" alt="Imagem - {{ $courseClasseGradeStudentSchoolyear->students->name }}">
+                                    <img src="/storage/images/{{ $courseClasseGradeStudentSchoolyear->image }}"
+                                        alt="Imagem - {{ $courseClasseGradeStudentSchoolyear->students->name }}">
                                     <p class="text-dark"> </p>
                                 </div>
                             </div>
@@ -89,9 +94,11 @@
                             <div class="row align-items-center">
                                 <div class="col-md-7 mb-2">
                                     <hr>
-                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b> {{ $courseClasseGradeStudentSchoolyear->created_at }}
+                                    <p class="mb-1 text-dark"><b>Data de Cadastro</b>
+                                        {{ $courseClasseGradeStudentSchoolyear->created_at }}
                                     </p>
-                                    <p class="mb-1 text-dark"><b>Última Actualização</b> {{ $courseClasseGradeStudentSchoolyear->updated_at }}
+                                    <p class="mb-1 text-dark"><b>Última Actualização</b>
+                                        {{ $courseClasseGradeStudentSchoolyear->updated_at }}
                                     </p>
 
                                 </div>

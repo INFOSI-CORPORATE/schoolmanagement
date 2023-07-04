@@ -237,6 +237,6 @@ class PDFController extends Controller
         $pdf = PDF::loadview('pdf.studentCard.index', $response);
 
         $this->Logger->log('info', 'Cartão de Estudante');
-        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+        return $pdf->setPaper('a7', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 }
