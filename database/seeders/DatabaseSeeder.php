@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'fk_roles_id' => $adminRole->id,
         ]);
 
-      //  Student::factory()->count(50)->create();
-       // Schoolyear::factory()->create();
+        // Schoolyear::factory()->create();
+        // Student::factory()->count(50)->create();
     }
 }
