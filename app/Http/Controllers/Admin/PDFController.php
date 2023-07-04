@@ -10,6 +10,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
 use App\Classes\Logger;
 use App\Models\Ativitie;
+use App\Models\BedroomStudent;
 use App\Models\Log;
 use App\Models\Schoolyear;
 use App\Models\Student;
@@ -103,13 +104,30 @@ class PDFController extends Controller
             'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
         ]);
 
-        //$exists = CourseClasseGradeStudentSchoolyear::find($id);
         $response['schoolyear'] = $data['schoolyear'];
 
         $response['students'] = Student::where('schoolyear', $response['schoolyear'])
             ->whereNull('deleted_at')
             ->get();
         $pdf = PDF::loadview('pdf.student.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+    }
+
+    public function bedroomStudent(Request $request)
+    {
+        $data = $request->validate([
+            'schoolyear' => 'required',
+        ], [
+            'schoolyear.required' => 'O campo Ano Lectivo é obrigatório.',
+        ]);
+
+        $schoolyear = $data['schoolyear'];
+
+        $response['bedroomStudents'] = BedroomStudent::join('schoolyears', 'bedroom_students.fk_schoolyears_id', '=', 'schoolyears.id')
+            ->where('schoolyears.name', $schoolyear)
+            ->whereNull('bedroom_students.deleted_at')
+            ->get();
+        $pdf = PDF::loadview('pdf.bedroomStudent.index', $response);
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 

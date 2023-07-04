@@ -54,6 +54,7 @@ class CourseClasseGradeStudentSchoolyearController extends Controller
                 'fk_students_id' => 'required',
                 'fk_schoolyears_id' => 'required',
                 'season' => 'required',
+                'image' => 'required|image|mimes:png,jpg',
             ],
             [
                 'fk_courses_id.required' => 'O campo Curso deve ser selecionado',
